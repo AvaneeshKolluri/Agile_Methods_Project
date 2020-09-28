@@ -1,5 +1,6 @@
 import unittest 
-from project2 import marriage_after_14, main
+from project2 import processGedFile
+from userStory10 import userStory10_marriage_after_14
 import datetime
 
 class MarriageAfter14Test(unittest.TestCase):
@@ -8,31 +9,33 @@ class MarriageAfter14Test(unittest.TestCase):
     """ Test the marriage_after_14 function from US10 """
 
 
-    def test_marriage_after_14_errors(self):
+    def test_user_story_10_1(self):
 
-        """ Test the error catching of marriage_after_14 """
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree.ged")
+        self.assertEqual(resultsList, [])
 
-        #create gedcom files where there are marriages before 14
-        individuals_1, families_1 = main('FamilyTree_Test_Under14.ged')
-        individuals_2, families_2 = main('FamilyTree_Test_JustUnder14.ged')
+    def test_user_story_10_2(self):
 
-        with self.assertRaises(ValueError):
-            marriage_after_14(individuals_1, families_1) 
-        with self.assertRaises(ValueError):
-            marriage_after_14(individuals_2, families_2)
-    
-    def test_marriage_after_14_no_errors(self):
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree_Test_Equals14.ged")
+        self.assertEqual(resultsList, [])
 
-        """ Test the functionality of marriage_after_14 """
+    def test_user_story_10_3(self):
 
-        #create gedcom files where marriages are on or after 14 
-        individuals_3, families_3 = main('FamilyTree.ged')
-        individuals_4, families_4 = main('FamilyTree_Test_Equals14.ged')
-        individuals_5, families_5 = main('FamilyTree_Test_JustOver14.ged')
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree_Test_JustOver14.ged")
+        self.assertEqual(resultsList, [])
 
-        self.assertTrue(marriage_after_14(individuals_3, families_3))
-        self.assertTrue(marriage_after_14(individuals_4, families_4))
-        self.assertTrue(marriage_after_14(individuals_5, families_5))
-            
+    def test_user_story_10_4(self):
+
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree_Test_Under14.ged")
+        self.assertEqual(resultsList, ["ERROR: Wife's birth date 1946-09-22 not at least 14 years prior to marriage date 1958-04-12"])
+
+    def test_user_story_10_5(self):
+
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree_Test_ThreeUnder14.ged")
+        self.assertEqual(resultsList, ["ERROR: Wife's birth date 1946-09-22 not at least 14 years prior to marriage date 1958-04-12",
+                                        "ERROR: Wife's birth date 1977-05-09 not at least 14 years prior to marriage date 1987-05-09",
+                                        "ERROR: Wife's birth date 1976-12-26 not at least 14 years prior to marriage date 1990-12-24"])
+
+
 if __name__ == "__main__":
     unittest.main()
