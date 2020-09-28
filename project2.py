@@ -51,9 +51,16 @@ def printTablesData(indiDict_obj, famDict_obj):
     print("Families")
     print (familyTable)
 
+<<<<<<< HEAD
 def main(f):
     # Path to your `.ged` file
     file_path = f
+=======
+
+def processGedFile(file_path):
+    # Path to your `.ged` file
+    #file_path ='FamilyTree.ged'
+>>>>>>> 7e95409641146e1ab9ae314d6c148467210e47bb
     #file_path ='gedcom'
 
     # Initialize the parser
@@ -195,6 +202,7 @@ def main(f):
             child = child.replace('@','').strip().split(" ")[2]
             children.add(child)
             famDict[famTag].Set_children(set(children))
+<<<<<<< HEAD
     
     return (indiDict, famDict)
 
@@ -205,3 +213,17 @@ def main(f):
     #printTablesData(indiDict, famDict)
     #sys.stdout.close()
     #gedcom_parser.close()
+=======
+
+    return indiDict, famDict
+
+# main
+if __name__ == "__main__":
+    # Process ged file
+    indiDetails, familyDetails = processGedFile("FamilyTree.ged")
+    # Output the results
+    sys.stdout = open("Output_FamilyTree.txt", "w")
+    # Print indiDetails and Family details from processed ged file
+    printTablesData(indiDetails, familyDetails)
+    sys.stdout.close()
+>>>>>>> 7e95409641146e1ab9ae314d6c148467210e47bb
