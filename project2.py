@@ -17,22 +17,6 @@ def from_dob_to_death(born,death):
     today = death
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
-#check for age after 14 for a marriage
-def marriage_after_14(individuals, families):
-    for family in families.keys():
-        if families[family].Get_married() != "NA":
-            husband = families[family].Get_husbandID()
-            husband_birth_date = individuals[husband].Get_birthday()
-            wife = families[family].Get_wifeID()
-            wife_birth_date = individuals[wife].Get_birthday()
-            family_marriage_date = families[family].Get_married()
-            if float(relativedelta(family_marriage_date, husband_birth_date).years) < float(14):
-                raise ValueError(f"{family_marriage_date} is not at least 14 years after {husband_birth_date}")
-            elif float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
-                raise ValueError(f"{family_marriage_date} is not at least 14 years after {wife_birth_date}") 
-        else:
-            return True
-
 def printTablesData(indiDict_obj, famDict_obj):
     indiTable = PrettyTable()
     familyTable = PrettyTable()
@@ -51,16 +35,10 @@ def printTablesData(indiDict_obj, famDict_obj):
     print("Families")
     print (familyTable)
 
-<<<<<<< HEAD
-def main(f):
-    # Path to your `.ged` file
-    file_path = f
-=======
 
 def processGedFile(file_path):
     # Path to your `.ged` file
     #file_path ='FamilyTree.ged'
->>>>>>> 7e95409641146e1ab9ae314d6c148467210e47bb
     #file_path ='gedcom'
 
     # Initialize the parser
@@ -202,18 +180,6 @@ def processGedFile(file_path):
             child = child.replace('@','').strip().split(" ")[2]
             children.add(child)
             famDict[famTag].Set_children(set(children))
-<<<<<<< HEAD
-    
-    return (indiDict, famDict)
-
-     #printTablesData(indiDict, famDict)
-    # Output the results
-    #sys.stdout = open("Output_FamilyTree.txt", "w")
-    # Print Each Individual details
-    #printTablesData(indiDict, famDict)
-    #sys.stdout.close()
-    #gedcom_parser.close()
-=======
 
     return indiDict, famDict
 
@@ -226,4 +192,3 @@ if __name__ == "__main__":
     # Print indiDetails and Family details from processed ged file
     printTablesData(indiDetails, familyDetails)
     sys.stdout.close()
->>>>>>> 7e95409641146e1ab9ae314d6c148467210e47bb
