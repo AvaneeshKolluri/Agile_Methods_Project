@@ -1,0 +1,138 @@
+0 NOTE File created by Srikanth Uppada for TEAM2
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE testUserStory07-2
+1 DATE 25 SEP 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME Srikanth Uppada
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Willard Carroll /Smith/
+2 GIVN Willard Carroll
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 25 SEP 1968
+2 PLAC Philadelphia, PA
+1 OCCU Actor
+1 FAMS @F1@
+1 FAMS @F2@
+1 FAMC @F3@
+0 @I2@ INDI
+1 NAME Sheree /Zampino/
+2 GIVN Sheree
+2 SURN Zampino
+2 _MARNM Zampino
+1 SEX F
+1 BIRT
+2 DATE 16 NOV 1967
+2 PLAC Schenectady, NY
+1 DEAT Y
+2 DATE 17 MAR 2020
+2 PLAC Schenectady, NY
+1 OCCU Actress
+1 FAMS @F2@
+0 @I3@ INDI
+1 NAME Trey /Smith/
+2 GIVN Trey
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 11 NOV 1992
+2 PLAC Los Angeles, CA
+1 OCCU Football Player
+1 FAMC @F2@
+0 @I4@ INDI
+1 NAME Jada Koren /Pinkett/
+2 GIVN Jada Koren
+2 SURN Pinkett
+2 _MARNM Smith
+1 SEX F
+1 BIRT
+2 DATE 18 SEP 1971
+2 PLAC Baltimore, MD
+1 OCCU Actress
+1 FAMS @F1@
+0 @I5@ INDI
+1 NAME Jaden Christopher Syre /Smith/
+2 GIVN Jaden Christopher Syre
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 8 JUL 1988
+2 PLAC Malibu, CA
+1 OCCU Actor
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Willow Camille Reign /Smith/
+2 GIVN Willow Camille Reign
+2 SURN Smith
+2 _MARNM Smith
+1 SEX F
+1 BIRT
+2 DATE 31 OCT 2000
+2 PLAC Los Angeles, CA
+1 OCCU Singer
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Caroline /Bright/
+2 GIVN Caroline
+2 SURN Bright
+2 _MARNM Bright
+1 SEX F
+1 BIRT
+2 DATE 13 JUL 1934
+2 PLAC Philadelphia, PA
+1 OCCU School Administrator
+1 FAMS @F3@
+0 @I8@ INDI
+1 NAME Willard Sr /Smith/
+2 GIVN Willard Sr
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 6 APR 1865
+2 PLAC Philadelphia, PA
+1 DEAT Y
+2 DATE 7 NOV 2016
+2 PLAC Philadelphia, PA
+1 OCCU Air force Refrigeration engineer
+1 FAMS @F3@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 MARR
+2 DATE 31 DEC 1967
+2 PLAC Los Angeles, CA
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 MARR
+2 DATE 9 MAY 1992
+2 PLAC New York
+1 DIV
+2 DATE 10 DEC 1995
+1 _CURRENT N
+0 @F3@ FAM
+1 HUSB @I8@
+1 WIFE @I7@
+1 CHIL @I1@
+1 MARR
+2 DATE 24 AUG 1962
+2 PLAC Philadelphia, PA
+1 _CURRENT Y
+0 TRLR
