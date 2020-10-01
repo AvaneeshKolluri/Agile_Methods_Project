@@ -8,6 +8,11 @@ Following are the definitions of Sprint1 User stories:
 User story 02:
 Requirement: Birth should occur before marriage of an individual
 '''
+'''
+User story 10:
+Requirement: Marriage should not occur prior to the age of 14 
+'''
+
 def userStory02(file):
 
     # Fetch the parsed object's from input ged file
@@ -52,10 +57,39 @@ def userStory02(file):
     return resultList
 ###################End of userStory02 ##################
 
+def userStory10(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    #iterate through families
+    for family in families.keys():
+        
+        #find married families
+        if families[family].Get_married() != "NA":
+
+            #get husband ID and wife ID as well as birth dates 
+            husband = families[family].Get_husbandID()
+            husband_birth_date = individuals[husband].Get_birthday()
+            wife = families[family].Get_wifeID()
+            wife_birth_date = individuals[wife].Get_birthday()
+            
+            #get married date
+            family_marriage_date = families[family].Get_married()
+
+            #determine if husband or wife was married after 14 and output a message if not
+            if float(relativedelta(family_marriage_date, husband_birth_date).years) < float(14):
+                resultsList.append(f"ERROR: Husband's birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+            elif float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
+                resultsList.append(f"ERROR: Wife's birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+                
+    return resultsList
+###################End of userStory10 ##################
 
 
 # Sprint1 Main function
 if __name__ == "__main__":
    #userStory02("FamilyTree.ged")
    userStory02("InputGedFiles/UserStory02_GED/testUserStory02-1.ged")
-
+   userStory10("InputGedFiles/UserStory10_GED/FamilyTree.ged")

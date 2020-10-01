@@ -36,6 +36,10 @@ class MarriageAfter14Test(unittest.TestCase):
                                         "ERROR: Wife's birth date 1977-05-09 not at least 14 years prior to marriage date 1987-05-09",
                                         "ERROR: Wife's birth date 1976-12-26 not at least 14 years prior to marriage date 1990-12-24"])
 
+    def test_user_story_10_6(self):
 
+        resultsList = userStory10_marriage_after_14("InputGedFiles/UserStory10_GED/FamilyTree_Test_JustUnder14.ged")
+        self.assertEqual(resultsList, ["ERROR: Wife's birth date 1976-12-26 not at least 14 years prior to marriage date 1990-12-24"])
+        
 if __name__ == "__main__":
     unittest.main()
