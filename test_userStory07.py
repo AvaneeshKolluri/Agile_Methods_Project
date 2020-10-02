@@ -29,6 +29,7 @@ class TestUserStory07Class(unittest.TestCase):
 
     def test_UserStory07_4(self):
         resultsList = userStory07("InputGedFiles/UserStory07_GED/testUserStory07-4.ged")
+        resultsList.sort()
         self.maxDiff = None
         self.assertEqual(resultsList, [ "ERROR: INDIVIDUAL: US07: I1 More than 150 years old - Birth date 1868-09-25",
                                         "ERROR: INDIVIDUAL: US07: I3 More than 150 years old - Birth date 1866-11-11",
@@ -37,6 +38,7 @@ class TestUserStory07Class(unittest.TestCase):
 
     def test_UserStory07_5(self):
         resultsList = userStory07("InputGedFiles/UserStory07_GED/testUserStory07-5.ged")
+        resultsList.sort()
         self.maxDiff = None
         self.assertEqual(resultsList, [ "ERROR: INDIVIDUAL: US07: I1 More than 150 years old - Birth date 1868-09-25",
                                         "ERROR: INDIVIDUAL: US07: I2 More than 150 years old at death - Birth 1867-11-16: Death 2020-03-17",

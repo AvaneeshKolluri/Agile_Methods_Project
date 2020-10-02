@@ -27,7 +27,7 @@ Author: Avaneesh
 def userStory01(file): #info, famtbl
     info, famtbl = processGedFile(file)
     resultList = list()
-    
+
     dt = datetime.datetime.now()
     current = datetime.date(dt.year, dt.month, dt.day)
     resultList = list()
@@ -127,7 +127,7 @@ def userStory02(file):
 
 '''
 User story 07:
-Requirement: Death should be less than 150 years after birth for dead people, 
+Requirement: Death should be less than 150 years after birth for dead people,
              and current date should be less than 150 years after birth for all living people
 Author: Srikanth
 '''
@@ -165,6 +165,7 @@ def userStory07(file):
     for output in resultList:
         print(output)
 
+    resultList.sort()
     # return the list of validated data
     return resultList
 
@@ -183,7 +184,7 @@ def userStory08(file):
     # Create a list of
     resultList = list()
 
-    
+
     # iterate through families
     for index in famDict:
         # get list of children
@@ -210,15 +211,15 @@ def userStory08(file):
             # check if they were divorced
             if divorce != 'NA':
                 # check to see if the child's bday was not more than 9 months after their divorce
-                if months_between(divorce, childBday) > 9: 
+                if months_between(divorce, childBday) > 9:
                     result_2_str = f"ANOMALY: FAMILY: US08: {famid}: Child {i} born {childBday} after divorce on {divorce}"
                     resultList.append(result_2_str)
-            
-    
+
     # Print the information of validated data
     for output in resultList:
         print(output)
 
+    resultList.sort()
     # return the list of validated data
     return resultList
 
@@ -230,3 +231,4 @@ if __name__ == "__main__":
    userStory02("FamilyTree.ged")
    userStory07("FamilyTree.ged")
    userStory08("FamilyTree.ged")
+   
