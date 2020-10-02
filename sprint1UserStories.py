@@ -22,6 +22,7 @@ Following are the definitions of Sprint1 User stories:
 '''
 User story 01:
 Requirement: Dates (birth, marriage, divorce, death) should not be after the current date
+Author: Avaneesh
 '''
 def userStory01(file): #info, famtbl
     info, famtbl = processGedFile(file)
@@ -73,6 +74,7 @@ def userStory01(file): #info, famtbl
 '''
 User story 02:
 Requirement: Birth should occur before marriage of an individual
+Authors: Pair Programmed: Srikanth & Avaneesh
 '''
 def userStory02(file):
 
@@ -94,7 +96,9 @@ def userStory02(file):
         husBirthDate = indiDict[husbandID].Get_birthday()
         #print(f"husBirthDate: {husBirthDate}")
         # Get wife birth date
-        wifeBirthDate = indiDict[wifeID].Get_birthday()
+        if wifeID != "NA":
+            wifeBirthDate = indiDict[wifeID].Get_birthday()
+        else: wifeBirthDate = "NA"
         #print(f"wifeBirthDate: {wifeBirthDate}")
         # Get marriage date
         marriageDate = famDict[index].Get_married()
@@ -120,10 +124,58 @@ def userStory02(file):
     return resultList
 ###################End of userStory02 ##################
 
+
+'''
+User story 07:
+Requirement: Death should be less than 150 years after birth for dead people, 
+             and current date should be less than 150 years after birth for all living people
+Author: Srikanth
+'''
+# Method: userStory07
+def userStory07(file):
+
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict = processGedFile(file)
+    # Create a list of
+    resultList = list()
+
+    # Process through all individual's details
+    for index in indiDict:
+
+        # Fetch individual details like age, deceased, ID, birthdDate and deathDate.
+        individualAge= indiDict[index].Get_age()
+        isIndiAlive = indiDict[index].Get_alive()
+        individualID = indiDict[index].Get_ID()
+        birthDate = indiDict[index].Get_birthday()
+        deathDate = indiDict[index].Get_death()
+
+        # If Age is greater than or equal to 150 prompt Invalid data
+        if (individualAge >= 150):
+            # Check if an individual is alive or not
+            if (isIndiAlive == False):
+                #error 1
+                result_1_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old at death - Birth {birthDate}: Death {deathDate}"
+                resultList.append(result_1_str)
+            else:
+                # error 2
+                result_2_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old - Birth date {birthDate}"
+                resultList.append(result_2_str)
+
+    # Print the information of validated data
+    for output in resultList:
+        print(output)
+
+    # return the list of validated data
+    return resultList
+
+###################End of userStory07 ##################
+
 '''
 User story 08:
 Requirement: Children should be born after marriage of parents (and not more than 9 months after their divorce)
+Authors: Pair Programmed: Avaneesh & Srikanth
 '''
+# Method: userStory08
 def userStory08(file):
     # Fetch the parsed object's from input ged file
     indiDict, famDict = processGedFile(file)
@@ -169,22 +221,12 @@ def userStory08(file):
 
     # return the list of validated data
     return resultList
-    
 
 ###################End of userStory08 ##################
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   #userStory02("FamilyTree.ged")
-   #userStory02("InputGedFiles/UserStory02_GED/testUserStory02-1.ged")
-    userStory01("InputGedFiles/UserStory01_GED/testUserStory01-1.ged")
-    #userStory08("InputGedFiles/UserStory08_GED/testUserStory08-5.ged")
-    # ANOMALY: FAMILY: US08: F1: Child I5 born 1988-07-08 before marriage on 1997-12-31
-    # []
-    # ANOMALY: FAMILY: US08: F3: Child I1 born 1869-09-25 before marriage on 1962-08-24
-    # ANOMALY: FAMILY: US08: F1: Child I6 born 1870-10-31 before marriage on 1997-12-31, ANOMALY: FAMILY: US08: F1: Child I5 born 1853-07-08 before marriage on 1997-12-31, ANOMALY: FAMILY: US08: F2: Child I3 born 1866-11-11 before marriage on 1967-05-09, ANOMALY: FAMILY: US08: F3: Child I1 born 1868-09-25 before marriage on 1962-08-24
-    # ANOMALY: FAMILY: US08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10
-
-
-
-    
+   userStory01("FamilyTree.ged")
+   userStory02("FamilyTree.ged")
+   userStory07("FamilyTree.ged")
+   userStory08("FamilyTree.ged")
