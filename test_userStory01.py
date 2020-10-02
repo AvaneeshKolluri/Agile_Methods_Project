@@ -1,36 +1,33 @@
 import unittest
-from individualClass import individualClass as indiClass
-from collections import OrderedDict
-from userStory01 import story1
-import warnings
+from sprint1UserStories import userStory01
 import HtmlTestRunner
 
-class test1(unittest.TestCase):
+class TestUserStory01Class(unittest.TestCase):
     
-    def test_UserStory01(self):
-        resultsList = story1("FamilyTree.ged")
+    def test_UserStory01_1(self):
+        resultsList = userStory01("InputGedFiles/UserStory01_GED/testUserStory01-1.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, [])
         
-    def test_UserStory02(self):
-        resultsList = story1("FalseMarriage.ged")
+    def test_UserStory01_2(self):
+        resultsList = userStory01("InputGedFiles/UserStory01_GED/testUserStory01-2.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US01: I1: Marriage 3000-05-24 occurs in the future',
                                        'ERROR: INDIVIDUAL: US01: I2: Marriage 3000-05-24 occurs in the future'])
         
-    def test_UserStory03(self):
-        resultsList = story1("FalseDivorce.ged")
+    def test_UserStory01_3(self):
+        resultsList = userStory01("InputGedFiles/UserStory01_GED/testUserStory01-3.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US01: I3: Divorce 2050-02-04 occurs in the future',
                                        'ERROR: INDIVIDUAL: US01: I4: Divorce 2050-02-04 occurs in the future'])
         
-    def test_UserStory04(self):
-        resultsList = story1("FalseBday.ged")
+    def test_UserStory01_4(self):
+        resultsList = userStory01("InputGedFiles/UserStory01_GED/testUserStory01-4.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US01: I1: Birthday 2050-10-13 occurs in the future'])
         
-    def test_UserStory05(self):
-        resultsList = story1("FalseDeath.ged")
+    def test_UserStory01_5(self):
+        resultsList = userStory01("InputGedFiles/UserStory01_GED/testUserStory01-5.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US01: I2: Death 2022-02-09 occurs in the future'])
         

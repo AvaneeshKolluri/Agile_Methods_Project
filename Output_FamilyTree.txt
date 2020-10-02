@@ -1,0 +1,36 @@
+['I1', 'Thomas Mapother III Cruise', 'M', datetime.date(1934, 10, 13), 49, False, datetime.date(1984, 1, 9), 'NA', ['F1']]
+['I2', 'Mary Lee Pfeiffer', 'F', datetime.date(1936, 9, 22), 80, False, datetime.date(2017, 2, 9), 'NA', ['F1']]
+['I3', 'Thomas Mapother IV Cruise', 'M', datetime.date(1962, 7, 3), 58, True, 'NA', ['F1'], ['F2', 'F3', 'F4', 'F5', 'F6']]
+['I4', 'Miriam Spickler', 'F', datetime.date(1956, 1, 27), 64, True, 'NA', 'NA', ['F2']]
+['I5', 'Nicole Mary Kidman', 'F', datetime.date(1967, 6, 20), 53, True, 'NA', 'NA', ['F3']]
+['I6', 'Katie Noelle Holmes', 'F', datetime.date(1978, 12, 18), 41, True, 'NA', 'NA', ['F4']]
+['I7', 'Isabella Jane Cruise', 'F', datetime.date(1992, 12, 22), 27, True, 'NA', ['F3'], 'NA']
+['I8', 'Connor Cruise', 'M', datetime.date(1995, 1, 17), 25, True, 'NA', ['F3'], 'NA']
+['I9', 'Suri Cruise', 'F', datetime.date(2006, 4, 18), 14, True, 'NA', ['F4'], 'NA']
+['I10', 'Emily Random', 'F', datetime.date(1961, 7, 4), 27, False, datetime.date(1988, 8, 15), 'NA', ['F6']]
+Individuals
++-----+----------------------------+--------+------------+-----+-------+------------+--------+--------------------------------+
+|  ID |            Name            | Gender |  Birthday  | Age | Alive |   Death    | Child  |             Spouse             |
++-----+----------------------------+--------+------------+-----+-------+------------+--------+--------------------------------+
+|  I1 | Thomas Mapother III Cruise |   M    | 1934-10-13 |  49 | False | 1984-01-09 |   NA   |             ['F1']             |
+|  I2 |     Mary Lee Pfeiffer      |   F    | 1936-09-22 |  80 | False | 2017-02-09 |   NA   |             ['F1']             |
+|  I3 | Thomas Mapother IV Cruise  |   M    | 1962-07-03 |  58 |  True |     NA     | ['F1'] | ['F2', 'F3', 'F4', 'F5', 'F6'] |
+|  I4 |      Miriam Spickler       |   F    | 1956-01-27 |  64 |  True |     NA     |   NA   |             ['F2']             |
+|  I5 |     Nicole Mary Kidman     |   F    | 1967-06-20 |  53 |  True |     NA     |   NA   |             ['F3']             |
+|  I6 |    Katie Noelle Holmes     |   F    | 1978-12-18 |  41 |  True |     NA     |   NA   |             ['F4']             |
+|  I7 |    Isabella Jane Cruise    |   F    | 1992-12-22 |  27 |  True |     NA     | ['F3'] |               NA               |
+|  I8 |       Connor Cruise        |   M    | 1995-01-17 |  25 |  True |     NA     | ['F3'] |               NA               |
+|  I9 |        Suri Cruise         |   F    | 2006-04-18 |  14 |  True |     NA     | ['F4'] |               NA               |
+| I10 |        Emily Random        |   F    | 1961-07-04 |  27 | False | 1988-08-15 |   NA   |             ['F6']             |
++-----+----------------------------+--------+------------+-----+-------+------------+--------+--------------------------------+
+Families
++----+------------+------------+------------+----------------------------+---------+---------------------+--------------+
+| ID |  Married   |  Divorced  | Husband ID |        Husband Name        | Wife ID |      Wife Name      |   Children   |
++----+------------+------------+------------+----------------------------+---------+---------------------+--------------+
+| F1 | 1958-04-12 |     NA     |     I1     | Thomas Mapother III Cruise |    I2   |  Mary Lee Pfeiffer  |    {'I3'}    |
+| F2 | 1987-05-09 | 1990-02-04 |     I3     | Thomas Mapother IV Cruise  |    I4   |   Miriam Spickler   |      {}      |
+| F3 | 1990-12-24 | 2001-05-05 |     I3     | Thomas Mapother IV Cruise  |    I5   |  Nicole Mary Kidman | {'I7', 'I8'} |
+| F4 | 2006-11-18 | 2012-06-29 |     I3     | Thomas Mapother IV Cruise  |    I6   | Katie Noelle Holmes |    {'I9'}    |
+| F5 |     NA     |     NA     |     I3     | Thomas Mapother IV Cruise  |    NA   |          NA         |      {}      |
+| F6 | 1986-09-13 |     NA     |     I3     | Thomas Mapother IV Cruise  |   I10   |     Emily Random    |      {}      |
++----+------------+------------+------------+----------------------------+---------+---------------------+--------------+
