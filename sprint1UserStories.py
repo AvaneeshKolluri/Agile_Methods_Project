@@ -8,6 +8,12 @@ Following are the definitions of Sprint1 User stories:
 User story 02:
 Requirement: Birth should occur before marriage of an individual
 '''
+
+'''
+User story 09:
+Requirement: Birth date should not be after death of either parent
+'''
+
 '''
 User story 10:
 Requirement: Marriage should not occur prior to the age of 14 
@@ -57,6 +63,10 @@ def userStory02(file):
     return resultList
 ###################End of userStory02 ##################
 
+def userStory09(file):
+
+###################End of userStory09 ##################
+    
 def userStory10(file):
 
     # get individuals and families in file, create results
