@@ -7,6 +7,7 @@ from collections import OrderedDict
 from individualClass import individualClass as indiClass
 from familyClass import familyClass
 import sys
+import warnings
 
 def from_dob_to_age(born):
     today = datetime.date.today()
@@ -22,13 +23,16 @@ def printTablesData(indiDict_obj, famDict_obj):
 
     indiTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Age', 'Alive', 'Death', 'Child', 'Spouse']
     familyTable.field_names = ['ID','Married','Divorced','Husband ID', 'Husband Name', 'Wife ID','Wife Name', 'Children']
-
+    ilist = []
+    flist = []
     for id in indiDict_obj:
         individualData = indiDict_obj[id]
         indiTable.add_row(individualData.Get_details())
+        print(individualData.Get_details())
     for id in famDict_obj:
         famData = famDict_obj[id]
         familyTable.add_row(famData.Get_details())
+    
     print("Individuals")
     print (indiTable)
     print("Families")
@@ -38,6 +42,7 @@ def printTablesData(indiDict_obj, famDict_obj):
 def processGedFile(file_path):
     # Path to your `.ged` file
     #file_path ='FamilyTree.ged'
+
     #file_path ='gedcom'
 
     # Initialize the parser
@@ -191,3 +196,4 @@ if __name__ == "__main__":
     # Print indiDetails and Family details from processed ged file
     printTablesData(indiDetails, familyDetails)
     sys.stdout.close()
+
