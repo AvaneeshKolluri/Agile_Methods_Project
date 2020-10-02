@@ -17,6 +17,7 @@ Requirement: Birth date should not be after death of either parent
 '''
 User story 10:
 Requirement: Marriage should not occur prior to the age of 14 
+Author: Zach 
 '''
 
 def userStory02(file):
@@ -100,6 +101,4 @@ def userStory10(file):
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   #userStory02("FamilyTree.ged")
-   userStory02("InputGedFiles/UserStory02_GED/testUserStory02-1.ged")
-   userStory10("InputGedFiles/UserStory10_GED/FamilyTree.ged")
+   userStory10("FamilyTree.ged")

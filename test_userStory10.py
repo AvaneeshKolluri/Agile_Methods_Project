@@ -1,7 +1,6 @@
 import unittest 
-from project2 import processGedFile
-from userStory10 import userStory10_marriage_after_14
-import datetime
+from sprint1UserStories import userStory10
+import HtmlTestRunner
 
 class MarriageAfter14Test(unittest.TestCase):
 
@@ -42,4 +41,4 @@ class MarriageAfter14Test(unittest.TestCase):
         self.assertEqual(resultsList, ["ERROR: Wife's birth date 1976-12-26 not at least 14 years prior to marriage date 1990-12-24"])
         
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./reports'))
