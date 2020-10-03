@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-10-02 22:48:23</p>
+                <p class='attribute'><strong>Duration: </strong>9 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Fail: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.BirthBeforeDeathTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_userStory09_1</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">AssertionError: Lists differ: ["ERROR: FAMILY: US09: F3: Husband (I3) di[235 chars]-18"] != []
+
+First list contains 3 additional elements.
+First extra element 0:
+"ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I7) birth 1992-12-22"
+
++ []
+- ["ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I7) "
+-  'birth 1992-12-22',
+-  "ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I8) "
+-  'birth 1995-01-17',
+-  "ERROR: FAMILY: US09: F4: Husband (I3) died 1984-01-09 before child's (I9) "
+-  'birth 2006-04-18']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Sprint1/Agile_Methods_Project/test_userStory09.py", line 13, in test_userStory09_1
+    self.assertEqual(resultsList, [])
+AssertionError: Lists differ: ["ERROR: FAMILY: US09: F3: Husband (I3) di[235 chars]-18"] != []
+
+First list contains 3 additional elements.
+First extra element 0:
+"ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I7) birth 1992-12-22"
+
++ []
+- ["ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I7) "
+-  'birth 1992-12-22',
+-  "ERROR: FAMILY: US09: F3: Husband (I3) died 1984-01-09 before child's (I8) "
+-  'birth 1995-01-17',
+-  "ERROR: FAMILY: US09: F4: Husband (I3) died 1984-01-09 before child's (I9) "
+-  'birth 2006-04-18']
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 0, Fail: 1 -- Duration: 9 ms
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html

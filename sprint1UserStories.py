@@ -80,26 +80,27 @@ def userStory09(file):
 
             #get husband ID and wife ID as well as death dates 
             husband = families[family].Get_husbandID()
-            if individuals[husband].Get_death() != "NA":
-                husband_death_date = individuals[husband].Get_death()
+            husband_death_date = individuals[husband].Get_death()
             wife = families[family].Get_wifeID()
-            if individuals[husband].Get_death() != "NA":
-                wife_death_date = individuals[wife].Get_death()
+            wife_death_date = individuals[wife].Get_death()
 
             #get children of family
             children = families[family].Get_children()
 
             #iterate through each child
-            for child in children:
+            if len(children) > 0 and (wife_death_date != "NA" or husband_death_date != "NA"):
+
+                #iterate through children
+                for child in children:
                 
                 #get each child birthdate
-                child_birthdate = individuals[child].Get_birthday()
+                    child_birthdate = individuals[child].Get_birthday()
                     
-                #check if death date is before child birthdate 
-                if husband_death_date < child_birthdate:
-                    resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
-                if wife_death_date < child_birthdate:
-                    resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
+                    #check if death date is before child birthdate 
+                    if husband_death_date < child_birthdate:
+                        resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
+                    if wife_death_date < child_birthdate:
+                        resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
     #return list
     return resultsList
@@ -140,4 +141,4 @@ def userStory10(file):
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   print(userStory09("InputGedFiles/UserStory09_GED/FamilyTree_Test_1.ged"))
+   print(userStory09("InputGedFiles/UserStory09_GED/FamilyTree.ged"))
