@@ -1,4 +1,5 @@
 from project2 import processGedFile
+from dateutil.relativedelta import relativedelta
 
 '''
 Following are the definitions of Sprint1 User stories:
@@ -11,7 +12,8 @@ Requirement: Birth should occur before marriage of an individual
 
 '''
 User story 09:
-Requirement: Birth date should not be after death of either parent
+Requirement: Birth date should not be after death of parents
+Author: Zach and Pratim
 '''
 
 '''
@@ -66,6 +68,42 @@ def userStory02(file):
 
 def userStory09(file):
 
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    #iterate through families
+    for family in families.keys():
+        
+        #find married families
+        if families[family].Get_married() != "NA":
+
+            #get husband ID and wife ID as well as death dates 
+            husband = families[family].Get_husbandID()
+            if individuals[husband].Get_death() != "NA":
+                husband_death_date = individuals[husband].Get_death()
+            wife = families[family].Get_wifeID()
+            if individuals[husband].Get_death() != "NA":
+                wife_death_date = individuals[wife].Get_death()
+
+            #get children of family
+            children = families[family].Get_children()
+
+            #iterate through each child
+            for child in children:
+                
+                #get each child birthdate
+                child_birthdate = individuals[child].Get_birthday()
+                    
+                #check if death date is before child birthdate 
+                if husband_death_date < child_birthdate:
+                    resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
+                if wife_death_date < child_birthdate:
+                    resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
+
+    #return list
+    return resultsList
+
 ###################End of userStory09 ##################
     
 def userStory10(file):
@@ -91,14 +129,15 @@ def userStory10(file):
 
             #determine if husband or wife was married after 14 and output a message if not
             if float(relativedelta(family_marriage_date, husband_birth_date).years) < float(14):
-                resultsList.append(f"ERROR: Husband's birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
-            elif float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
-                resultsList.append(f"ERROR: Wife's birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+                resultsList.append(f"ERROR: FAMILY: US10: {family}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+            if float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
+                resultsList.append(f"ERROR: FAMILY: US10: {family}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
                 
     return resultsList
+
 ###################End of userStory10 ##################
 
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   userStory10("FamilyTree.ged")
+   print(userStory09("InputGedFiles/UserStory09_GED/FamilyTree_Test_1.ged"))
