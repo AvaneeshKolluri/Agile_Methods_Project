@@ -346,7 +346,7 @@ def userStory08(file):
 '''
 User story 09:
 Requirement: Birth date should not be after death of parents
-Author: Zach and Pratim
+Author: Pair Programmed: Zach and Pratim
 '''
 
 def userStory09(file):
@@ -385,6 +385,10 @@ def userStory09(file):
                     if wife_death_date < child_birthdate:
                         resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
+    #print each output in the list
+    for output in resultsList:
+        print(output)
+
     #return list
     return resultsList
 
@@ -422,7 +426,12 @@ def userStory10(file):
                 resultsList.append(f"ERROR: FAMILY: US10: {family}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
             if float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
                 resultsList.append(f"ERROR: FAMILY: US10: {family}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
-
+    
+    #print each output in the list
+    for output in resultsList:
+        print(output)
+    
+    #return list
     return resultsList
 
 ###################End of userStory10 ##################
