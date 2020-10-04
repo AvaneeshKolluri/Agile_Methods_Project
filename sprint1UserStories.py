@@ -254,13 +254,12 @@ Author: Srikanth
 def userStory07(file):
 
     # Fetch the parsed object's from input ged file
-    indiDict = processGedFile(file)
+    indiDict,famDict = processGedFile(file)
     # Create a list of
     resultList = list()
 
     # Process through all individual's details
     for index in indiDict:
-
         # Fetch individual details like age, deceased, ID, birthdDate and deathDate.
         individualAge= indiDict[index].Get_age()
         isIndiAlive = indiDict[index].Get_alive()
