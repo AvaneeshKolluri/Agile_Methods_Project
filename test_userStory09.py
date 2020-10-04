@@ -3,7 +3,7 @@ from sprint1UserStories import userStory09
 import HtmlTestRunner
 
 
-class BirthBeforeDeathTest(unittest.TestCase):
+class TestUserStory09Class(unittest.TestCase):
 
 
     """ Test the US09 function """
