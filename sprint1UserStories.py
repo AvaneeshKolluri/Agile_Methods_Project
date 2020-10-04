@@ -126,6 +126,125 @@ def userStory02(file):
 ###################End of userStory02 ##################
 
 '''
+User Story 03:
+Requirement: Birth date should be before death date for all people.
+Author: Erick
+'''
+def userStory03(file):
+    indiDict,famDict = processGedFile(file);
+    resultList = list();
+
+    for index in indiDict:
+        individual = indiDict[index]
+        if (individual.Get_death() == "NA"):
+            continue;
+        deathDate = str(individual.Get_death());
+        birthDate = str(individual.Get_birthday());
+
+        countDeath = int(deathDate[:deathDate.find("-")])
+        countBirth = int(birthDate[:birthDate.find("-")])
+
+        if (countDeath < countBirth):
+            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
+            print(error);
+            resultList.append(error)
+            continue;
+        if (countDeath > countBirth):
+            continue;
+
+        deathDate = deathDate[deathDate.find("-") + 1:]
+        birthDate = birthDate[birthDate.find("-") + 1:]
+
+        countDeath = int(deathDate[:deathDate.find("-")])
+        countBirth = int(birthDate[:birthDate.find("-")])
+        if (countDeath < countBirth):
+            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
+            print(error);
+            resultList.append(error)
+            continue;
+        if (countDeath > countBirth):
+            continue;
+
+        deathDate = deathDate[deathDate.find("-") + 1:]
+        birthDate = birthDate[birthDate.find("-") + 1:]
+        countDeath = int(deathDate);
+        countBirth = int(birthDate);
+        if (countDeath < countBirth):
+            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
+            print(error);
+            resultList.append(error)
+            continue;
+
+
+    # Print the information of validated data
+    for output in resultList:
+        print(output)
+
+    resultList.sort()
+    # return the list of validated data
+    return resultList
+
+
+'''
+User Story 04:
+Requirement: Marriage date should be before divorce date for all marriages.
+Author: Erick
+'''
+def userStory04(file):
+    indiDict,famDict = processGedFile(file);
+    resultList = list();
+
+    for index in famDict:
+        family = famDict[index]
+        if (family.Get_divorced() == "NA"):
+            continue;
+        divDate = str(family.Get_divorced());
+        marrDate = str(family.Get_married());
+
+        countDiv = int(divDate[:divDate.find("-")])
+        countMarr = int(marrDate[:marrDate .find("-")])
+        if (countDiv < countMarr):
+            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
+            resultList.append(error)
+            continue;
+        if (countDiv > countMarr):
+            continue;
+
+        divDate = divDate[divDate.find("-") + 1:]
+        marrDate = marrDate[marrDate.find("-") + 1:]
+
+        countDiv = int(divDate[:divDate.find("-")])
+        countMarr = int(marrDate[:marrDate.find("-")])
+        if (countDiv < countMarr):
+            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
+            resultList.append(error)
+            continue;
+        if (countDiv > countMarr):
+            continue;
+
+        divDate = divDate[divDate.find("-") + 1:]
+        marrDate = marrDate[marrDate.find("-") + 1:]
+
+        countDiv = int(divDate);
+        countMarr = int(marrDate);
+        print(countDiv);
+        print(countMarr);
+        if (countDiv < countMarr):
+            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
+            resultList.append(error)
+            continue;
+
+
+    # Print the information of validated data
+    for output in resultList:
+        print(output)
+
+    resultList.sort()
+    # return the list of validated data
+    return resultList
+
+
+'''
 User story 07:
 Requirement: Death should be less than 150 years after birth for dead people,
              and current date should be less than 150 years after birth for all living people
@@ -135,7 +254,7 @@ Author: Srikanth
 def userStory07(file):
 
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict = processGedFile(file)
     # Create a list of
     resultList = list()
 
@@ -165,7 +284,6 @@ def userStory07(file):
     for output in resultList:
         print(output)
 
-    resultList.sort()
     # return the list of validated data
     return resultList
 
@@ -239,11 +357,11 @@ def userStory09(file):
 
     #iterate through families
     for family in families.keys():
-        
+
         #find married families
         if families[family].Get_married() != "NA":
 
-            #get husband ID and wife ID as well as death dates 
+            #get husband ID and wife ID as well as death dates
             husband = families[family].Get_husbandID()
             husband_death_date = individuals[husband].Get_death()
             wife = families[family].Get_wifeID()
@@ -257,11 +375,11 @@ def userStory09(file):
 
                 #iterate through children
                 for child in children:
-                
+
                 #get each child birthdate
                     child_birthdate = individuals[child].Get_birthday()
-                    
-                    #check if death date is before child birthdate 
+
+                    #check if death date is before child birthdate
                     if husband_death_date < child_birthdate:
                         resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
                     if wife_death_date < child_birthdate:
@@ -274,10 +392,10 @@ def userStory09(file):
 
 '''
 User story 10:
-Requirement: Marriage should not occur prior to the age of 14 
-Author: Zach 
+Requirement: Marriage should not occur prior to the age of 14
+Author: Zach
 '''
-    
+
 def userStory10(file):
 
     # get individuals and families in file, create results
@@ -286,16 +404,16 @@ def userStory10(file):
 
     #iterate through families
     for family in families.keys():
-        
+
         #find married families
         if families[family].Get_married() != "NA":
 
-            #get husband ID and wife ID as well as birth dates 
+            #get husband ID and wife ID as well as birth dates
             husband = families[family].Get_husbandID()
             husband_birth_date = individuals[husband].Get_birthday()
             wife = families[family].Get_wifeID()
             wife_birth_date = individuals[wife].Get_birthday()
-            
+
             #get married date
             family_marriage_date = families[family].Get_married()
 
@@ -304,7 +422,7 @@ def userStory10(file):
                 resultsList.append(f"ERROR: FAMILY: US10: {family}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
             if float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
                 resultsList.append(f"ERROR: FAMILY: US10: {family}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
-                
+
     return resultsList
 
 ###################End of userStory10 ##################
