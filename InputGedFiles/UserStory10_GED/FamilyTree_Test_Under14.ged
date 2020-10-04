@@ -1,0 +1,187 @@
+0 NOTE File created by Srikanth Uppada for TEAM2
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE FamilyTree
+1 DATE 5 SEP 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I3@
+2 NAME Srikanth Uppada
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Thomas Mapother III /Cruise/
+2 GIVN Thomas Mapother III
+2 SURN Cruise
+2 _MARNM Cruise
+1 SEX M
+1 BIRT
+2 DATE 13 OCT 1934
+2 PLAC Jefferson County, Kentucky US
+1 DEAT Y
+2 DATE 9 JAN 1984
+2 PLAC Syracuse, New York US
+1 OCCU Electrical engineer
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Mary Lee /Pfeiffer/
+2 GIVN Mary Lee
+2 SURN Pfeiffer
+2 _MARNM Pfeiffer
+1 SEX F
+1 BIRT
+2 DATE 22 SEP 1946
+2 PLAC Louisville, Kentucky US
+1 DEAT Y
+2 DATE 9 FEB 2017
+2 PLAC Los Angeles County, California US
+1 OCCU Teacher
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Thomas Mapother IV /Cruise/
+2 GIVN Thomas Mapother IV
+2 SURN Cruise
+2 _MARNM Cruise
+1 SEX M
+1 BIRT
+2 DATE 3 JUL 1962
+2 PLAC Syracuse, New York US
+1 OCCU Actor
+1 FAMS @F2@
+1 FAMS @F3@
+1 FAMS @F4@
+1 FAMS @F5@
+1 FAMS @F6@
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Miriam /Spickler/
+2 GIVN Miriam
+2 SURN Spickler
+2 _MARNM Rogers
+1 SEX F
+1 BIRT
+2 DATE 27 JAN 1956
+2 PLAC Coral Gables, Florida US
+1 OCCU Actress
+1 FAMS @F2@
+0 @I5@ INDI
+1 NAME Nicole Mary /Kidman/
+2 GIVN Nicole Mary
+2 SURN Kidman
+2 _MARNM Kidman
+1 SEX F
+1 BIRT
+2 DATE 20 JUN 1967
+2 PLAC Honolulu, Hawaii US
+1 OCCU Actress
+1 FAMS @F3@
+0 @I6@ INDI
+1 NAME Katie Noelle /Holmes/
+2 GIVN Katie Noelle
+2 SURN Holmes
+2 _MARNM Holmes
+1 SEX F
+1 BIRT
+2 DATE 18 DEC 1978
+2 PLAC Toledo, Ohio US
+1 OCCU Actress
+1 FAMS @F4@
+0 @I7@ INDI
+1 NAME Isabella Jane /Cruise/
+2 GIVN Isabella Jane
+2 SURN Cruise
+2 _MARNM Cruise
+1 SEX F
+1 BIRT
+2 DATE 22 DEC 1992
+2 PLAC Miami, Florida US
+1 FAMC @F3@
+0 @I8@ INDI
+1 NAME Connor /Cruise/
+2 GIVN Connor
+2 SURN Cruise
+2 _MARNM Cruise
+1 SEX M
+1 BIRT
+2 DATE 17 JAN 1995
+2 PLAC Miami, Florida US
+1 FAMC @F3@
+0 @I9@ INDI
+1 NAME Suri /Cruise/
+2 GIVN Suri
+2 SURN Cruise
+2 _MARNM Cruise
+1 SEX F
+1 BIRT
+2 DATE 18 APR 2006
+2 PLAC Santa Monica, California US
+1 FAMC @F4@
+0 @I10@ INDI
+1 NAME Emily /Random/
+2 GIVN Emily
+2 SURN Random
+2 _MARNM Random
+1 SEX F
+1 BIRT
+2 DATE 4 JUL 1961
+2 PLAC Random City, US
+1 DEAT Y
+2 DATE 15 AUG 1988
+2 PLAC Random City, US
+1 BURI
+1 OCCU Home Maker
+1 FAMS @F6@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 MARR
+2 DATE 12 APR 1958
+2 PLAC Jefferson County, Kentucky US
+1 _CURRENT Y
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 MARR
+2 DATE 9 MAY 1987
+2 PLAC New York City, US
+1 DIV
+2 DATE 4 FEB 1990
+1 _CURRENT N
+0 @F3@ FAM
+1 HUSB @I3@
+1 WIFE @I5@
+1 CHIL @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE 24 DEC 1990
+2 PLAC Telluride, Colorado US
+1 DIV
+2 DATE 5 MAY 2001
+1 _CURRENT N
+0 @F4@ FAM
+1 HUSB @I3@
+1 WIFE @I6@
+1 CHIL @I9@
+1 MARR
+2 DATE 18 NOV 2006
+2 PLAC Bracciano, Italy
+1 DIV
+2 DATE 29 JUN 2012
+1 _CURRENT N
+0 @F5@ FAM
+1 HUSB @I3@
+1 _CURRENT N
+0 @F6@ FAM
+1 HUSB @I3@
+1 WIFE @I10@
+1 MARR
+2 DATE 13 SEP 1986
+2 PLAC Random City, US
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
+0 TRLR

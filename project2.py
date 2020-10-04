@@ -2,6 +2,7 @@
 from gedcom.element.individual import IndividualElement
 from gedcom.parser import Parser
 import datetime
+from dateutil.relativedelta import relativedelta
 from prettytable import PrettyTable
 from collections import OrderedDict
 from individualClass import individualClass as indiClass
@@ -12,10 +13,10 @@ import warnings
 def from_dob_to_age(born):
     today = datetime.date.today()
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
 def from_dob_to_death(born,death):
     today = death
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-
 
 def printTablesData(indiDict_obj, famDict_obj):
     indiTable = PrettyTable()
@@ -23,8 +24,7 @@ def printTablesData(indiDict_obj, famDict_obj):
 
     indiTable.field_names = ['ID', 'Name', 'Gender', 'Birthday', 'Age', 'Alive', 'Death', 'Child', 'Spouse']
     familyTable.field_names = ['ID','Married','Divorced','Husband ID', 'Husband Name', 'Wife ID','Wife Name', 'Children']
-    ilist = []
-    flist = []
+
     for id in indiDict_obj:
         individualData = indiDict_obj[id]
         indiTable.add_row(individualData.Get_details())
