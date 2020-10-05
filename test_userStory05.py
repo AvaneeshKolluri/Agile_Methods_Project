@@ -1,7 +1,7 @@
 import unittest
 from sprint1UserStories import userStory05
 
-class TestUserStory06Class(unittest.TestCase):
+class TestUserStory05Class(unittest.TestCase):
 
     def test1_UserStory05(self):
         resultsList = userStory05("InputGedFiles/UserStory05_GED/deathWifeafter.ged")
