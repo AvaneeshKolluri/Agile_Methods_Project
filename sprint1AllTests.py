@@ -30,4 +30,4 @@ class Test_Sprint1(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./reports'))
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1Reports'))
