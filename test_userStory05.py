@@ -26,7 +26,8 @@ class TestUserStory06Class(unittest.TestCase):
     def test5_UserStory05(self):
         resultsList = userStory05("InputGedFiles/UserStory05_GED/test5.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ['Error: wedding occurs after wife death. Wedding Date: 2050-02-02 Wife Death: 2040-02-01'])
+        self.assertEqual(resultsList, ['Error: wedding occurs after husband death. Wedding Date: 2090-02-02 Husband Death: 2050-01-05'])
+
 
 if __name__ == "__main__":
     unittest.main()
