@@ -291,7 +291,7 @@ User Story 06:
 Requirement: Divorce date should be before death date for people in marriages.
 Author: Pratim Patel
 '''
-def UserStory06(file):
+def userStory06(file):
     indiDict,famDict = processGedFile(file)
     WisDead = False
     HisDead = False
