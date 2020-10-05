@@ -287,11 +287,11 @@ def userStory05(file):
     return resultList
 
 '''
-User Story 05:
+User Story 06:
 Requirement: Divorce date should be before death date for people in marriages.
 Author: Pratim Patel
 '''
-def Story6(file):
+def UserStory06(file):
     indiDict,famDict = processGedFile(file)
     WisDead = False
     HisDead = False
