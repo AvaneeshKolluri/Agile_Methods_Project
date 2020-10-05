@@ -276,12 +276,12 @@ def userStory05(file):
 
             if(WisDead and marriedDate>wifeDeath):
                 #print("the wife is dead and the wedding date is after death")
-                result_1_str = "Error: wedding occurs after wife death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Wife Death: " + str(wifeDeath)
+                result_1_str = "ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Wife Death: " + str(wifeDeath)
                 resultList.append(result_1_str)
 
             if(HisDead and marriedDate>husbandDeath):
                # print("the husband is dead and the wedding date is after death")
-                result_1_str = "Error: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
+                result_1_str = "ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
                 resultList.append(result_1_str)
             
     return resultList
@@ -319,12 +319,12 @@ def userStory06(file):
 
             if(WisDead and divorcedDate>wifeDeath):
                 #print("the wife is dead and the divorce date is after death")
-                result_1_str = "Error: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
+                result_1_str = "ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
                 resultList.append(result_1_str)
 
             if(HisDead and divorcedDate>husbandDeath):
                # print("the husband is dead and the divorce date is after death")
-                result_1_str = "Error: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
+                result_1_str = "ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
                 resultList.append(result_1_str)
             
     return resultList
@@ -455,7 +455,7 @@ def userStory09(file):
             children = families[family].Get_children()
 
             #iterate through each child
-            if len(children) > 0 and (wife_death_date != "NA" or husband_death_date != "NA"):
+            if len(children) > 0 and (wife_death_date != "NA" and husband_death_date != "NA"):
 
                 #iterate through children
                 for child in children:
@@ -464,7 +464,7 @@ def userStory09(file):
                     child_birthdate = individuals[child].Get_birthday()
 
                     #check if death date is before child birthdate
-                    if husband_death_date < child_birthdate:
+                    if (husband_death_date < child_birthdate):
                         resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
                     if wife_death_date < child_birthdate:
                         resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
@@ -524,6 +524,10 @@ def userStory10(file):
 if __name__ == "__main__":
    userStory01("FamilyTree.ged")
    userStory02("FamilyTree.ged")
+   userStory03("FamilyTree.ged")
+   userStory04("FamilyTree.ged")
+   userStory05("FamilyTree.ged")
+   userStory06("FamilyTree.ged")
    userStory07("FamilyTree.ged")
    userStory08("FamilyTree.ged")
    userStory09("FamilyTree.ged")

@@ -28,7 +28,7 @@ def printTablesData(indiDict_obj, famDict_obj):
     for id in indiDict_obj:
         individualData = indiDict_obj[id]
         indiTable.add_row(individualData.Get_details())
-        print(individualData.Get_details())
+
     for id in famDict_obj:
         famData = famDict_obj[id]
         familyTable.add_row(famData.Get_details())
@@ -37,6 +37,7 @@ def printTablesData(indiDict_obj, famDict_obj):
     print (indiTable)
     print("Families")
     print (familyTable)
+    return indiTable, familyTable
 
 
 def processGedFile(file_path):
@@ -190,7 +191,7 @@ def processGedFile(file_path):
 # main
 if __name__ == "__main__":
     # Process ged file
-    indiDetails, familyDetails = processGedFile("FamilyTree.ged")
+    indiDetails, familyDetails = processGedFile("InputGedFiles/SprintAcceptance/testSprint1Acceptance.ged")
     # Output the results
     sys.stdout = open("Output_FamilyTree.txt", "w")
     # Print indiDetails and Family details from processed ged file
