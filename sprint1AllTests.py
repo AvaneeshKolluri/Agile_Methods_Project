@@ -3,6 +3,8 @@ import HtmlTestRunner
 
 from test_userStory01 import TestUserStory01Class
 from test_userStory02 import TestUserStory02Class
+from test_userStory03 import TestUserStory03Class
+from test_userStory04 import TestUserStory04Class
 from test_userStory05 import TestUserStory05Class
 from test_userStory06 import TestUserStory06Class
 from test_userStory07 import TestUserStory07Class
@@ -16,6 +18,8 @@ from test_userStory10 import TestUserStory10Class
 class Test_Sprint1(unittest.TestCase):
     TestUserStory01Class()
     TestUserStory02Class()
+    TestUserStory03Class()
+    TestUserStory04Class()
     TestUserStory05Class()
     TestUserStory06Class()
     TestUserStory07Class()
