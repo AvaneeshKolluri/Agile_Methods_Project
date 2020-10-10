@@ -16,6 +16,37 @@ def months_between(start_date, end_date):
     return num_months
 
 '''
+Bad Smell #1:
+Repetitive getting of date of death/birth of husband and wife from a family
+Author: Zach George
+'''
+# Get husband and wife and relevant husband and wife date from a marriage in a family
+def get_husband_and_wife_dates(family, individuals, date_type):
+
+    husband = family.Get_husbandID()
+    wife = family.Get_wifeID()
+
+    if date_type == "birth":
+        husband_date = individuals[husband].Get_birthday()
+        wife_date = individuals[wife].Get_birthday()
+
+    if date_type == "death":
+        husband_date = individuals[husband].Get_death()
+        wife_date = individuals[wife].Get_death()
+
+    return husband, husband_date, wife, wife_date
+
+'''
+Bad Smell #2:
+Repetitive of printing output of list and returning list 
+Author: Zach George 
+'''
+# Print list
+def print_list(results):
+    for item in results:
+        print(item)
+
+'''
 Following are the definitions of Sprint1 User stories:
 '''
 
@@ -440,19 +471,16 @@ def userStory09(file):
     resultsList = list()
 
     #iterate through families
-    for family in families.keys():
+    for family_id, family in families.items():
 
-        #find married families
-        if families[family].Get_married() != "NA":
-
-            #get husband ID and wife ID as well as death dates
-            husband = families[family].Get_husbandID()
-            husband_death_date = individuals[husband].Get_death()
-            wife = families[family].Get_wifeID()
-            wife_death_date = individuals[wife].Get_death()
+        #iterate through families that are married
+        if family.Get_married() != "NA":
+            
+            #get husband and wife and their deaths
+            husband, husband_death_date, wife, wife_death_date = get_husband_and_wife_dates(family, individuals, "death")
 
             #get children of family
-            children = families[family].Get_children()
+            children = family.Get_children()
 
             #iterate through each child
             if len(children) > 0 and (wife_death_date != "NA" and husband_death_date != "NA"):
@@ -464,16 +492,13 @@ def userStory09(file):
                     child_birthdate = individuals[child].Get_birthday()
 
                     #check if death date is before child birthdate
-                    if (husband_death_date < child_birthdate):
-                        resultsList.append(f"ERROR: FAMILY: US09: {family}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
+                    if husband_death_date < child_birthdate:
+                        resultsList.append(f"ERROR: FAMILY: US09: {family_id}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
                     if wife_death_date < child_birthdate:
-                        resultsList.append(f"ERROR: FAMILY: US09: {family}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
+                        resultsList.append(f"ERROR: FAMILY: US09: {family_id}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
-    #print each output in the list
-    for output in resultsList:
-        print(output)
-
-    #return list
+    #print each output in the list and return list 
+    print_list(resultsList)
     return resultsList
 
 ###################End of userStory09 ##################
@@ -491,31 +516,25 @@ def userStory10(file):
     resultsList = list()
 
     #iterate through families
-    for family in families.keys():
+    for family_id, family in families.items():
 
-        #find married families
-        if families[family].Get_married() != "NA":
+        #iterate through families that are married
+        if family.Get_married() != "NA":
 
-            #get husband ID and wife ID as well as birth dates
-            husband = families[family].Get_husbandID()
-            husband_birth_date = individuals[husband].Get_birthday()
-            wife = families[family].Get_wifeID()
-            wife_birth_date = individuals[wife].Get_birthday()
+            #get husband and wife and birth dates
+            husband, husband_birth_date, wife, wife_birth_date = get_husband_and_wife_dates(family, individuals, "birth")
 
             #get married date
-            family_marriage_date = families[family].Get_married()
+            family_marriage_date = family.Get_married()
 
             #determine if husband or wife was married after 14 and output a message if not
             if float(relativedelta(family_marriage_date, husband_birth_date).years) < float(14):
-                resultsList.append(f"ERROR: FAMILY: US10: {family}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+                resultsList.append(f"ERROR: FAMILY: US10: {family_id}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
             if float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
-                resultsList.append(f"ERROR: FAMILY: US10: {family}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
-    
-    #print each output in the list
-    for output in resultsList:
-        print(output)
-    
-    #return list
+                resultsList.append(f"ERROR: FAMILY: US10: {family_id}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
+        
+    #print each output in the list and return list
+    print_list(resultsList)
     return resultsList
 
 ###################End of userStory10 ##################
