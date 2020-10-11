@@ -539,6 +539,66 @@ def userStory10(file):
 
 ###################End of userStory10 ##################
 
+'''
+User story 20:
+Requirement: Aunts and uncles cannot marry their nephews and nieces
+Author: Zach
+'''
+
+def userStory20(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    # iterate through families and check for marriage
+    for family_id, family in families.items():
+        if family.Get_married() != "NA":
+
+            #store husband and wife ID
+            husband = family.Get_husbandID()
+            wife = family.Get_wifeID()
+
+            #get families of husband and wife as children 
+            husband_family = individuals[husband].Get_child()
+            wife_family = individuals[wife].Get_child()
+
+            #get children (other siblings of each spouse)
+            husband_siblings = families[husband_family].Get_children()
+            husband_siblings.pop(husband)
+            wife_siblings = families[wife_family].Get_children()
+            wife_siblings.pop(wife)
+
+            #iterate through husband_siblings and get each of their children
+            for sibling in husband_siblings:
+                sibling_spouses = individuals[sibling].Get_spouse()
+
+                #iterate through each family of the siblings and get the children 
+                for family in sibling_spouses:
+                    sibling_children = families[family].Get_children()
+
+                    #check if wife ID in children
+                    if wife in sibling_children:
+                        resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband({husband}) married niece ({wife})")
+            
+            #iterate through wife_siblings and get each of their children
+            for sibling in wife_siblings:
+                sibling_spouses = individuals[sibling].Get_spouse()
+
+                #iterate through each family of the siblings and get the children 
+                for family in sibling_spouses:
+                    sibling_children = families[family].Get_children()
+
+                    #check if wife ID in children
+                    if husband in sibling_children:
+                        resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife({wife}) married nephew ({husband})")
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return resultsList 
+
+###################End of userStory20 ##################
+
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("FamilyTree.ged")
