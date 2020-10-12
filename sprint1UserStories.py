@@ -583,7 +583,7 @@ def userStory20(file):
 
                             #check if wife ID in children
                             if wife in sibling_children:
-                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband({husband}) married niece ({wife})")
+                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband ({husband}) married niece ({wife})")
                 
                 #iterate through wife_siblings and get each of their children
                 if len(wife_siblings) > 0:
