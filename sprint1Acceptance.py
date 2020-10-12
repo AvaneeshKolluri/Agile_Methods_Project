@@ -10,6 +10,7 @@ from sprint1UserStories import userStory07
 from sprint1UserStories import userStory08
 from sprint1UserStories import userStory09
 from sprint1UserStories import userStory10
+from sprint1UserStories import userStory20
 
 def sprint1UserStories():
     fileName="InputGedFiles/SprintAcceptance/testSprint1Acceptance.ged"

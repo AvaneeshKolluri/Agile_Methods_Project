@@ -564,34 +564,39 @@ def userStory20(file):
             wife_family = individuals[wife].Get_child()
 
             #get children (other siblings of each spouse)
-            husband_siblings = families[husband_family].Get_children()
-            husband_siblings.pop(husband)
-            wife_siblings = families[wife_family].Get_children()
-            wife_siblings.pop(wife)
+            if len(husband_family) != 0 and len(wife_family) != 0:
+                husband_family = husband_family[0]
+                wife_family = wife_family[0]
+                husband_siblings = families[husband_family].Get_children()
+                husband_siblings = [child for child in husband_siblings if child != husband]
+                wife_siblings = families[wife_family].Get_children()
+                wife_siblings = [child for child in wife_siblings if child != wife]
 
-            #iterate through husband_siblings and get each of their children
-            for sibling in husband_siblings:
-                sibling_spouses = individuals[sibling].Get_spouse()
+                #iterate through husband_siblings and get each of their children
+                if len(husband_siblings) > 0:
+                    for sibling in husband_siblings:
+                        sibling_spouses = individuals[sibling].Get_spouse()
 
-                #iterate through each family of the siblings and get the children 
-                for family in sibling_spouses:
-                    sibling_children = families[family].Get_children()
+                        #iterate through each family of the siblings and get the children 
+                        for family in sibling_spouses:
+                            sibling_children = families[family].Get_children()
 
-                    #check if wife ID in children
-                    if wife in sibling_children:
-                        resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband({husband}) married niece ({wife})")
-            
-            #iterate through wife_siblings and get each of their children
-            for sibling in wife_siblings:
-                sibling_spouses = individuals[sibling].Get_spouse()
+                            #check if wife ID in children
+                            if wife in sibling_children:
+                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband({husband}) married niece ({wife})")
+                
+                #iterate through wife_siblings and get each of their children
+                if len(wife_siblings) > 0:
+                    for sibling in wife_siblings:
+                        sibling_spouses = individuals[sibling].Get_spouse()
 
-                #iterate through each family of the siblings and get the children 
-                for family in sibling_spouses:
-                    sibling_children = families[family].Get_children()
+                        #iterate through each family of the siblings and get the children 
+                        for family in sibling_spouses:
+                            sibling_children = families[family].Get_children()
 
-                    #check if wife ID in children
-                    if husband in sibling_children:
-                        resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife({wife}) married nephew ({husband})")
+                            #check if wife ID in children
+                            if husband in sibling_children:
+                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife ({wife}) married nephew ({husband})")
 
     #print each output in the list and return list
     print_list(resultsList)
@@ -611,3 +616,4 @@ if __name__ == "__main__":
    userStory08("FamilyTree.ged")
    userStory09("FamilyTree.ged")
    userStory10("FamilyTree.ged")
+   userStory20("FamilyTree.ged")
