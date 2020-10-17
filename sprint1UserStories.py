@@ -540,6 +540,64 @@ def userStory10(file):
 ###################End of userStory10 ##################
 
 '''
+User story 19:
+Requirements: First cousins cannot marry
+Author: Zach 
+'''
+
+def userStory19(file):
+
+    #get individuals and families in file, create results 
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    #iterate through families 
+    for family_id, family in families.items():
+
+        #check for marriage
+        if family.Get_married() != "NA":
+
+            #store wife and husband id 
+            husband = family.Get_husbandID
+            wife = family.Get_wifeID
+
+            #find family ID of husband and wife as child
+            husband_family = individuals[husband].Get_child()[0]
+            wife_family = individuals[wife].Get_child()[0]
+
+            #find parents husband and wife 
+            husband_father = families[husband_family].Get_husbandID()
+            husband_mother = families[wife_family].Get_wifeID()
+            wife_father = families[wife_family].Get_husbandID()
+            wife_mother = families[wife_family].Get_wifeID()
+
+            #find families as children for each parent 
+            husband_father_family = individuals[husband_father].Get_child()
+            husband_mother_family = individuals[husband_mother].Get_child()
+            wife_father_family = individuals[wife_father].Get_child()
+            wife_mother_family = individuals[wife_mother].Get_child()
+
+            #check if any of the familes are equal
+            if husband_father_family == wife_father_family:
+                if husband_father_family != "NA":
+                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_father} and {wife_father}.")
+            elif husband_father_family == wife_mother_family:
+                if husband_father_family != "NA":
+                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_father} and {wife_mother}.")
+            elif husband_mother_family == wife_father_family:
+                if husband_mother_family != "NA":
+                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_mother} and {wife_father}.")
+            elif husband_mother_family == wife_mother_family:
+                if husband_mother_family != "NA":
+                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_mother} and {wife_mother}.")
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return resultsList 
+            
+###################End of userStory19 ##################
+
+'''
 User story 20:
 Requirement: Aunts and uncles cannot marry their nephews and nieces
 Author: Zach
@@ -616,4 +674,5 @@ if __name__ == "__main__":
    userStory08("FamilyTree.ged")
    userStory09("FamilyTree.ged")
    userStory10("FamilyTree.ged")
+   userStory19("FamilyTree.ged")
    userStory20("FamilyTree.ged")
