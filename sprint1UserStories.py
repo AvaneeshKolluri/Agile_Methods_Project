@@ -1,6 +1,7 @@
 from project2 import processGedFile
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
+from datetime import date
 import datetime
 
 
@@ -15,6 +16,8 @@ def months_between(start_date, end_date):
             num_months += 1
     return num_months
 
+def days_between(start_date, end_date):
+    num_days
 '''
 Bad Smell #1:
 Repetitive getting of date of death/birth of husband and wife from a family
@@ -482,6 +485,53 @@ def userStory10(file):
     return resultsList
 
 ###################End of userStory10 ##################
+
+'''
+User story 13:
+Requirements: Siblings should be either on (nearly) the same day or more than 8 months apart.
+Author: Erick
+'''
+
+def userStory13(file):
+
+    indiDict,famDict = processGedFile(file);
+    resultList = list();
+
+    IDList = [];
+    for index in famDict:
+        family = famDict[index]
+        famID = family.Get_ID();
+
+        children = family.Get_children();
+        if (len(children) < 2):
+            continue;
+        children = list(children);
+        children.sort();
+
+        x = 0;
+        while (x < len(children)-1):
+            child1 = indiDict[children[x]];
+
+            y = x + 1;
+            while (y < len(children)):
+                child2 = indiDict[children[y]];
+                birth1 = child1.Get_birthday();
+                birth2 = child2.Get_birthday();
+
+                diffMonths = abs(months_between(birth1,birth2));
+                diffDays = (birth1 - birth2).days;
+                invDiffDays = (birth2 - birth1).days
+                if (diffMonths < 8):
+                    if (diffDays > 1 or invDiffDays > 1):
+                        child1_ID = child1.Get_ID();
+                        child2_ID = child2.Get_ID();
+                        resultList.append(f"ERROR: INDIVIDUAL: US13: Family {famID} has two children ({child1_ID}, {child2_ID}) with implausible birth dates ({birth1}, {birth2})")
+                y += 1;
+            x += 1;
+
+    resultList.sort()
+    print_list(resultList);
+    return resultList
 
 '''
 User story 19:
