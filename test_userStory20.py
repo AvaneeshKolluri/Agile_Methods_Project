@@ -11,7 +11,6 @@ class UserStory20Test(unittest.TestCase):
 
     def test_userStory20_1(self):
 
-
         resultsList = userStory20('InputGedFiles/UserStory20_GED/FamilyTree.ged')
         self.assertEqual([], resultsList)
 

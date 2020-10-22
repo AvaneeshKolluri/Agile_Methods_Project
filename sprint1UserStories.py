@@ -558,38 +558,39 @@ def userStory19(file):
         if family.Get_married() != "NA":
 
             #store wife and husband id 
-            husband = family.Get_husbandID
-            wife = family.Get_wifeID
+            husband = family.Get_husbandID()
+            wife = family.Get_wifeID()
 
             #find family ID of husband and wife as child
-            husband_family = individuals[husband].Get_child()[0]
-            wife_family = individuals[wife].Get_child()[0]
-
+            husband_family = individuals[husband].Get_child()
+            wife_family = individuals[wife].Get_child()
+            
             #find parents husband and wife 
-            husband_father = families[husband_family].Get_husbandID()
-            husband_mother = families[wife_family].Get_wifeID()
-            wife_father = families[wife_family].Get_husbandID()
-            wife_mother = families[wife_family].Get_wifeID()
+            if len(husband_family) != 0 and len(wife_family) != 0:
+                husband_father = families[husband_family[0]].Get_husbandID()
+                husband_mother = families[husband_family[0]].Get_wifeID()
+                wife_father = families[wife_family[0]].Get_husbandID()
+                wife_mother = families[wife_family[0]].Get_wifeID()
 
-            #find families as children for each parent 
-            husband_father_family = individuals[husband_father].Get_child()
-            husband_mother_family = individuals[husband_mother].Get_child()
-            wife_father_family = individuals[wife_father].Get_child()
-            wife_mother_family = individuals[wife_mother].Get_child()
+                #find families as children for each parent 
+                husband_father_family = individuals[husband_father].Get_child()
+                husband_mother_family = individuals[husband_mother].Get_child()
+                wife_father_family = individuals[wife_father].Get_child()
+                wife_mother_family = individuals[wife_mother].Get_child()
 
-            #check if any of the familes are equal
-            if husband_father_family == wife_father_family:
-                if husband_father_family != "NA":
-                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_father} and {wife_father}.")
-            elif husband_father_family == wife_mother_family:
-                if husband_father_family != "NA":
-                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_father} and {wife_mother}.")
-            elif husband_mother_family == wife_father_family:
-                if husband_mother_family != "NA":
-                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_mother} and {wife_father}.")
-            elif husband_mother_family == wife_mother_family:
-                if husband_mother_family != "NA":
-                    resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband} and ({wife}) married. Children of siblings {husband_mother} and {wife_mother}.")
+                #check if any of the familes are equal
+                if husband_father_family == wife_father_family:
+                    if husband_father_family != "NA":
+                        resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_father} and {wife_father}.")
+                elif husband_father_family == wife_mother_family:
+                    if husband_father_family != "NA":
+                        resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_father} and {wife_mother}.")
+                elif husband_mother_family == wife_father_family:
+                    if husband_mother_family != "NA":
+                        resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband}) and {wife} married. Children of siblings {husband_mother} and {wife_father}.")
+                elif husband_mother_family == wife_mother_family:
+                    if husband_mother_family != "NA":
+                        resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_mother} and {wife_mother}.")
 
     #print each output in the list and return list
     print_list(resultsList)

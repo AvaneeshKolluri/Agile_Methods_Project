@@ -11,6 +11,8 @@ from test_userStory07 import TestUserStory07Class
 from test_userStory08 import TestUserStory08Class
 from test_userStory09 import TestUserStory09Class
 from test_userStory10 import TestUserStory10Class
+from test_userStory19 import UserStory19Test
+from test_userStory20 import UserStory20Test
 
 
 

@@ -10,6 +10,7 @@ from sprint1UserStories import userStory07
 from sprint1UserStories import userStory08
 from sprint1UserStories import userStory09
 from sprint1UserStories import userStory10
+from sprint1UserStories import userStory19
 from sprint1UserStories import userStory20
 
 def sprint1UserStories():
@@ -27,6 +28,8 @@ def sprint1UserStories():
     errorList.extend(userStory08(fileName))
     errorList.extend(userStory09(fileName))
     errorList.extend(userStory10(fileName))
+    errorList.extend(userStory19(fileName))
+    errorList.extend(userStory20(fileName))
     
 
     for eachError in errorList:
