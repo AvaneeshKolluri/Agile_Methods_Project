@@ -38,8 +38,8 @@ def get_husband_and_wife_dates(family, individuals, date_type):
 
 '''
 Bad Smell #2:
-Repetitive of printing output of list and returning list 
-Author: Zach George 
+Repetitive of printing output of list and returning list
+Author: Zach George
 '''
 # Print list
 def print_list(results):
@@ -166,46 +166,19 @@ def userStory03(file):
     resultList = list();
 
     for index in indiDict:
+
         individual = indiDict[index]
+
         if (individual.Get_death() == "NA"):
             continue;
-        deathDate = str(individual.Get_death());
-        birthDate = str(individual.Get_birthday());
+        deathDate = individual.Get_death();
+        birthDate = individual.Get_birthday();
 
-        countDeath = int(deathDate[:deathDate.find("-")])
-        countBirth = int(birthDate[:birthDate.find("-")])
-
-        if (countDeath < countBirth):
+        if (deathDate< birthDate):
             error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
             print(error);
             resultList.append(error)
             continue;
-        if (countDeath > countBirth):
-            continue;
-
-        deathDate = deathDate[deathDate.find("-") + 1:]
-        birthDate = birthDate[birthDate.find("-") + 1:]
-
-        countDeath = int(deathDate[:deathDate.find("-")])
-        countBirth = int(birthDate[:birthDate.find("-")])
-        if (countDeath < countBirth):
-            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
-            print(error);
-            resultList.append(error)
-            continue;
-        if (countDeath > countBirth):
-            continue;
-
-        deathDate = deathDate[deathDate.find("-") + 1:]
-        birthDate = birthDate[birthDate.find("-") + 1:]
-        countDeath = int(deathDate);
-        countBirth = int(birthDate);
-        if (countDeath < countBirth):
-            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
-            print(error);
-            resultList.append(error)
-            continue;
-
 
     # Print the information of validated data
     for output in resultList:
@@ -229,42 +202,13 @@ def userStory04(file):
         family = famDict[index]
         if (family.Get_divorced() == "NA"):
             continue;
-        divDate = str(family.Get_divorced());
-        marrDate = str(family.Get_married());
+        divDate = family.Get_divorced();
+        marrDate = family.Get_married();
 
-        countDiv = int(divDate[:divDate.find("-")])
-        countMarr = int(marrDate[:marrDate .find("-")])
-        if (countDiv < countMarr):
+        if (divDate < marrDate):
             error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
             resultList.append(error)
             continue;
-        if (countDiv > countMarr):
-            continue;
-
-        divDate = divDate[divDate.find("-") + 1:]
-        marrDate = marrDate[marrDate.find("-") + 1:]
-
-        countDiv = int(divDate[:divDate.find("-")])
-        countMarr = int(marrDate[:marrDate.find("-")])
-        if (countDiv < countMarr):
-            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
-            resultList.append(error)
-            continue;
-        if (countDiv > countMarr):
-            continue;
-
-        divDate = divDate[divDate.find("-") + 1:]
-        marrDate = marrDate[marrDate.find("-") + 1:]
-
-        countDiv = int(divDate);
-        countMarr = int(marrDate);
-        print(countDiv);
-        print(countMarr);
-        if (countDiv < countMarr):
-            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
-            resultList.append(error)
-            continue;
-
 
     # Print the information of validated data
     for output in resultList:
@@ -284,12 +228,12 @@ def userStory05(file):
     WisDead = False
     HisDead = False
     resultList = list()
-    
+
 
     for key in famDict:
         family = famDict[key]
         familyID = family.Get_ID()
-        
+
         if(famDict[key] != 'NA'):
             husbandID = str(famDict[familyID].Get_husbandID())
             wifeID = str(famDict[familyID].Get_wifeID())
@@ -314,7 +258,7 @@ def userStory05(file):
                # print("the husband is dead and the wedding date is after death")
                 result_1_str = "ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
                 resultList.append(result_1_str)
-            
+
     return resultList
 
 '''
@@ -327,12 +271,12 @@ def userStory06(file):
     WisDead = False
     HisDead = False
     resultList = list()
-    
+
 
     for key in famDict:
         family = famDict[key]
         familyID = family.Get_ID()
-        
+
         if(famDict[key] != 'NA'):
             husbandID = str(famDict[familyID].Get_husbandID())
             wifeID = str(famDict[familyID].Get_wifeID())
@@ -357,7 +301,7 @@ def userStory06(file):
                # print("the husband is dead and the divorce date is after death")
                 result_1_str = "ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
                 resultList.append(result_1_str)
-            
+
     return resultList
 
 '''
@@ -475,7 +419,7 @@ def userStory09(file):
 
         #iterate through families that are married
         if family.Get_married() != "NA":
-            
+
             #get husband and wife and their deaths
             husband, husband_death_date, wife, wife_death_date = get_husband_and_wife_dates(family, individuals, "death")
 
@@ -497,7 +441,7 @@ def userStory09(file):
                     if wife_death_date < child_birthdate:
                         resultsList.append(f"ERROR: FAMILY: US09: {family_id}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
-    #print each output in the list and return list 
+    #print each output in the list and return list
     print_list(resultsList)
     return resultsList
 
@@ -532,7 +476,7 @@ def userStory10(file):
                 resultsList.append(f"ERROR: FAMILY: US10: {family_id}: Husband ({husband}) birth date {husband_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
             if float(relativedelta(family_marriage_date, wife_birth_date).years) < float(14):
                 resultsList.append(f"ERROR: FAMILY: US10: {family_id}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
-        
+
     #print each output in the list and return list
     print_list(resultsList)
     return resultsList
@@ -542,37 +486,37 @@ def userStory10(file):
 '''
 User story 19:
 Requirements: First cousins cannot marry
-Author: Zach 
+Author: Zach
 '''
 
 def userStory19(file):
 
-    #get individuals and families in file, create results 
+    #get individuals and families in file, create results
     individuals, families = processGedFile(file)
     resultsList = list()
 
-    #iterate through families 
+    #iterate through families
     for family_id, family in families.items():
 
         #check for marriage
         if family.Get_married() != "NA":
 
-            #store wife and husband id 
+            #store wife and husband id
             husband = family.Get_husbandID()
             wife = family.Get_wifeID()
 
             #find family ID of husband and wife as child
             husband_family = individuals[husband].Get_child()
             wife_family = individuals[wife].Get_child()
-            
-            #find parents husband and wife 
+
+            #find parents husband and wife
             if len(husband_family) != 0 and len(wife_family) != 0:
                 husband_father = families[husband_family[0]].Get_husbandID()
                 husband_mother = families[husband_family[0]].Get_wifeID()
                 wife_father = families[wife_family[0]].Get_husbandID()
                 wife_mother = families[wife_family[0]].Get_wifeID()
 
-                #find families as children for each parent 
+                #find families as children for each parent
                 husband_father_family = individuals[husband_father].Get_child()
                 husband_mother_family = individuals[husband_mother].Get_child()
                 wife_father_family = individuals[wife_father].Get_child()
@@ -594,8 +538,8 @@ def userStory19(file):
 
     #print each output in the list and return list
     print_list(resultsList)
-    return resultsList 
-            
+    return resultsList
+
 ###################End of userStory19 ##################
 
 '''
@@ -618,7 +562,7 @@ def userStory20(file):
             husband = family.Get_husbandID()
             wife = family.Get_wifeID()
 
-            #get families of husband and wife as children 
+            #get families of husband and wife as children
             husband_family = individuals[husband].Get_child()
             wife_family = individuals[wife].Get_child()
 
@@ -636,20 +580,20 @@ def userStory20(file):
                     for sibling in husband_siblings:
                         sibling_spouses = individuals[sibling].Get_spouse()
 
-                        #iterate through each family of the siblings and get the children 
+                        #iterate through each family of the siblings and get the children
                         for family in sibling_spouses:
                             sibling_children = families[family].Get_children()
 
                             #check if wife ID in children
                             if wife in sibling_children:
                                 resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband ({husband}) married niece ({wife})")
-                
+
                 #iterate through wife_siblings and get each of their children
                 if len(wife_siblings) > 0:
                     for sibling in wife_siblings:
                         sibling_spouses = individuals[sibling].Get_spouse()
 
-                        #iterate through each family of the siblings and get the children 
+                        #iterate through each family of the siblings and get the children
                         for family in sibling_spouses:
                             sibling_children = families[family].Get_children()
 
@@ -659,7 +603,7 @@ def userStory20(file):
 
     #print each output in the list and return list
     print_list(resultsList)
-    return resultsList 
+    return resultsList
 
 ###################End of userStory20 ##################
 
