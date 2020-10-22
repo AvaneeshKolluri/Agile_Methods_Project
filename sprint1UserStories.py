@@ -497,7 +497,6 @@ def userStory13(file):
     indiDict,famDict = processGedFile(file);
     resultList = list();
 
-    IDList = [];
     for index in famDict:
         family = famDict[index]
         famID = family.Get_ID();
@@ -528,6 +527,51 @@ def userStory13(file):
                         resultList.append(f"ERROR: INDIVIDUAL: US13: Family {famID} has two children ({child1_ID}, {child2_ID}) with implausible birth dates ({birth1}, {birth2})")
                 y += 1;
             x += 1;
+
+    resultList.sort()
+    print_list(resultList);
+    return resultList
+
+'''
+User story 14:
+Requirements: Family cannot birth more than 5 people in one day.
+Author: Erick
+'''
+
+def userStory14(file):
+
+    indiDict,famDict = processGedFile(file);
+    resultList = list();
+
+    for index in famDict:
+        family = famDict[index]
+        famID = family.Get_ID();
+
+        children = family.Get_children();
+        if (len(children) < 5):
+            continue;
+        children = list(children);
+        children.sort();
+        errorChildren = [];
+        while len(children)>=5:
+            initialAge = indiDict[children[0]].Get_age();
+            currentErrorChildren = [];
+            count = 0;
+            for ID in children:
+                if ID in errorChildren:
+                    continue;
+                child = indiDict[ID];
+                if child.Get_age() == initialAge:
+                    currentErrorChildren.append(ID);
+                    count+= 1;
+            if count >= 5:
+                for entry in currentErrorChildren:
+                    if not entry in errorChildren:
+                        errorChildren.append(entry);
+                resultList.append(f"ERROR: FAMILY: US14: Family {famID} has {str(count)} children {errorChildren} born at the same time with age {str(initialAge)}.")
+                break;
+            children = children[1:];
+
 
     resultList.sort()
     print_list(resultList);
