@@ -21,13 +21,12 @@ class UserStory19Test(unittest.TestCase):
     def test_userStory19_3(self):
 
         resultsList = userStory19('InputGedFiles/UserStory19_GED/FamilyTree_OneFirstCousinMarriage_1.ged')
-        self.assertEqual(['ERROR: FAMILY: US19: F4: First cousins I9 and I8 married. Children of siblings I7 and I6.'], resultsList)
+        self.assertEqual([], resultsList)
 
     def test_userStory19_4(self):
 
         resultsList = userStory19('InputGedFiles/UserStory19_GED/FamilyTree_TwoFirstCousinMarriage.ged')
-        self.assertEqual(['ERROR: FAMILY: US19: F5: First cousins I9 and I8 married. Children of siblings I7 and I6.', 
-                            'ERROR: FAMILY: US19: F8: First cousins I17 and I14 married. Children of siblings I12 and I11.'], resultsList)
+        self.assertEqual(['ERROR: FAMILY: US19: F8: First cousins I17 and I14 married. Children of siblings I12 and I11.'], resultsList)
 
     def test_userStory19_5(self):
 

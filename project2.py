@@ -32,7 +32,7 @@ def printTablesData(indiDict_obj, famDict_obj):
     for id in famDict_obj:
         famData = famDict_obj[id]
         familyTable.add_row(famData.Get_details())
-    
+
     print("Individuals")
     print (indiTable)
     print("Families")
@@ -148,7 +148,6 @@ def processGedFile(file_path):
                 indiDict[myTag].Set_age(age)
 
         if(element.get_level() == 0 and element.get_tag() == "FAM"):
-            children = set()
             familyString = element.to_gedcom_string()
             familyString = familyString.replace('@','').strip().split(" ")
             famTag = familyString[1]
@@ -183,8 +182,7 @@ def processGedFile(file_path):
         if(element.get_level()==1 and element.get_tag()=="CHIL"):
             child = element.to_gedcom_string()
             child = child.replace('@','').strip().split(" ")[2]
-            children.add(child)
-            famDict[famTag].Set_children(set(children))
+            famDict[famTag].Set_children(child)
 
     return indiDict, famDict
 
@@ -197,4 +195,3 @@ if __name__ == "__main__":
     # Print indiDetails and Family details from processed ged file
     printTablesData(indiDetails, familyDetails)
     sys.stdout.close()
-

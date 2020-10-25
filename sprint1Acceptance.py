@@ -10,10 +10,13 @@ from sprint1UserStories import userStory07
 from sprint1UserStories import userStory08
 from sprint1UserStories import userStory09
 from sprint1UserStories import userStory10
+from sprint1UserStories import userStory13
+from sprint1UserStories import userStory14
+from sprint1UserStories import userStory18
 from sprint1UserStories import userStory19
 from sprint1UserStories import userStory20
 
-def sprint1UserStories():
+def sprint1n2UserStories():
     fileName="InputGedFiles/SprintAcceptance/testSprint1Acceptance.ged"
     indiObj,familyObj = processGedFile(fileName)
     indiTable,familyTable= printTablesData(indiObj, familyObj)
@@ -30,12 +33,12 @@ def sprint1UserStories():
     errorList.extend(userStory10(fileName))
     errorList.extend(userStory19(fileName))
     errorList.extend(userStory20(fileName))
-    
+
 
     for eachError in errorList:
        print(eachError)
 
-    with open('sprint1Output.txt','w') as file:
+    with open('sprint1n2Output.txt','w') as file:
         file.write('\n\nIndividuals Information----------------------->\n')
         file.write(indiTable.get_string())
         file.write("\n")
@@ -44,7 +47,7 @@ def sprint1UserStories():
         file.write("\n")
         for eachError in errorList:
             file.write(eachError+"\n")
-        
-        
+
+
 if __name__ == "__main__":
-    sprint1UserStories()
+    sprint1n2UserStories()

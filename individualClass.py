@@ -60,9 +60,13 @@ class individualClass(object):
         return self.Death
 
     def Get_child(self):
+        if(self.Child == []):
+            return 'NA'
         return self.Child
 
     def Get_spouse(self):
+        if(self.Spouse == []):
+            return 'NA'
         return self.Spouse
 
     def Get_details(self):

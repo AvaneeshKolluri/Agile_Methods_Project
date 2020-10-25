@@ -1,0 +1,72 @@
+
+
+Individuals Information----------------------->
++-----+------------------------------+--------+------------+-----+-------+------------+--------+--------------+
+|  ID |             Name             | Gender |  Birthday  | Age | Alive |   Death    | Child  |    Spouse    |
++-----+------------------------------+--------+------------+-----+-------+------------+--------+--------------+
+|  I1 |    Willard Carroll Smith     |   M    | 1981-08-12 |  39 |  True |     NA     | ['F3'] | ['F1', 'F2'] |
+|  I2 |      Jada Koren Pinkett      |   F    | 1986-01-18 |  34 |  True |     NA     |   NA   |    ['F1']    |
+|  I3 |        Sheree Zampino        |   F    | 1867-11-16 | 152 | False | 2020-03-17 |   NA   |    ['F2']    |
+|  I4 |          Trey Smith          |   M    | 2022-12-11 |  0  | False | 2023-06-12 | ['F2'] |    ['F4']    |
+|  I5 | Jaden Christopher Syre Smith |   M    | 2000-07-08 |  20 |  True |     NA     | ['F1'] |      NA      |
+|  I6 |  Willow Camille Reign Smith  |   F    | 1999-10-31 |  20 |  True |     NA     | ['F1'] |      NA      |
+|  I7 |       Caroline Bright        |   F    | 1961-03-20 |  38 | False | 1999-03-21 |   NA   |    ['F3']    |
+|  I8 |       Willard Sr Smith       |   M    | 1961-01-12 |  -5 | False | 1956-02-27 |   NA   |    ['F3']    |
+|  I9 |         Eva Emshoff          |   F    | 2010-01-04 |  10 |  True |     NA     |   NA   |    ['F4']    |
+| I10 |          Dave Smith          |   M    | 2019-01-01 |  1  |  True |     NA     | ['F1'] |    ['F5']    |
+| I11 |        Shelby Carter         |   F    | 2020-01-01 |  0  |  True |     NA     |   NA   |    ['F5']    |
+| I12 |        Particia Smith        |   F    | 1851-12-03 | 168 |  True |     NA     | ['F5'] |      NA      |
+| I13 |         Elicia Smith         |   F    | 1752-12-04 | 262 | False | 2015-06-08 | ['F5'] |      NA      |
+| I14 |         Rivera Smith         |   M    | 2019-12-09 |  0  |  True |     NA     | ['F4'] |    ['F6']    |
+| I15 |         Lisha Oliver         |   F    | 2019-12-08 |  0  |  True |     NA     |   NA   |    ['F6']    |
++-----+------------------------------+--------+------------+-----+-------+------------+--------+--------------+
+
+
+Family Information----------------------->
++----+------------+------------+------------+-----------------------+---------+--------------------+---------------------+
+| ID |  Married   |  Divorced  | Husband ID |      Husband Name     | Wife ID |     Wife Name      |       Children      |
++----+------------+------------+------------+-----------------------+---------+--------------------+---------------------+
+| F1 | 1997-12-31 |     NA     |     I1     | Willard Carroll Smith |    I2   | Jada Koren Pinkett | ['I5', 'I6', 'I10'] |
+| F2 | 1992-05-09 | 1995-12-10 |     I1     | Willard Carroll Smith |    I3   |   Sheree Zampino   |        ['I4']       |
+| F3 | 1979-03-11 | 1999-07-11 |     I8     |    Willard Sr Smith   |    I7   |  Caroline Bright   |        ['I1']       |
+| F4 | 2023-07-06 | 2021-08-09 |     I4     |       Trey Smith      |    I9   |    Eva Emshoff     |       ['I14']       |
+| F5 | 2017-07-11 |     NA     |    I10     |       Dave Smith      |   I11   |   Shelby Carter    |    ['I12', 'I13']   |
+| F6 | 2018-08-10 | 2019-08-11 |    I14     |      Rivera Smith     |   I15   |    Lisha Oliver    |          []         |
++----+------------+------------+------------+-----------------------+---------+--------------------+---------------------+
+ERROR: INDIVIDUAL: US01: I4: Marriage 2023-07-06 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Divorce 2021-08-09 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Birthday 2022-12-11 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Death 2023-06-12 occurs in the future
+ERROR: INDIVIDUAL: US01: I9: Marriage 2023-07-06 occurs in the future
+ERROR: INDIVIDUAL: US01: I9: Divorce 2021-08-09 occurs in the future
+ERROR: FAMILY: US02: I10: Husband's birth date 2019-01-01 is after marriage date 2017-07-11
+ERROR: FAMILY: US02: I11: Wife's birth date 2020-01-01 is after marriage date 2017-07-11
+ERROR: FAMILY: US02: I14: Husband's birth date 2019-12-09 is after marriage date 2018-08-10
+ERROR: FAMILY: US02: I15: Wife's birth date 2019-12-08 is after marriage date 2018-08-10
+ERROR: INDIVIDUAL: US03: I8 Death date occurs before birth date - Birth 1961-01-12: Death 1956-02-27
+ERROR: FAMILY: US04: F4 Divorce date occurs before marriage date - Marriage 2023-07-06: Divorce 2021-08-09
+ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: 1979-03-11 Husband Death: 1956-02-27
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2023-07-06 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: 2023-07-06 Husband Death: 2023-06-12
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2017-07-11 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2018-08-10 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 1999-07-11 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: 1999-07-11 Husband Death: 1956-02-27
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 2021-08-09 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 2019-08-11 Wife Death: 1999-03-21
+ERROR: INDIVIDUAL: US07: I3 More than 150 years old at death - Birth 1867-11-16: Death 2020-03-17
+ERROR: INDIVIDUAL: US07: I12 More than 150 years old - Birth date 1851-12-03
+ERROR: INDIVIDUAL: US07: I13 More than 150 years old at death - Birth 1752-12-04: Death 2015-06-08
+ANOMALY: FAMILY: US08: F2: Child I4 born 2022-12-11 after divorce on 1995-12-10
+ANOMALY: FAMILY: US08: F4: Child I14 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I12 born 1851-12-03 before marriage on 2017-07-11
+ANOMALY: FAMILY: US08: F5: Child I13 born 1752-12-04 before marriage on 2017-07-11
+ERROR: FAMILY: US09: F3: Husband (I8) died 1956-02-27 before child's (I1) birth 1981-08-12
+ERROR: FAMILY: US10: F1: Wife (I2) birth date 1986-01-18 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US10: F2: Husband (I1) birth date 1981-08-12 not at least 14 years prior to marriage date 1992-05-09
+ERROR: FAMILY: US10: F4: Husband (I4) birth date 2022-12-11 not at least 14 years prior to marriage date 2023-07-06
+ERROR: FAMILY: US10: F4: Wife (I9) birth date 2010-01-04 not at least 14 years prior to marriage date 2023-07-06
+ERROR: FAMILY: US10: F5: Husband (I10) birth date 2019-01-01 not at least 14 years prior to marriage date 2017-07-11
+ERROR: FAMILY: US10: F5: Wife (I11) birth date 2020-01-01 not at least 14 years prior to marriage date 2017-07-11
+ERROR: FAMILY: US10: F6: Husband (I14) birth date 2019-12-09 not at least 14 years prior to marriage date 2018-08-10
+ERROR: FAMILY: US10: F6: Wife (I15) birth date 2019-12-08 not at least 14 years prior to marriage date 2018-08-10

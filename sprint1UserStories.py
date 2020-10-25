@@ -70,34 +70,35 @@ def userStory01(file): #info, famtbl
         user = info[key]
         fam = user.Get_spouse()
         individualID = user.Get_ID()
-        for i in range(len(fam)):
-            marr = famtbl[fam[i]].Get_married()
-            if(marr != 'NA'):
-                marriage = current > marr
-                #Do something
-                if(marriage == False):
-                    result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Marriage {marr} occurs in the future"
-                    resultList.append(result_1_str)
-                #mlst += [marriage]
-        for i in range(len(fam)):
-            div = famtbl[fam[i]].Get_divorced()
-            if(div != 'NA'):
-                divorced = current > div
-                #Do something
-                if(divorced == False):
-                    result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Divorce {div} occurs in the future"
-                    resultList.append(result_1_str)
-        bday = current > user.Get_birthday()
-        if(bday == False):
-            result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Birthday {user.Get_birthday()} occurs in the future"
-            resultList.append(result_1_str)
-        #Do something
-        if(user.Get_death() != 'NA'):
-            death = current > user.Get_death()
-            #Do something
-            if(death == False):
-                result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Death {user.Get_death()} occurs in the future"
+        if fam != 'NA':
+            for i in range(len(fam)):
+                marr = famtbl[fam[i]].Get_married()
+                if(marr != 'NA'):
+                    marriage = current > marr
+                    #Do something
+                    if(marriage == False):
+                        result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Marriage {marr} occurs in the future"
+                        resultList.append(result_1_str)
+                    #mlst += [marriage]
+            for i in range(len(fam)):
+                div = famtbl[fam[i]].Get_divorced()
+                if(div != 'NA'):
+                    divorced = current > div
+                    #Do something
+                    if(divorced == False):
+                        result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Divorce {div} occurs in the future"
+                        resultList.append(result_1_str)
+            bday = current > user.Get_birthday()
+            if(bday == False):
+                result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Birthday {user.Get_birthday()} occurs in the future"
                 resultList.append(result_1_str)
+            #Do something
+            if(user.Get_death() != 'NA'):
+                death = current > user.Get_death()
+                #Do something
+                if(death == False):
+                    result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Death {user.Get_death()} occurs in the future"
+                    resultList.append(result_1_str)
     for output in resultList:
         print(output)
     return resultList
@@ -240,27 +241,27 @@ def userStory05(file):
         if(famDict[key] != 'NA'):
             husbandID = str(famDict[familyID].Get_husbandID())
             wifeID = str(famDict[familyID].Get_wifeID())
+            if(husbandID != 'NA' and wifeID != 'NA'):
+                if(indiDict[husbandID].Get_death() != 'NA'):
+                    husbandDeath = indiDict[husbandID].Get_death()
+                    HisDead = True
+                    #print(type(husbandDeath))
+                if(indiDict[wifeID].Get_death() != 'NA'):
+                    wifeDeath = indiDict[wifeID].Get_death()
+                    WisDead = True
+                    #print(type(wifeDeath))
+                if(famDict[familyID].Get_married() != "NA"):
+                    marriedDate = famDict[familyID].Get_married()
 
-            if(indiDict[husbandID].Get_death() != 'NA'):
-                husbandDeath = indiDict[husbandID].Get_death()
-                HisDead = True
-                #print(type(husbandDeath))
-            if(indiDict[wifeID].Get_death() != 'NA'):
-                wifeDeath = indiDict[wifeID].Get_death()
-                WisDead = True
-                #print(type(wifeDeath))
-            if(famDict[familyID].Get_married() != "NA"):
-                marriedDate = famDict[familyID].Get_married()
+                if(WisDead and marriedDate>wifeDeath):
+                    #print("the wife is dead and the wedding date is after death")
+                    result_1_str = "ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Wife Death: " + str(wifeDeath)
+                    resultList.append(result_1_str)
 
-            if(WisDead and marriedDate>wifeDeath):
-                #print("the wife is dead and the wedding date is after death")
-                result_1_str = "ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Wife Death: " + str(wifeDeath)
-                resultList.append(result_1_str)
-
-            if(HisDead and marriedDate>husbandDeath):
-               # print("the husband is dead and the wedding date is after death")
-                result_1_str = "ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
-                resultList.append(result_1_str)
+                if(HisDead and marriedDate>husbandDeath):
+                   # print("the husband is dead and the wedding date is after death")
+                    result_1_str = "ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
+                    resultList.append(result_1_str)
 
     return resultList
 
@@ -284,26 +285,27 @@ def userStory06(file):
             husbandID = str(famDict[familyID].Get_husbandID())
             wifeID = str(famDict[familyID].Get_wifeID())
 
-            if(indiDict[husbandID].Get_death() != 'NA'):
-                husbandDeath = indiDict[husbandID].Get_death()
-                HisDead = True
-                #print(type(husbandDeath))
-            if(indiDict[wifeID].Get_death() != 'NA'):
-                wifeDeath = indiDict[wifeID].Get_death()
-                WisDead = True
-                #print(type(wifeDeath))
-            if(famDict[familyID].Get_divorced() != "NA"):
-                divorcedDate = famDict[familyID].Get_divorced()
+            if(husbandID != 'NA' and wifeID != 'NA'):
+                if(indiDict[husbandID].Get_death() != 'NA'):
+                    husbandDeath = indiDict[husbandID].Get_death()
+                    HisDead = True
+                    #print(type(husbandDeath))
+                if(indiDict[wifeID].Get_death() != 'NA'):
+                    wifeDeath = indiDict[wifeID].Get_death()
+                    WisDead = True
+                    #print(type(wifeDeath))
+                if(famDict[familyID].Get_divorced() != "NA"):
+                    divorcedDate = famDict[familyID].Get_divorced()
 
-            if(WisDead and divorcedDate>wifeDeath):
-                #print("the wife is dead and the divorce date is after death")
-                result_1_str = "ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
-                resultList.append(result_1_str)
+                    if(WisDead and divorcedDate > wifeDeath):
+                        #print("the wife is dead and the divorce date is after death")
+                        result_1_str = "ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
+                        resultList.append(result_1_str)
 
-            if(HisDead and divorcedDate>husbandDeath):
-               # print("the husband is dead and the divorce date is after death")
-                result_1_str = "ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
-                resultList.append(result_1_str)
+                    if(HisDead and divorcedDate>husbandDeath):
+                       # print("the husband is dead and the divorce date is after death")
+                        result_1_str = "ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
+                        resultList.append(result_1_str)
 
     return resultList
 
@@ -531,6 +533,7 @@ def userStory13(file):
     resultList.sort()
     print_list(resultList);
     return resultList
+###################End of userStory13 ##################
 
 '''
 User story 14:
@@ -576,6 +579,87 @@ def userStory14(file):
     resultList.sort()
     print_list(resultList);
     return resultList
+###################End of userStory14 ##################
+
+
+'''
+User story 18:
+Requirement: Siblings should not marry one another
+Author: Srikanth
+'''
+
+def userStory18(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict = processGedFile(file)
+
+    # Create a list of
+    resultsList = list()
+
+    # Capture lists of siblings marriage to avoid duplicates
+    duplicateslist= list()
+    # iterate through families
+    for key, index in famDict.items():
+        # Get Wife Id from family
+        wifeID = famDict[key].Get_wifeID()
+        # Get Husband Id from family
+        husbandID = famDict[key].Get_husbandID()
+
+        if wifeID != "NA" and husbandID != "NA":
+            # Get wife's parent's Family ID
+            wifeParentFamID = indiDict[wifeID].Get_child()
+            # Get husband's parent's Family ID
+            HusbandParentFamID = indiDict[husbandID].Get_child()
+
+            # Check If both parent ID 's are matching, if so siblings got married
+            if wifeParentFamID == HusbandParentFamID and wifeParentFamID != "NA" and HusbandParentFamID != "NA":
+                if wifeID not in duplicateslist:
+                    # Record error if a person's Family ID is equal to a sibling's family ID, this means both are married
+                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                    resultsList.append(result_1_str)
+                    duplicateslist.append(wifeID)
+            else:
+                # Check if Half siblings got married
+                if wifeParentFamID != "NA" and HusbandParentFamID != "NA":
+                    # Get Husband's father's spouse ID
+                    HusbFatherFamID = famDict[HusbandParentFamID[0]].Get_husbandID()
+                    HusbFatherFamilies = indiDict[HusbFatherFamID].Get_spouse()
+                    # Get Wifes's Mother's spouse ID
+                    wifeMotherFamID = famDict[wifeParentFamID[0]].Get_wifeID()
+                    wifeMotherFamilies = indiDict[wifeMotherFamID].Get_spouse()
+
+                    # check if a person's father got married to a person's wife's mother.
+                    for hubFatherFamily in HusbFatherFamilies:
+                        for wifeMotherfamily in wifeMotherFamilies:
+                            if hubFatherFamily == wifeMotherfamily and hubFatherFamily != "NA" and wifeMotherfamily != "NA":
+                                if wifeID not in duplicateslist:
+                                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                                    resultsList.append(result_1_str)
+                                    duplicateslist.append(wifeID)
+
+                    # Get Husband's Mother's spouse ID
+                    HusbMotherFamID = famDict[HusbandParentFamID[0]].Get_wifeID()
+                    HusbMotherFamilies = indiDict[HusbMotherFamID].Get_spouse()
+                    # Get Wifes's Father's spouse ID
+                    wifeFatherFamID = famDict[wifeParentFamID[0]].Get_husbandID()
+                    wifeFatherFamilies = indiDict[wifeFatherFamID].Get_spouse()
+
+                    # check if a person's Mother got married to a person's wife's father.
+                    for hubMotherfamily in HusbMotherFamilies:
+                        for wifeFatherfamily in wifeFatherFamilies:
+                            if hubMotherfamily == wifeFatherfamily and wifeFatherfamily != "NA" and hubMotherfamily != "NA":
+                                if wifeID not in duplicateslist:
+                                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                                    resultsList.append(result_1_str)
+                                    duplicateslist.append(wifeID)
+
+    # Print the information of validated data
+    print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory18 ##################
+
 
 '''
 User story 19:
@@ -604,7 +688,7 @@ def userStory19(file):
             wife_family = individuals[wife].Get_child()
 
             #find parents husband and wife
-            if len(husband_family) != 0 and len(wife_family) != 0:
+            if len(husband_family) != 0 and len(wife_family) != 0 and husband_family !='NA' and wife_family != 'NA':
                 husband_father = families[husband_family[0]].Get_husbandID()
                 husband_mother = families[husband_family[0]].Get_wifeID()
                 wife_father = families[wife_family[0]].Get_husbandID()
@@ -632,6 +716,7 @@ def userStory19(file):
 
     #print each output in the list and return list
     print_list(resultsList)
+    resultsList.sort()
     return resultsList
 
 ###################End of userStory19 ##################
@@ -661,7 +746,7 @@ def userStory20(file):
             wife_family = individuals[wife].Get_child()
 
             #get children (other siblings of each spouse)
-            if len(husband_family) != 0 and len(wife_family) != 0:
+            if len(husband_family) != 0 and len(wife_family) != 0 and husband_family !='NA' and wife_family != 'NA':
                 husband_family = husband_family[0]
                 wife_family = wife_family[0]
                 husband_siblings = families[husband_family].Get_children()
@@ -673,27 +758,28 @@ def userStory20(file):
                 if len(husband_siblings) > 0:
                     for sibling in husband_siblings:
                         sibling_spouses = individuals[sibling].Get_spouse()
+                        if sibling_spouses != 'NA':
+                            #iterate through each family of the siblings and get the children
+                            for family in sibling_spouses:
+                                sibling_children = families[family].Get_children()
 
-                        #iterate through each family of the siblings and get the children
-                        for family in sibling_spouses:
-                            sibling_children = families[family].Get_children()
-
-                            #check if wife ID in children
-                            if wife in sibling_children:
-                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband ({husband}) married niece ({wife})")
+                                #check if wife ID in children
+                                if wife in sibling_children:
+                                    resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband ({husband}) married niece ({wife})")
 
                 #iterate through wife_siblings and get each of their children
                 if len(wife_siblings) > 0:
                     for sibling in wife_siblings:
                         sibling_spouses = individuals[sibling].Get_spouse()
 
-                        #iterate through each family of the siblings and get the children
-                        for family in sibling_spouses:
-                            sibling_children = families[family].Get_children()
+                        if sibling_spouses != 'NA':
+                            #iterate through each family of the siblings and get the children
+                            for family in sibling_spouses:
+                                sibling_children = families[family].Get_children()
 
-                            #check if wife ID in children
-                            if husband in sibling_children:
-                                resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife ({wife}) married nephew ({husband})")
+                                #check if wife ID in children
+                                if husband in sibling_children:
+                                    resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife ({wife}) married nephew ({husband})")
 
     #print each output in the list and return list
     print_list(resultsList)
@@ -703,15 +789,18 @@ def userStory20(file):
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   userStory01("FamilyTree.ged")
-   userStory02("FamilyTree.ged")
-   userStory03("FamilyTree.ged")
-   userStory04("FamilyTree.ged")
-   userStory05("FamilyTree.ged")
-   userStory06("FamilyTree.ged")
-   userStory07("FamilyTree.ged")
-   userStory08("FamilyTree.ged")
-   userStory09("FamilyTree.ged")
-   userStory10("FamilyTree.ged")
-   userStory19("FamilyTree.ged")
-   userStory20("FamilyTree.ged")
+   userStory01("InputGedFiles/FamilyTree.ged")
+   userStory02("InputGedFiles/FamilyTree.ged")
+   userStory03("InputGedFiles/FamilyTree.ged")
+   userStory04("InputGedFiles/FamilyTree.ged")
+   userStory05("InputGedFiles/FamilyTree.ged")
+   userStory06("InputGedFiles/FamilyTree.ged")
+   userStory07("InputGedFiles/FamilyTree.ged")
+   userStory08("InputGedFiles/FamilyTree.ged")
+   userStory09("InputGedFiles/FamilyTree.ged")
+   userStory10("InputGedFiles/FamilyTree.ged")
+   userStory13("InputGedFiles/FamilyTree.ged")
+   userStory14("InputGedFiles/FamilyTree.ged")
+   userStory18("InputGedFiles/FamilyTree.ged")
+   userStory19("InputGedFiles/FamilyTree.ged")
+   userStory20("InputGedFiles/FamilyTree.ged")
