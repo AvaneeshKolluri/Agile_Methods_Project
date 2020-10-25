@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">Unittest Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-10-21 22:24:12</p>
-                <p class='attribute'><strong>Duration: </strong>9 ms</p>
-                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Error: 1</p>
+                <p class='attribute'><strong>Start Time: </strong>2020-10-25 00:50:18</p>
+                <p class='attribute'><strong>Duration: </strong>4 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 2</p>
             </div>
         </div>
         <div class="row">
@@ -21,36 +21,45 @@
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>__main__.UserStory19Test</th>
+                            <th>test_userStory18.TestUserStory18Class</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class='warning'>
-                            <td class="col-xs-10">test_userStory19_1</td>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory18_1</td>
                             <td class="col-xs-1">
-                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
                             </td>
                             <td class="col-xs-1">
                                 <button class="btn btn-default btn-xs">View</button>
                             </td>
                         </tr>
                         <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p>[]
-[]
-</p><p style="color:maroon;">TypeError: unhashable type: 'list'</p><p style="color:maroon;">Traceback (most recent call last):
-  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory19.py", line 14, in test_userStory19_1
-    resultsList = userStory19('InputGedFiles/UserStory19_GED/FamilyTree.ged')
-  File "c:\Users\ztyle\Documents\SSW 555\SSW_555_Project_Master\Agile_Methods_Project\sprint1UserStories.py", line 571, in userStory19
-    husband_father = families[husband_family].Get_husbandID()
-TypeError: unhashable type: 'list'
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US18 : Sibling Id:I4,name:Julia Anniston and Individual Id:I3,name:Michael Anniston are married
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory18_2</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US18 : Sibling Id:I4,name:Julia Anniston and Individual Id:I3,name:Michael Anniston are married
+ERROR: FAMILY: US18 : Sibling Id:I5,name:Rose Anniston and Individual Id:I8,name:Romeo Bell are married
+ERROR: FAMILY: US18 : Sibling Id:I6,name:Lilly Anniston and Individual Id:I10,name:Robin Bell are married
 </p>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 1, Pass: 0, Error: 1 -- Duration: 9 ms
+                                Total: 2, Pass: 2 -- Duration: 4 ms
                             </td>
                         </tr>
                     </tbody>

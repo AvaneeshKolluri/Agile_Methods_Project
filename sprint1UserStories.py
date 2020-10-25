@@ -345,8 +345,7 @@ def userStory07(file):
                 resultList.append(result_2_str)
 
     # Print the information of validated data
-    for output in resultList:
-        print(output)
+    print_list(resultList)
 
     # return the list of validated data
     return resultList
@@ -378,6 +377,9 @@ def userStory08(file):
         # get family divorce
         divorce = famDict[index].Get_divorced()
 
+        if children == "NA":
+            continue
+
         # iterate through children
         for i in children:
             # get each child's bday
@@ -398,8 +400,7 @@ def userStory08(file):
                     resultList.append(result_2_str)
 
     # Print the information of validated data
-    for output in resultList:
-        print(output)
+    print_list(resultList)
 
     resultList.sort()
     # return the list of validated data
@@ -504,6 +505,10 @@ def userStory13(file):
         famID = family.Get_ID();
 
         children = family.Get_children();
+
+        if children == "NA":
+            continue
+
         if (len(children) < 2):
             continue;
         children = list(children);
@@ -581,7 +586,65 @@ def userStory14(file):
     return resultList
 ###################End of userStory14 ##################
 
+'''
+User story 17:
+Requirement: Parents should not marry any of their descendants
+Note: Parents shouldn't marry their children
+Author: Srikanth
+'''
+def userStory17(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict = processGedFile(file)
 
+    # Create a list of
+    resultsList = list()
+
+    # Loop through all families
+    for familyID in famDict:
+        # fetch all the children in a family
+        children = famDict[familyID].Get_children()
+
+        # Ignore the below process if the no children in a family
+        if children == 'NA':
+            continue
+        # For each child in a family
+        for child in children:
+            # Fetch all the families of a child's spouse
+            if indiDict[child].Get_spouse():
+                if indiDict[child].Get_spouse() != 'NA':
+                    spouseFamilies = indiDict[child].Get_spouse()
+                else:
+                    continue
+                # For each family of a child's spouse
+                for spouseFamily in spouseFamilies:
+                    # Check if the child's spouse is his mother, if so capture the error
+                    if indiDict[child].Get_gender() != 'NA':
+                        if indiDict[child].Get_gender() == 'M':
+                            if famDict[spouseFamily].Get_wifeID() != 'NA':
+                                spouseID = famDict[spouseFamily].Get_wifeID()
+                            if famDict[familyID].Get_wifeID() != 'NA':
+                                childMother = famDict[familyID].Get_wifeID()
+                            if spouseID == childMother:
+                                result_1_str = f"ERROR: FAMILY: US17: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
+                                resultsList.append(result_1_str)
+
+                        else:
+                            # Check if the child's spouse is her father, if so capture the error
+                            if famDict[spouseFamily].Get_husbandID() != 'NA':
+                                spouseID = famDict[spouseFamily].Get_husbandID()
+                            if famDict[familyID].Get_husbandID() != 'NA':
+                                childFather = famDict[familyID].Get_husbandID()
+                            if spouseID == childFather:
+                                result_1_str = f"ERROR: FAMILY: US17: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
+                                resultsList.append(result_1_str)
+
+    # Print the information of validated data
+    print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory17 ##################
 '''
 User story 18:
 Requirement: Siblings should not marry one another
@@ -801,6 +864,7 @@ if __name__ == "__main__":
    userStory10("InputGedFiles/FamilyTree.ged")
    userStory13("InputGedFiles/FamilyTree.ged")
    userStory14("InputGedFiles/FamilyTree.ged")
+   userStory17("InputGedFiles/FamilyTree.ged")
    userStory18("InputGedFiles/FamilyTree.ged")
    userStory19("InputGedFiles/FamilyTree.ged")
    userStory20("InputGedFiles/FamilyTree.ged")

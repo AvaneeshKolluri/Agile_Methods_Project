@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">Unittest Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-10-21 22:19:07</p>
-                <p class='attribute'><strong>Duration: </strong>18 ms</p>
-                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Error: 1</p>
+                <p class='attribute'><strong>Start Time: </strong>2020-10-25 00:50:18</p>
+                <p class='attribute'><strong>Duration: </strong>2 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 2</p>
             </div>
         </div>
         <div class="row">
@@ -21,34 +21,43 @@
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>__main__.UserStory19Test</th>
+                            <th>test_userStory17.TestUserStory17Class</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class='warning'>
-                            <td class="col-xs-10">test_userStory19_1</td>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory17_1</td>
                             <td class="col-xs-1">
-                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
                             </td>
                             <td class="col-xs-1">
                                 <button class="btn btn-default btn-xs">View</button>
                             </td>
                         </tr>
                         <tr style="display:none;">
-                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">KeyError: <bound method familyClass.Get_husbandID of <familyClass.familyClass object at 0x000002DE68D3B5E0>></p><p style="color:maroon;">Traceback (most recent call last):
-  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory19.py", line 14, in test_userStory19_1
-    resultsList = userStory19('InputGedFiles/UserStory19_GED/FamilyTree.ged')
-  File "c:\Users\ztyle\Documents\SSW 555\SSW_555_Project_Master\Agile_Methods_Project\sprint1UserStories.py", line 565, in userStory19
-    husband_family = individuals[husband].Get_child()[0]
-KeyError: <bound method familyClass.Get_husbandID of <familyClass.familyClass object at 0x000002DE68D3B5E0>>
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US17: F2 Parents should not marry their descendants
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory17_2</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US17: F1 Parents should not marry their descendants
 </p>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 1, Pass: 0, Error: 1 -- Duration: 18 ms
+                                Total: 2, Pass: 2 -- Duration: 2 ms
                             </td>
                         </tr>
                     </tbody>

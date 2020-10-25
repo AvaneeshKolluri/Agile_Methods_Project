@@ -3,3 +3,5 @@ InputGedFiles/.DS_Store
 *.pyc
 *.pyc
 .DS_Store
+.idea/Agile_Methods_Project.iml
+*.xml

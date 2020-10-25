@@ -56,6 +56,8 @@ class familyClass(object):
         return self.WifeName
 
     def Get_children(self):
+        if(self.Children == []):
+            return 'NA'
         return self.Children
 
     def Get_details(self):
