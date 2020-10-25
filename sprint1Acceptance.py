@@ -10,6 +10,8 @@ from sprint1UserStories import userStory07
 from sprint1UserStories import userStory08
 from sprint1UserStories import userStory09
 from sprint1UserStories import userStory10
+from sprint1UserStories import userStory11
+from sprint1UserStories import userStory12
 from sprint1UserStories import userStory13
 from sprint1UserStories import userStory14
 from sprint1UserStories import userStory17
@@ -32,6 +34,8 @@ def sprint1n2UserStories():
     errorList.extend(userStory08(fileName))
     errorList.extend(userStory09(fileName))
     errorList.extend(userStory10(fileName))
+    errorList.extend(userStory11(fileName))
+    errorList.extend(userStory12(fileName))
     errorList.extend(userStory13(fileName))
     errorList.extend(userStory14(fileName))
     errorList.extend(userStory17(fileName))

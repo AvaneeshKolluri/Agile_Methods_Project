@@ -70,3 +70,4 @@ ERROR: FAMILY: US10: F5: Husband (I10) birth date 2019-01-01 not at least 14 yea
 ERROR: FAMILY: US10: F5: Wife (I11) birth date 2020-01-01 not at least 14 years prior to marriage date 2017-07-11
 ERROR: FAMILY: US10: F6: Husband (I14) birth date 2019-12-09 not at least 14 years prior to marriage date 2018-08-10
 ERROR: FAMILY: US10: F6: Wife (I15) birth date 2019-12-08 not at least 14 years prior to marriage date 2018-08-10
+ERROR: INDIVIDUAL: US12: I3: Mother I3 is more than 60 years older than her child (I4): Trey Smith.

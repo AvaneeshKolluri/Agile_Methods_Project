@@ -3,7 +3,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from datetime import date
 import datetime
-
+from dateutil import relativedelta as rdelta
 
 '''
 All Utility Functions are Below:
@@ -16,8 +16,8 @@ def months_between(start_date, end_date):
             num_months += 1
     return num_months
 
-def days_between(start_date, end_date):
-    num_days
+def exactDateDifference(newer, older):  # newer - older
+    return rdelta.relativedelta(newer,older)
 '''
 Bad Smell #1:
 Repetitive getting of date of death/birth of husband and wife from a family
@@ -490,6 +490,87 @@ def userStory10(file):
 ###################End of userStory10 ##################
 
 '''
+User story 11:
+Requirements: Marriage should not occur during marriage to another spouse
+Author: Avaneesh Kolluri 
+'''
+
+def userStory11(file):
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    for user_id in individuals.items():
+        user_id = user_id[0]
+        relative_families = individuals[user_id].Get_spouse()
+        marriages = []
+        if relative_families == 'NA':
+            continue
+        for fam in relative_families:
+            family = families[fam]
+            marriages.append((family.Get_married(), family.Get_divorced()))
+        while ('NA', 'NA') in marriages:
+            marriages.remove(('NA', 'NA'))
+        for i in range(len(marriages)-1):
+            if len(marriages) == 1:
+                break
+            for index, date in zip(range(len(marriages)), marriages):
+                for s_index, s_date in zip(range(len(marriages)), marriages):
+                    if index != s_index:
+                        m1,d1 = date
+                        m2, d2 = s_date
+                        #print(m1,m2,d1)
+                        if d2 == d1:
+                            string = f"ERROR: FAMILY: US11: {fam}: Marriage {m1} should not be happening during another marriage {m2}."
+                            if string not in resultsList:
+                                resultsList.append(string)
+                        elif (d1 != "NA"):
+                            if(m1 < m2 < d1):
+                                string = f"ERROR: FAMILY: US11: {fam}: Marriage {m2} should not be happening during another marriage {m1}."
+                                if string not in resultsList:
+                                    resultsList.append(string)
+    print_list(resultsList)
+    return resultsList
+
+###################End of userStory11 ##################
+
+'''
+User story 12:
+Requirements: Mother should be less than 60 years older than her children and father should be less than 80 years older than his children
+Author: Avaneesh Kolluri 
+'''
+
+def userStory12(file):
+    
+    individuals, families = processGedFile(file)
+    resultsList = list()
+    
+
+    for user_id in individuals.items():
+
+        user_id = user_id[0]
+        children_fam = individuals[user_id].Get_spouse()
+        if children_fam == "NA":
+            continue
+        gender = individuals[user_id].Get_gender()
+        parent_bday = individuals[user_id].Get_birthday()
+        for each in children_fam:
+            if families[each].Get_children() == 'NA':
+                continue
+            for child in families[each].Get_children():
+                child_bday = individuals[child].Get_birthday()
+                if gender == 'M':
+                    if exactDateDifference(child_bday, parent_bday).years >=80:
+                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {user_id}: Father {user_id} is more than 80 years older than his child ({child}): {individuals[child].Get_name()}.")
+                else:
+                    if exactDateDifference(child_bday, parent_bday).years >=60:
+                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {user_id}: Mother {user_id} is more than 60 years older than her child ({child}): {individuals[child].Get_name()}.")
+    resultsList.sort()
+    print_list(resultsList)
+    return resultsList
+
+###################End of userStory12 ##################
+
+'''
 User story 13:
 Requirements: Siblings should be either on (nearly) the same day or more than 8 months apart.
 Author: Erick
@@ -892,6 +973,8 @@ if __name__ == "__main__":
    userStory08("InputGedFiles/FamilyTree.ged")
    userStory09("InputGedFiles/FamilyTree.ged")
    userStory10("InputGedFiles/FamilyTree.ged")
+   userStory11("InputGedFiles/FamilyTree.ged")
+   userStory12("InputGedFiles/FamilyTree.ged")
    userStory13("InputGedFiles/FamilyTree.ged")
    userStory14("InputGedFiles/FamilyTree.ged")
    userStory17("InputGedFiles/FamilyTree.ged")
