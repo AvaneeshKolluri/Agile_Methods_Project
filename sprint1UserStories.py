@@ -585,7 +585,37 @@ def userStory14(file):
     print_list(resultList);
     return resultList
 ###################End of userStory14 ##################
+'''
+User story 15:
+Requirement: There can be no more than 15 siblings
+Author: Pratim 
+'''
+def userStory15(file):
+    indiDict, famDict = processGedFile(file)
 
+    resultsList = list()
+
+    for familyID in famDict:
+        children = famDict[familyID].Get_children()
+
+        if(len(children)>=15):
+            resultList.append(f"ERROR: FAMILY: US15: Family {famID} has more than 15 siblings. {len(children)} is greater than 15.")
+    return resultList
+'''
+User story 16:
+Requirement: Find male last names
+Author: Pratim 
+'''
+
+def userStory16(file):
+    indiDict, famDict = processGedFile(file)
+    resultsList = list()
+
+    for indID in indiDict:
+        print(indiDict[indID].Get_gender())
+        if(indiDict[indID].Get_gender() == "male"):
+            resultsList.append(indiDict[indID].Get_name())
+    return resultList
 '''
 User story 17:
 Requirement: Parents should not marry any of their descendants
