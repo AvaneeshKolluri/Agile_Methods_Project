@@ -697,7 +697,11 @@ def userStory16(file):
            x = name.split(" ")
            last_name = x[1]
            resultsList.append(last_name)
-    return resultsList
+    result = all(elem == resultsList[0] for elem in resultsList)
+    if(result == True):
+        return ['All members have the same last name']
+    else:
+        return ['ERROR: US16, All male members should have the same last name']
 '''
 User story 17:
 Requirement: Parents should not marry any of their descendants
@@ -961,7 +965,8 @@ def userStory20(file):
     return resultsList
 
 ###################End of userStory20 ##################
-
+resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
+print(resultsList)
 
 # Sprint1 Main function
 if __name__ == "__main__":

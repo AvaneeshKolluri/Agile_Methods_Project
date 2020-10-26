@@ -11,15 +11,15 @@ class TestUserStory16Class(unittest.TestCase):
     def test_UserStory16_1(self):
         resultsList = userStory16("InputGedFiles/UserStory16_GED/test.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ['Johnson', 'Johnson', 'Johnson', 'Johnson', 'Johnson', 'Johnson', 'Johnson', 'Johnson', 'Johnson'])
+        self.assertEqual(resultsList, ['All members have the same last name'])
     def test_UserStory16_2(self):
         resultsList = userStory16("InputGedFiles/UserStory16_GED/test2.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ['Line'])
+        self.assertEqual(resultsList, ['All members have the same last name'])
     def test_UserStory16_3(self):
         resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ['Mapother', 'Mapother', 'Cruise'])
+        self.assertEqual(resultsList, ['ERROR: US16, All male members should have the same last name'])
 
 if __name__ == "__main__":
     unittest.main()

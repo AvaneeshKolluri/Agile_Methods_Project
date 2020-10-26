@@ -163,6 +163,8 @@ ERROR: INDIVIDUAL: US13: Family F7 has two children (I18, I19) with implausible 
 ERROR: INDIVIDUAL: US13: Family F7 has two children (I18, I20) with implausible birth dates (1996-03-09, 1996-06-14)
 ERROR: INDIVIDUAL: US13: Family F7 has two children (I19, I20) with implausible birth dates (1996-03-16, 1996-06-14)
 ERROR: FAMILY: US14: Family F5 has 8 children ['I14', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I28'] born at the same time with age 0.
+ERROR: FAMILY: US15: There must be fewer than 15 siblings. F5 has more than 15 siblings. 16 >= 15.
+ERROR: US16, All male members should have the same last name
 ERROR: FAMILY: US17: F5 Parents should not marry their descendants
 ERROR: FAMILY: US18 : Sibling Id:I24,name:Christen Smith and Individual Id:I23,name:Elon Smith are married
 ERROR: FAMILY: US19: F10: First cousins I23 and I24 married. Children of siblings I4 and I4.
