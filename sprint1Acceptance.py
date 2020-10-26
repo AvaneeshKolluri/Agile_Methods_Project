@@ -20,7 +20,7 @@ from sprint1UserStories import userStory19
 from sprint1UserStories import userStory20
 
 def sprint1n2UserStories():
-    fileName="InputGedFiles/SprintAcceptance/testSprint1Acceptance.ged"
+    fileName="InputGedFiles/SprintAcceptance/testSprint1_2_Acceptance.ged"
     indiObj,familyObj = processGedFile(fileName)
     indiTable,familyTable= printTablesData(indiObj, familyObj)
     errorList = []
