@@ -668,20 +668,19 @@ def userStory14(file):
 ###################End of userStory14 ##################
 '''
 User story 15:
-Requirement: There can be no more than 15 siblings
+Requirement: There must be fewer than 15 siblings
 Author: Pratim
 '''
 def userStory15(file):
-    indiDict, famDict = processGedFile(file)
+    indiDict,famDict = processGedFile(file)
 
     resultsList = list()
 
     for familyID in famDict:
         children = famDict[familyID].Get_children()
-
         if(len(children)>=15):
-            resultList.append(f"ERROR: FAMILY: US15: Family {famID} has more than 15 siblings. {len(children)} is greater than 15.")
-    return resultList
+            resultsList.append(f"ERROR: FAMILY: US15: There must be fewer than 15 siblings. {familyID} has more than 15 siblings. {len(children)} >= 15.")
+    return resultsList
 '''
 User story 16:
 Requirement: Find male last names
@@ -693,10 +692,12 @@ def userStory16(file):
     resultsList = list()
 
     for indID in indiDict:
-        print(indiDict[indID].Get_gender())
-        if(indiDict[indID].Get_gender() == "male"):
-            resultsList.append(indiDict[indID].Get_name())
-    return resultList
+        if(indiDict[indID].Get_gender() == "M"):
+           name = indiDict[indID].Get_name()
+           x = name.split(" ")
+           last_name = x[1]
+           resultsList.append(last_name)
+    return resultsList
 '''
 User story 17:
 Requirement: Parents should not marry any of their descendants
@@ -960,6 +961,8 @@ def userStory20(file):
     return resultsList
 
 ###################End of userStory20 ##################
+resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
+print(resultsList)
 
 # Sprint1 Main function
 if __name__ == "__main__":
