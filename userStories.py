@@ -681,6 +681,8 @@ def userStory15(file):
         if(len(children)>=15):
             resultsList.append(f"ERROR: FAMILY: US15: There must be fewer than 15 siblings. {familyID} has more than 15 siblings. {len(children)} >= 15.")
     return resultsList
+###################End of userStory15 ##################
+
 '''
 User story 16:
 Requirement: Find male last names
@@ -701,7 +703,9 @@ def userStory16(file):
     if(result == True):
         return ['All members have the same last name']
     else:
-        return ['ERROR: US16, All male members should have the same last name']
+        return ['ERROR: FAMILY: US16: All male members should have the same last name']
+
+###################End of userStory16 ##################
 '''
 User story 17:
 Requirement: Parents should not marry any of their descendants
@@ -965,8 +969,6 @@ def userStory20(file):
     return resultsList
 
 ###################End of userStory20 ##################
-resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
-print(resultsList)
 
 # Sprint1 Main function
 if __name__ == "__main__":
@@ -984,6 +986,8 @@ if __name__ == "__main__":
    userStory12("InputGedFiles/FamilyTree.ged")
    userStory13("InputGedFiles/FamilyTree.ged")
    userStory14("InputGedFiles/FamilyTree.ged")
+   userStory15("InputGedFiles/FamilyTree.ged")
+   userStory16("InputGedFiles/FamilyTree.ged")
    userStory17("InputGedFiles/FamilyTree.ged")
    userStory18("InputGedFiles/FamilyTree.ged")
    userStory19("InputGedFiles/FamilyTree.ged")

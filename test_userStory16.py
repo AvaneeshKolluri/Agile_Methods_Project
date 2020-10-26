@@ -19,8 +19,7 @@ class TestUserStory16Class(unittest.TestCase):
     def test_UserStory16_3(self):
         resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ['ERROR: US16, All male members should have the same last name'])
+        self.assertEqual(resultsList, ['ERROR: FAMILY: US16: All male members should have the same last name'])
 
 if __name__ == "__main__":
     unittest.main()
-    
