@@ -961,8 +961,7 @@ def userStory20(file):
     return resultsList
 
 ###################End of userStory20 ##################
-resultsList = userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
-print(resultsList)
+
 
 # Sprint1 Main function
 if __name__ == "__main__":
