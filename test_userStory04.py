@@ -1,5 +1,5 @@
 import unittest
-from sprint1UserStories import userStory04
+from userStories import userStory04
 import HtmlTestRunner
 
 class TestUserStory04Class(unittest.TestCase):

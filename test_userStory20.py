@@ -1,4 +1,4 @@
-from sprint1UserStories import userStory20 
+from userStories import userStory20 
 import unittest
 import HtmlTestRunner
 
@@ -33,8 +33,7 @@ class UserStory20Test(unittest.TestCase):
 
         resultsList = userStory20('InputGedFiles/UserStory20_GED/FamilyTree_Normal.ged')
         self.assertEqual([], resultsList)
-    
-    
+
+
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./reports'))
-

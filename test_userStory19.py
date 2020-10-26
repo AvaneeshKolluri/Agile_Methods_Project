@@ -1,4 +1,4 @@
-from sprint1UserStories import userStory19
+from userStories import userStory19
 import unittest
 import HtmlTestRunner
 

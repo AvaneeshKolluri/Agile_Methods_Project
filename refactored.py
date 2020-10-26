@@ -1,4 +1,4 @@
-from project2 import processGedFile
+from userStories import processGedFile
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 import datetime
@@ -7,8 +7,8 @@ def portion(file):
     indiDict,famDict = processGedFile(file)
     WisDead = False
     HisDead = False
-    resultList = list()  
-        
+    resultList = list()
+
     if(indiDict[husbandID].Get_death() != 'NA'):
         husbandDeath = indiDict[husbandID].Get_death()
         HisDead = True
@@ -39,18 +39,18 @@ def userStory05(file):
         if(HisDead and marriedDate>husbandDeath):
             result_1_str = "Error: wedding occurs after husband death. Wedding Date: " + str(famDict[familyID].Get_married()) + " Husband Death: " + str(husbandDeath)
             resultList.append(result_1_str)
-            
+
     return resultList
 
 
 def userStory06(file):
     portion(file)
-    if(WisDead and divorcedDate>wifeDeath):                
+    if(WisDead and divorcedDate>wifeDeath):
         result_1_str = "Error: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
         resultList.append(result_1_str)
 
     if(HisDead and divorcedDate>husbandDeath):
         result_1_str = "Error: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
         resultList.append(result_1_str)
-            
+
     return resultList

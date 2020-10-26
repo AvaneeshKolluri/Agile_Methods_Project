@@ -1,10 +1,10 @@
 import unittest
-from sprint1UserStories import userStory12
+from userStories import userStory12
 import HtmlTestRunner
 
 class TestUserStory12Class(unittest.TestCase):
 
-    
+
     """ Test the marriage_after_14 function from US10 """
 
 

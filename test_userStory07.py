@@ -1,6 +1,6 @@
 import unittest
 import HtmlTestRunner
-from sprint1UserStories import userStory07
+from userStories import userStory07
 
 '''
 Author: Srikanth Uppada

@@ -1,5 +1,5 @@
 import unittest
-from sprint1UserStories import userStory05
+from userStories import userStory05
 
 class TestUserStory05Class(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestUserStory05Class(unittest.TestCase):
         resultsList = userStory05("InputGedFiles/UserStory05_GED/normaltree.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, [])
-        
+
     def test4_UserStory05(self):
         resultsList = userStory05("InputGedFiles/UserStory05_GED/normal.ged")
         self.maxDiff = None

@@ -1,4 +1,4 @@
-from project2 import processGedFile
+from gedReader import processGedFile
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from datetime import date
@@ -492,7 +492,7 @@ def userStory10(file):
 '''
 User story 11:
 Requirements: Marriage should not occur during marriage to another spouse
-Author: Avaneesh Kolluri 
+Author: Avaneesh Kolluri
 '''
 
 def userStory11(file):
@@ -536,14 +536,14 @@ def userStory11(file):
 '''
 User story 12:
 Requirements: Mother should be less than 60 years older than her children and father should be less than 80 years older than his children
-Author: Avaneesh Kolluri 
+Author: Avaneesh Kolluri
 '''
 
 def userStory12(file):
-    
+
     individuals, families = processGedFile(file)
     resultsList = list()
-    
+
 
     for user_id in individuals.items():
 
@@ -669,7 +669,7 @@ def userStory14(file):
 '''
 User story 15:
 Requirement: There can be no more than 15 siblings
-Author: Pratim 
+Author: Pratim
 '''
 def userStory15(file):
     indiDict, famDict = processGedFile(file)
@@ -685,7 +685,7 @@ def userStory15(file):
 '''
 User story 16:
 Requirement: Find male last names
-Author: Pratim 
+Author: Pratim
 '''
 
 def userStory16(file):

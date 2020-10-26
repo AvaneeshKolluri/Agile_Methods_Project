@@ -1,6 +1,6 @@
 import unittest
 import HtmlTestRunner
-from sprint1UserStories import userStory17
+from userStories import userStory17
 
 '''
 User story 17:

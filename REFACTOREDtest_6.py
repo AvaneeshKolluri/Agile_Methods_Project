@@ -1,5 +1,5 @@
 import unittest
-from sprint1UserStories import userStory06
+from userStories import userStory06
 
 class TestUserStory06Class(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestUserStory06Class(unittest.TestCase):
         resultsList = userStory06("InputGedFiles/UserStory06_GED/deathbeforeDIV_wife.ged")
         self.maxDiff = None
         self.assertEqual(resultsList, ['Error: divorce occurs after wife death. Divorce Date: 2010-02-02 Wife Death: 2009-01-01'])
-        
+
     def test4_UserStory06(self):
         resultsList = userStory06("InputGedFiles/UserStory06_GED/normal.ged")
         self.maxDiff = None
