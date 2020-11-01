@@ -1005,6 +1005,45 @@ def userStory21(file):
 
 ###################End of userStory21 ##################
 
+'''
+User story 22:
+Requirement: All individual IDs should be unique and all family IDs should be unique
+Author: Avaneesh
+'''
+
+def userStory22(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+    all_iid = []
+    all_fid = []
+    for ind in individuals:
+        all_iid += [ind]
+    for fm in individuals:
+        all_fid += [fm]
+
+    ind_set = set()
+    fam_set = set()
+
+    for i in all_iid:
+        if i in ind_set:
+            resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
+        else:
+            ind_set.add(i)
+            
+    for i in all_fid:
+        if i in fam_set:
+            resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
+        else:
+            fam_set.add(i)
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return resultsList
+
+###################End of userStory21 ##################
+
 # Sprint1 Main function
 if __name__ == "__main__":
    '''userStory01("InputGedFiles/FamilyTree.ged")
@@ -1026,5 +1065,6 @@ if __name__ == "__main__":
    userStory17("InputGedFiles/FamilyTree.ged")
    userStory18("InputGedFiles/FamilyTree.ged")
    userStory19("InputGedFiles/FamilyTree.ged")
-   userStory20("InputGedFiles/FamilyTree.ged")'''
-   userStory21("InputGedFiles/FamilyTree.ged")
+   userStory20("InputGedFiles/FamilyTree.ged")
+   userStory21("InputGedFiles/FamilyTree.ged")'''
+   userStory22("InputGedFiles/FamilyTree.ged")
