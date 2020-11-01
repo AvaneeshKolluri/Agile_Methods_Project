@@ -1040,13 +1040,13 @@ def userStory22(file):
 
     #print each output in the list and return list
     print_list(resultsList)
-    return resultsList
+    return (resultsList)
 
-###################End of userStory21 ##################
+###################End of userStory22 ##################
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   '''userStory01("InputGedFiles/FamilyTree.ged")
+   userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
    userStory03("InputGedFiles/FamilyTree.ged")
    userStory04("InputGedFiles/FamilyTree.ged")
@@ -1066,5 +1066,5 @@ if __name__ == "__main__":
    userStory18("InputGedFiles/FamilyTree.ged")
    userStory19("InputGedFiles/FamilyTree.ged")
    userStory20("InputGedFiles/FamilyTree.ged")
-   userStory21("InputGedFiles/FamilyTree.ged")'''
+   userStory21("InputGedFiles/FamilyTree.ged")
    userStory22("InputGedFiles/FamilyTree.ged")

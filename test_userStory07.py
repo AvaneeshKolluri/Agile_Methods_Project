@@ -34,7 +34,8 @@ class TestUserStory07Class(unittest.TestCase):
         self.assertEqual(resultsList, [ "ERROR: INDIVIDUAL: US07: I1 More than 150 years old - Birth date 1868-09-25",
                                         "ERROR: INDIVIDUAL: US07: I3 More than 150 years old - Birth date 1866-11-11",
                                         "ERROR: INDIVIDUAL: US07: I4 More than 150 years old - Birth date 1843-09-18",
-                                        "ERROR: INDIVIDUAL: US07: I5 More than 150 years old - Birth date 1853-07-08"])
+                                        "ERROR: INDIVIDUAL: US07: I5 More than 150 years old - Birth date 1853-07-08",
+                                        "ERROR: INDIVIDUAL: US07: I6 More than 150 years old - Birth date 1870-10-31"])
 
     def test_UserStory07_5(self):
         resultsList = userStory07("InputGedFiles/UserStory07_GED/testUserStory07-5.ged")

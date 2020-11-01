@@ -21,7 +21,8 @@ from test_userStory17 import TestUserStory17Class
 from test_userStory18 import TestUserStory18Class
 from test_userStory19 import UserStory19Test
 from test_userStory20 import UserStory20Test
-
+from test_userStory21 import UserStory21Test
+from test_userStory22 import UserStory22Test
 
 # Sprint1 and Sprint2 class with all Sprint1 and Sprint2 tests
 class Test_Sprint1n2(unittest.TestCase):
@@ -45,6 +46,8 @@ class Test_Sprint1n2(unittest.TestCase):
     TestUserStory18Class()
     UserStory19Test()
     UserStory20Test()
+    UserStory21Test()
+    UserStory22Test()
 
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1n2Reports'))
