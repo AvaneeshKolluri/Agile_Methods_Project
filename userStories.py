@@ -970,9 +970,44 @@ def userStory20(file):
 
 ###################End of userStory20 ##################
 
+'''
+User story 21:
+Requirement: Husband in family should be male and wife in family should be female
+Author: Avaneesh
+'''
+
+def userStory21(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+    
+    for fam in families:
+        #print(fam)
+        #return
+        #fam_id = fam[0][0]
+        fclass = families[fam]
+
+        husb_id = fclass.Get_husbandID()
+        wife_id = fclass.Get_wifeID()
+        if husb_id != 'NA':
+            male = individuals[husb_id].Get_gender()
+            if male != 'M':
+                resultsList.append(f"ERROR: FAMILY: US21: {fam}: Husband ({husb_id}) is labelled incorrectly as ({male}).")
+        if wife_id != 'NA':
+            female = individuals[wife_id].Get_gender()
+            if female != 'F':
+                resultsList.append(f"ERROR: FAMILY: US21: {fam}: Wife ({wife_id}) is labelled incorrectly as ({female}).")
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return resultsList
+
+###################End of userStory21 ##################
+
 # Sprint1 Main function
 if __name__ == "__main__":
-   userStory01("InputGedFiles/FamilyTree.ged")
+   '''userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
    userStory03("InputGedFiles/FamilyTree.ged")
    userStory04("InputGedFiles/FamilyTree.ged")
@@ -991,4 +1026,5 @@ if __name__ == "__main__":
    userStory17("InputGedFiles/FamilyTree.ged")
    userStory18("InputGedFiles/FamilyTree.ged")
    userStory19("InputGedFiles/FamilyTree.ged")
-   userStory20("InputGedFiles/FamilyTree.ged")
+   userStory20("InputGedFiles/FamilyTree.ged")'''
+   userStory21("InputGedFiles/FamilyTree.ged")
