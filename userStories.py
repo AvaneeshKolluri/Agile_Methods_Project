@@ -1044,6 +1044,51 @@ def userStory22(file):
 
 ###################End of userStory22 ##################
 
+'''
+User story 31:
+Requirement: List all living people over 30 who have never been married in a GEDCOM file
+Author: Avaneesh
+'''
+
+def userStory31(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    for ind in individuals:
+        if individuals[ind].Get_alive():
+            if individuals[ind].Get_age() > 30:
+                if individuals[ind].Get_spouse() == 'NA':
+                    resultsList.append(f"INDIVIDUAL: US31: {individuals[ind].Get_name()} with id {ind} is living, over 30, and never has been married.")
+        
+    #print each output in the list and return list
+    print_list(resultsList)
+    return (resultsList)
+
+###################End of userStory31 ##################
+
+'''
+User story 32:
+Requirement: List all multiple births in a GEDCOM file
+Author: Avaneesh
+'''
+
+def userStory32(file):
+
+    # get individuals and families in file, create results
+    individuals, families = processGedFile(file)
+    resultsList = list()
+
+    for ind in individuals:
+        # Finish this story
+        
+    #print each output in the list and return list
+    print_list(resultsList)
+    return (resultsList)
+
+###################End of userStory31 ##################
+
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
@@ -1068,3 +1113,5 @@ if __name__ == "__main__":
    userStory20("InputGedFiles/FamilyTree.ged")
    userStory21("InputGedFiles/FamilyTree.ged")
    userStory22("InputGedFiles/FamilyTree.ged")
+   userStory31("InputGedFiles/FamilyTree.ged")
+   userStory32("InputGedFiles/FamilyTree.ged")
