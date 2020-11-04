@@ -1045,6 +1045,57 @@ def userStory22(file):
 ###################End of userStory22 ##################
 
 '''
+User story 29:
+Requirement: List all deceased individuals in a GEDCOM File
+Author: Zach
+'''
+def userStory29(file):
+
+    # get individuals
+    individuals = processGedFile(file)[0]
+    resultsList = list()
+
+    #iterate through individuals
+    for individual_id, individual in individuals.items():
+        if not individual.Get_alive():
+            resultsList.append(f"INDIVIDUAL: US29: {individual.Get_name()} with id {individual_id} is deceased.")
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return (resultsList)
+    
+###################End of userStory29 ##################
+
+'''
+User story 30:
+Requirement: List all living married people in a GEDCOM file
+Author: Zach
+'''
+
+def userStory30(file):
+
+    # get individuals and families in file, create results
+    individuals = processGedFile(file)[0]
+    families = processGedFile(file)[1]
+    resultsList = list()
+
+    #iterate through families and find married couples and spouses
+    for family_id, family in families.items():
+        if family.Get_married() != "NA" and family.Get_divorced() == "NA":
+            husband = families[family_id].Get_husbandID()
+            wife = families[family_id].Get_wifeID()
+
+            #get if both spouses are alive to append to the list
+            if individuals[husband].Get_alive() and individuals[wife].Get_alive():
+                resultsList.append(f"INDIVIDUAL: US30: {individuals[husband].Get_name()}, with id {husband}, and {individuals[wife].Get_name()}, with id {wife}, are married and both alive.")
+
+    #print each output in the list and return list
+    print_list(resultsList)
+    return (resultsList)
+
+###################End of userStory30 ##################
+
+'''
 User story 31:
 Requirement: List all living people over 30 who have never been married in a GEDCOM file
 Author: Avaneesh
@@ -1074,18 +1125,18 @@ Requirement: List all multiple births in a GEDCOM file
 Author: Avaneesh
 '''
 
-def userStory32(file):
+#def userStory32(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
-    resultsList = list()
+    #individuals, families = processGedFile(file)
+    #resultsList = list()
 
-    for ind in individuals:
+    #for ind in individuals:
         # Finish this story
         
     #print each output in the list and return list
-    print_list(resultsList)
-    return (resultsList)
+    #print_list(resultsList)
+    #return (resultsList)
 
 ###################End of userStory31 ##################
 

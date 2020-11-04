@@ -20,6 +20,7 @@ from userStories import userStory17
 from userStories import userStory18
 from userStories import userStory19
 from userStories import userStory20
+from userStories import userStory29
 
 def sprint1n2UserStories():
     fileName="InputGedFiles/SprintAcceptance/testSprint1_2_Acceptance.ged"
@@ -46,6 +47,7 @@ def sprint1n2UserStories():
     errorList.extend(userStory18(fileName))
     errorList.extend(userStory19(fileName))
     errorList.extend(userStory20(fileName))
+    errorList.extend(userStory29(fileName))
 
 
     for eachError in errorList:

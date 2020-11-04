@@ -23,6 +23,7 @@ from test_userStory19 import UserStory19Test
 from test_userStory20 import UserStory20Test
 from test_userStory21 import UserStory21Test
 from test_userStory22 import UserStory22Test
+from test_userStory29 import UserStory29Test
 
 # Sprint1 and Sprint2 class with all Sprint1 and Sprint2 tests
 class Test_Sprint1n2(unittest.TestCase):
