@@ -1125,20 +1125,33 @@ Requirement: List all multiple births in a GEDCOM file
 Author: Avaneesh
 '''
 
-#def userStory32(file):
+def userStory32(file):
 
     # get individuals and families in file, create results
-    #individuals, families = processGedFile(file)
-    #resultsList = list()
+    individuals, families = processGedFile(file)
+    resultsList = list()
 
-    #for ind in individuals:
-        # Finish this story
+    for fam in families:
+        children = families[fam].Get_children()
+        record = {}
+        if children == 'NA':
+            continue
+        for child in children:
+            bday = individuals[child].Get_birthday()
+            if bday in record:
+                record[bday] += [child]
+            else:
+                record[bday] = [child]
+        for i in record:
+            if len(record[i]) > 1:
+                resultsList.append(f"FAMILY: US32: Individuals with IDs {record[i]} are multiple births.")
+        
         
     #print each output in the list and return list
-    #print_list(resultsList)
-    #return (resultsList)
+    print_list(resultsList)
+    return (resultsList)
 
-###################End of userStory31 ##################
+###################End of userStory32 ##################
 
 # Sprint1 Main function
 if __name__ == "__main__":
@@ -1164,5 +1177,7 @@ if __name__ == "__main__":
    userStory20("InputGedFiles/FamilyTree.ged")
    userStory21("InputGedFiles/FamilyTree.ged")
    userStory22("InputGedFiles/FamilyTree.ged")
+   userStory29("InputGedFiles/FamilyTree.ged")
+   userStory30("InputGedFiles/FamilyTree.ged")
    userStory31("InputGedFiles/FamilyTree.ged")
    userStory32("InputGedFiles/FamilyTree.ged")
