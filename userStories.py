@@ -1114,7 +1114,8 @@ def userStory31(file):
                     resultsList.append(f"INDIVIDUAL: US31: {individuals[ind].Get_name()} with id {ind} is living, over 30, and never has been married.")
         
     #print each output in the list and return list
-    print_list(resultsList)
+    #print_list(resultsList)
+    print(resultsList)
     return (resultsList)
 
 ###################End of userStory31 ##################
@@ -1155,7 +1156,7 @@ def userStory32(file):
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   userStory01("InputGedFiles/FamilyTree.ged")
+   '''userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
    userStory03("InputGedFiles/FamilyTree.ged")
    userStory04("InputGedFiles/FamilyTree.ged")
@@ -1180,4 +1181,10 @@ if __name__ == "__main__":
    userStory29("InputGedFiles/FamilyTree.ged")
    userStory30("InputGedFiles/FamilyTree.ged")
    userStory31("InputGedFiles/FamilyTree.ged")
-   userStory32("InputGedFiles/FamilyTree.ged")
+   userStory32("InputGedFiles/FamilyTree.ged")'''
+   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-1.ged")
+   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-2.ged")
+   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-3.ged")
+   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-4.ged")
+   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-5.ged")
+   
