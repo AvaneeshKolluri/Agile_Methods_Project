@@ -20,11 +20,13 @@ from userStories import userStory17
 from userStories import userStory18
 from userStories import userStory19
 from userStories import userStory20
+from userStories import userStory21
+from userStories import userStory22
 from userStories import userStory29
 from userStories import userStory30
 
-def sprint1n2UserStories():
-    fileName="InputGedFiles/SprintAcceptance/testSprint1_2_Acceptance.ged"
+def sprint1n2n3UserStories():
+    fileName="InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged"
     indiObj,familyObj = processGedFile(fileName)
     indiTable,familyTable= printTablesData(indiObj, familyObj)
     errorList = []
@@ -48,6 +50,8 @@ def sprint1n2UserStories():
     errorList.extend(userStory18(fileName))
     errorList.extend(userStory19(fileName))
     errorList.extend(userStory20(fileName))
+    errorList.extend(userStory21(fileName))
+    errorList.extend(userStory22(fileName))
     errorList.extend(userStory29(fileName))
     errorList.extend(userStory30(fileName))
 
@@ -55,7 +59,7 @@ def sprint1n2UserStories():
     for eachError in errorList:
        print(eachError)
 
-    with open('sprint1n2Output.txt','w') as file:
+    with open('sprint1n2n3Output.txt','w') as file:
         file.write('\n\nIndividuals Information----------------------->\n')
         file.write(indiTable.get_string())
         file.write("\n")
@@ -67,4 +71,4 @@ def sprint1n2UserStories():
 
 
 if __name__ == "__main__":
-    sprint1n2UserStories()
+    sprint1n2n3UserStories()

@@ -1,0 +1,196 @@
+
+
+Individuals Information----------------------->
++-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
+|  ID |             Name             | Gender |  Birthday  | Age | Alive |   Death    |  Child  |       Spouse       |
++-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
+|  I1 |        Richard Smith         |   M    | 1996-03-09 |  24 |  True |     NA     |  ['F7'] |         NA         |
+|  I2 |      Jada Koren Pinkett      |   F    | 1986-01-18 |  34 |  True |     NA     |    NA   |       ['F1']       |
+|  I3 |        Sheree Zampino        |   F    | 1867-11-16 | 152 | False | 2020-03-17 |    NA   |    ['F2', 'F3']    |
+|  I4 |          Trey Smith          |   M    | 2022-12-11 |  0  | False | 2023-06-12 |  ['F2'] |       ['F5']       |
+|  I5 |         Eva Emshoff          |   F    | 2010-01-04 |  10 |  True |     NA     |    NA   |   ['F5', 'F16']    |
+|  I6 | Jaden Christopher Syre Smith |   M    | 2000-07-08 |  20 |  True |     NA     |  ['F1'] |       ['F3']       |
+|  I7 |  Willow Camille Reign Smith  |   F    | 1999-10-31 |  21 |  True |     NA     |  ['F1'] |         NA         |
+|  I8 |       Caroline Bright        |   F    | 1961-03-20 |  38 | False | 1999-03-21 |    NA   |       ['F3']       |
+|  I9 |       Willard Sr Smith       |   M    | 1961-01-12 |  -5 | False | 1956-02-27 |    NA   |       ['F3']       |
+| I10 |          Dave Smith          |   M    | 2019-01-01 |  1  |  True |     NA     |  ['F1'] |       ['F6']       |
+| I11 |        Shelby Carter         |   F    | 2020-01-01 |  0  |  True |     NA     |    NA   |       ['F6']       |
+| I12 |        Particia Smith        |   F    | 1851-12-03 | 168 |  True |     NA     |  ['F6'] |         NA         |
+| I13 |         Elicia Smith         |   F    | 1752-12-04 | 262 | False | 2015-06-08 |  ['F6'] |         NA         |
+| I14 |         Rivera Jonas         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] | ['F7', 'F8', 'F9'] |
+| I15 |         Lisha Oliver         |   F    | 2019-12-08 |  0  |  True |     NA     |    NA   |       ['F8']       |
+| I16 |         Linda Jonas          |   F    | 1916-10-14 | 104 |  True |     NA     |    NA   |       ['F9']       |
+| I17 |          Mary Swift          |   F    | 1967-08-11 |  53 |  True |     NA     |    NA   |       ['F7']       |
+| I19 |         Lilly Smith          |   F    | 1996-03-16 |  24 |  True |     NA     |  ['F7'] |         NA         |
+| I20 |          Rita Smith          |   F    | 1996-06-14 |  24 |  True |     NA     |  ['F7'] |         NA         |
+| I21 |         Tommy Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
+| I22 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
+| I23 |          Elon Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F10']       |
+| I24 |        Christen Smith        |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F10']       |
+| I25 |          Lisa Smith          |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
+| I26 |         Elizah Smith         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F11']       |
+| I27 |         James Oliver         |   M    | 2018-07-10 |  2  |  True |     NA     |  ['F5'] |         NA         |
+| I28 |          Amy Smith           |   F    | 2019-12-16 |  0  |  True |     NA     |  ['F5'] |      ['F12']       |
+| I29 |       Charlotte Smith        |   F    | 2016-09-13 |  4  |  True |     NA     |  ['F5'] |         NA         |
+| I30 |          Fred Smith          |   M    | 2017-10-09 |  3  |  True |     NA     |  ['F5'] |      ['F16']       |
+| I31 |         Alfred Smith         |   M    | 1975-11-11 |  44 |  True |     NA     |  ['F5'] |         NA         |
+| I32 |         Patty Smith          |   F    | 1974-07-09 |  46 |  True |     NA     |  ['F5'] |      ['F13']       |
+| I33 |          Iris Smith          |   M    | 1967-10-07 |  53 |  True |     NA     |  ['F5'] |         NA         |
+| I34 |         Evita Smith          |   M    | 1976-08-16 |  44 |  True |     NA     |  ['F5'] |      ['F14']       |
+| I35 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |         NA         |
+| I36 |          Arnold Bob          |   M    | 1976-08-15 |  44 |  True |     NA     |    NA   |      ['F12']       |
+| I37 |         Jennifer Bob         |   F    | 1989-09-15 |  31 |  True |     NA     | ['F12'] |      ['F15']       |
+| I38 |        Barbera Stark         |   F    | 1997-09-10 |  23 |  True |     NA     |    NA   |      ['F11']       |
+| I39 |          Tony Smith          |   F    | 1996-09-11 |  24 |  True |     NA     | ['F11'] |      ['F15']       |
+| I40 |        Patrick Roger         |   M    | 1976-07-11 |  44 |  True |     NA     |    NA   |      ['F13']       |
+| I41 |         Danny Roger          |   M    | 2000-07-12 |  20 |  True |     NA     | ['F13'] |      ['F14']       |
+| I42 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F7'] |         NA         |
+| I43 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |         NA         |
++-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
+
+
+Family Information----------------------->
++-----+------------+------------+------------+------------------+---------+--------------------+------------------------------------------------------------------------------------------------------------------+
+|  ID |  Married   |  Divorced  | Husband ID |   Husband Name   | Wife ID |     Wife Name      |                                                     Children                                                     |
++-----+------------+------------+------------+------------------+---------+--------------------+------------------------------------------------------------------------------------------------------------------+
+|  F1 | 1997-12-31 |     NA     |     I1     |  Richard Smith   |    I2   | Jada Koren Pinkett |                                               ['I6', 'I7', 'I10']                                                |
+|  F2 | 1992-05-09 | 1995-12-10 |     I1     |  Richard Smith   |    I3   |   Sheree Zampino   |                                                      ['I4']                                                      |
+|  F3 | 1979-03-11 | 1999-07-11 |     I9     | Willard Sr Smith |    I8   |  Caroline Bright   |                                                      ['I1']                                                      |
+|  F5 | 2023-07-06 | 2021-08-09 |     I4     |    Trey Smith    |    I5   |    Eva Emshoff     | ['I14', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I27', 'I28', 'I29', 'I30', 'I31', 'I32', 'I33', 'I34', 'I35'] |
+|  F6 | 2017-07-11 |     NA     |    I10     |    Dave Smith    |   I11   |   Shelby Carter    |                                                  ['I12', 'I13']                                                  |
+|  F7 | 2020-03-09 |     NA     |    I14     |   Rivera Jonas   |   I17   |     Mary Swift     |                                               ['I1', 'I19', 'I20']                                               |
+|  F9 | 2020-03-04 |     NA     |    I14     |   Rivera Jonas   |   I16   |    Linda Jonas     |                                                        []                                                        |
+|  F8 | 2018-08-10 | 2019-08-11 |    I14     |   Rivera Jonas   |   I15   |    Lisha Oliver    |                                                        []                                                        |
+| F10 | 2018-08-14 |     NA     |    I23     |    Elon Smith    |   I24   |   Christen Smith   |                                                        []                                                        |
+| F11 | 0200-06-12 |     NA     |    I26     |   Elizah Smith   |   I38   |   Barbera Stark    |                                                     ['I39']                                                      |
+| F12 | 1995-08-12 |     NA     |    I36     |    Arnold Bob    |   I28   |     Amy Smith      |                                                     ['I37']                                                      |
+| F13 |     NA     |     NA     |    I40     |  Patrick Roger   |   I32   |    Patty Smith     |                                                     ['I41']                                                      |
+| F14 | 2000-04-09 |     NA     |    I41     |   Danny Roger    |   I34   |    Evita Smith     |                                                        []                                                        |
+| F15 | 2010-09-19 |     NA     |    I39     |    Tony Smith    |   I37   |    Jennifer Bob    |                                                        []                                                        |
+| F16 | 2018-09-20 |     NA     |    I30     |    Fred Smith    |    I5   |    Eva Emshoff     |                                                        []                                                        |
+| F17 | 1997-12-31 |     NA     |     I1     |  Richard Smith   |    I2   | Jada Koren Pinkett |                                               ['I6', 'I7', 'I10']                                                |
++-----+------------+------------+------------+------------------+---------+--------------------+------------------------------------------------------------------------------------------------------------------+
+ERROR: INDIVIDUAL: US01: I4: Marriage 2023-07-06 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Divorce 2021-08-09 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Birthday 2022-12-11 occurs in the future
+ERROR: INDIVIDUAL: US01: I4: Death 2023-06-12 occurs in the future
+ERROR: INDIVIDUAL: US01: I5: Marriage 2023-07-06 occurs in the future
+ERROR: INDIVIDUAL: US01: I5: Divorce 2021-08-09 occurs in the future
+ERROR: FAMILY: US02: I1: Husband's birth date 1996-03-09 is after marriage date 1992-05-09
+ERROR: FAMILY: US02: I10: Husband's birth date 2019-01-01 is after marriage date 2017-07-11
+ERROR: FAMILY: US02: I11: Wife's birth date 2020-01-01 is after marriage date 2017-07-11
+ERROR: FAMILY: US02: I14: Husband's birth date 2019-12-09 is after marriage date 2018-08-10
+ERROR: FAMILY: US02: I15: Wife's birth date 2019-12-08 is after marriage date 2018-08-10
+ERROR: FAMILY: US02: I23: Husband's birth date 2019-12-09 is after marriage date 2018-08-14
+ERROR: FAMILY: US02: I24: Wife's birth date 2019-12-09 is after marriage date 2018-08-14
+ERROR: FAMILY: US02: I26: Husband's birth date 2019-12-09 is after marriage date 0200-06-12
+ERROR: FAMILY: US02: I38: Wife's birth date 1997-09-10 is after marriage date 0200-06-12
+ERROR: FAMILY: US02: I28: Wife's birth date 2019-12-16 is after marriage date 1995-08-12
+ERROR: FAMILY: US02: I41: Husband's birth date 2000-07-12 is after marriage date 2000-04-09
+ERROR: INDIVIDUAL: US03: I9 Death date occurs before birth date - Birth 1961-01-12: Death 1956-02-27
+ERROR: FAMILY: US04: F5 Divorce date occurs before marriage date - Marriage 2023-07-06: Divorce 2021-08-09
+ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: 1979-03-11 Husband Death: 1956-02-27
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2023-07-06 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after husband death. Wedding Date: 2023-07-06 Husband Death: 2023-06-12
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2017-07-11 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2020-03-09 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2020-03-04 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2018-08-10 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2018-08-14 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2000-04-09 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2010-09-19 Wife Death: 1999-03-21
+ERROR: FAMILY: US05: wedding occurs after wife death. Wedding Date: 2018-09-20 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 1999-07-11 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: 1999-07-11 Husband Death: 1956-02-27
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 2021-08-09 Wife Death: 1999-03-21
+ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: 2019-08-11 Wife Death: 1999-03-21
+ERROR: INDIVIDUAL: US07: I3 More than 150 years old at death - Birth 1867-11-16: Death 2020-03-17
+ERROR: INDIVIDUAL: US07: I12 More than 150 years old - Birth date 1851-12-03
+ERROR: INDIVIDUAL: US07: I13 More than 150 years old at death - Birth 1752-12-04: Death 2015-06-08
+ANOMALY: FAMILY: US08: F12: Child I37 born 1989-09-15 before marriage on 1995-08-12
+ANOMALY: FAMILY: US08: F2: Child I4 born 2022-12-11 after divorce on 1995-12-10
+ANOMALY: FAMILY: US08: F5: Child I14 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I21 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I22 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I23 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I24 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I25 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I26 born 2019-12-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I27 born 2018-07-10 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I28 born 2019-12-16 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I29 born 2016-09-13 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I30 born 2017-10-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I31 born 1975-11-11 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I32 born 1974-07-09 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I33 born 1967-10-07 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I34 born 1976-08-16 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F5: Child I35 born 1976-09-06 before marriage on 2023-07-06
+ANOMALY: FAMILY: US08: F6: Child I12 born 1851-12-03 before marriage on 2017-07-11
+ANOMALY: FAMILY: US08: F6: Child I13 born 1752-12-04 before marriage on 2017-07-11
+ANOMALY: FAMILY: US08: F7: Child I1 born 1996-03-09 before marriage on 2020-03-09
+ANOMALY: FAMILY: US08: F7: Child I19 born 1996-03-16 before marriage on 2020-03-09
+ANOMALY: FAMILY: US08: F7: Child I20 born 1996-06-14 before marriage on 2020-03-09
+ERROR: FAMILY: US09: F3: Husband (I9) died 1956-02-27 before child's (I1) birth 1996-03-09
+ERROR: FAMILY: US10: F1: Husband (I1) birth date 1996-03-09 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US10: F1: Wife (I2) birth date 1986-01-18 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US10: F2: Husband (I1) birth date 1996-03-09 not at least 14 years prior to marriage date 1992-05-09
+ERROR: FAMILY: US10: F5: Husband (I4) birth date 2022-12-11 not at least 14 years prior to marriage date 2023-07-06
+ERROR: FAMILY: US10: F5: Wife (I5) birth date 2010-01-04 not at least 14 years prior to marriage date 2023-07-06
+ERROR: FAMILY: US10: F6: Husband (I10) birth date 2019-01-01 not at least 14 years prior to marriage date 2017-07-11
+ERROR: FAMILY: US10: F6: Wife (I11) birth date 2020-01-01 not at least 14 years prior to marriage date 2017-07-11
+ERROR: FAMILY: US10: F7: Husband (I14) birth date 2019-12-09 not at least 14 years prior to marriage date 2020-03-09
+ERROR: FAMILY: US10: F9: Husband (I14) birth date 2019-12-09 not at least 14 years prior to marriage date 2020-03-04
+ERROR: FAMILY: US10: F8: Husband (I14) birth date 2019-12-09 not at least 14 years prior to marriage date 2018-08-10
+ERROR: FAMILY: US10: F8: Wife (I15) birth date 2019-12-08 not at least 14 years prior to marriage date 2018-08-10
+ERROR: FAMILY: US10: F10: Husband (I23) birth date 2019-12-09 not at least 14 years prior to marriage date 2018-08-14
+ERROR: FAMILY: US10: F10: Wife (I24) birth date 2019-12-09 not at least 14 years prior to marriage date 2018-08-14
+ERROR: FAMILY: US10: F11: Husband (I26) birth date 2019-12-09 not at least 14 years prior to marriage date 0200-06-12
+ERROR: FAMILY: US10: F11: Wife (I38) birth date 1997-09-10 not at least 14 years prior to marriage date 0200-06-12
+ERROR: FAMILY: US10: F12: Wife (I28) birth date 2019-12-16 not at least 14 years prior to marriage date 1995-08-12
+ERROR: FAMILY: US10: F14: Husband (I41) birth date 2000-07-12 not at least 14 years prior to marriage date 2000-04-09
+ERROR: FAMILY: US10: F16: Husband (I30) birth date 2017-10-09 not at least 14 years prior to marriage date 2018-09-20
+ERROR: FAMILY: US10: F16: Wife (I5) birth date 2010-01-04 not at least 14 years prior to marriage date 2018-09-20
+ERROR: FAMILY: US10: F17: Husband (I1) birth date 1996-03-09 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US10: F17: Wife (I2) birth date 1986-01-18 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US11: F3: Marriage 1992-05-09 should not be happening during another marriage 1979-03-11.
+ERROR: FAMILY: US11: F9: Marriage 2020-03-09 should not be happening during another marriage 2020-03-04.
+ERROR: FAMILY: US11: F9: Marriage 2020-03-04 should not be happening during another marriage 2020-03-09.
+ERROR: INDIVIDUAL: US12: I3: Mother I3 is more than 60 years older than her child (I1): Richard Smith.
+ERROR: INDIVIDUAL: US12: I3: Mother I3 is more than 60 years older than her child (I4): Trey Smith.
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I14, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I21, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I22, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I23, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I24, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I25, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I26, I28) with implausible birth dates (2019-12-09, 2019-12-16)
+ERROR: INDIVIDUAL: US13: Family F5 has two children (I34, I35) with implausible birth dates (1976-08-16, 1976-09-06)
+ERROR: INDIVIDUAL: US13: Family F7 has two children (I1, I19) with implausible birth dates (1996-03-09, 1996-03-16)
+ERROR: INDIVIDUAL: US13: Family F7 has two children (I1, I20) with implausible birth dates (1996-03-09, 1996-06-14)
+ERROR: INDIVIDUAL: US13: Family F7 has two children (I19, I20) with implausible birth dates (1996-03-16, 1996-06-14)
+ERROR: FAMILY: US14: Family F5 has 8 children ['I14', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I28'] born at the same time with age 0.
+ERROR: FAMILY: US15: There must be fewer than 15 siblings. F5 has more than 15 siblings. 16 >= 15.
+ERROR: FAMILY: US16: All male members should have the same last name
+ERROR: FAMILY: US17: F5 Parents should not marry their descendants
+ERROR: FAMILY: US18 : Sibling Id:I24,name:Christen Smith and Individual Id:I23,name:Elon Smith are married
+ERROR: FAMILY: US19: F10: First cousins I23 and I24 married. Children of siblings I4 and I4.
+ERROR: FAMILY: US19: F15: First cousins I39 and I37 married. Children of siblings I26 and I28.
+ERROR: FAMILY: US20: F14: Wife (I34) married nephew (I41)
+ERROR: FAMILY: US21: F14: Wife (I34) is labelled incorrectly as (M).
+ERROR: FAMILY: US21: F15: Husband (I39) is labelled incorrectly as (F).
+INDIVIDUAL: US29: Sheree Zampino with id I3 is deceased.
+INDIVIDUAL: US29: Trey Smith with id I4 is deceased.
+INDIVIDUAL: US29: Caroline Bright with id I8 is deceased.
+INDIVIDUAL: US29: Willard Sr Smith with id I9 is deceased.
+INDIVIDUAL: US29: Elicia Smith with id I13 is deceased.
+INDIVIDUAL: US30: Richard Smith, with id I1, and Jada Koren Pinkett, with id I2, are married and both alive.
+INDIVIDUAL: US30: Dave Smith, with id I10, and Shelby Carter, with id I11, are married and both alive.
+INDIVIDUAL: US30: Rivera Jonas, with id I14, and Mary Swift, with id I17, are married and both alive.
+INDIVIDUAL: US30: Rivera Jonas, with id I14, and Linda Jonas, with id I16, are married and both alive.
+INDIVIDUAL: US30: Elon Smith, with id I23, and Christen Smith, with id I24, are married and both alive.
+INDIVIDUAL: US30: Elizah Smith, with id I26, and Barbera Stark, with id I38, are married and both alive.
+INDIVIDUAL: US30: Arnold Bob, with id I36, and Amy Smith, with id I28, are married and both alive.
+INDIVIDUAL: US30: Danny Roger, with id I41, and Evita Smith, with id I34, are married and both alive.
+INDIVIDUAL: US30: Tony Smith, with id I39, and Jennifer Bob, with id I37, are married and both alive.
+INDIVIDUAL: US30: Fred Smith, with id I30, and Eva Emshoff, with id I5, are married and both alive.
+INDIVIDUAL: US30: Richard Smith, with id I1, and Jada Koren Pinkett, with id I2, are married and both alive.
