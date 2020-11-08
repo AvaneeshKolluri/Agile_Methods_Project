@@ -1083,25 +1083,52 @@ Author: Pratim
 
 #go through each family to ensure that individual is part of a family 
 
+#get child and get spouse refer to the family id of what fam they are a child or spouse of
+
+#do spouses first, then do children in separate lists
 def userStory26(file):
     indiDict,famDict = processGedFile(file)
     resultsList = list()
-    indNames = list()
+    indSpouses = list() #list of ids of those who are spouses
+    indChildren = list()#list of ids of those who are children
+    hubVer = False
+    wifeVer = False
     isGood = True
     for indID in indiDict:
-        indNames.append(indID)
+        if(indiDict[indID].Get_spouse() != 'NA'):
+            indSpouses.append(indID)
+    for indID in indiDict:
+        if(indiDict[indID].Get_child() != 'NA'):
+            indChildren.append(indID)
     
-    for name in indNames:
-        for famID in famDict:
-            #print(famDict[famID].Get_children()) ID of the children
-            if (famDict[famID].Get_husbandID() == name) or (famDict[famID].Get_wifeID() == name):
-                continue
-            if (name in famDict[famID].Get_children()):
-                continue
-            else:
-                resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {name} does not correspond to any individual in a family")    
+    for ind in indSpouses:
+        famID = indiDict[ind].Get_spouse() #id of the family of the spouse
+        famIDD = famID[0]
+        #checks if they are husband or wife in family
+        husID = famDict[famIDD].Get_husbandID()
+        wifeID = famDict[famIDD].Get_wifeID()
+        if(ind == husID):
+            hubVer = True
+        if(ind == wifeID):
+            wifeVer = False
+        if(ind != husID and ind != wifeID):
+            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any spouse in Family")    
+
+    
+    for ind in indChildren:
+        famID = indiDict[ind].Get_child() #id of the family of the child
+        famIDD = famID[0]
+        #check if ind exists within the family of the famid
+        allChildren = famDict[famIDD].Get_children()
+        if(ind not in allChildren):
+            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any child in Family")
+
+
             
-    return resultsList   
+    return resultsList
+        
+            
+   
                         
     
      
@@ -1134,7 +1161,7 @@ def userStory27(file):
     resultsList.append(result_1_str)
 
     # Print the information of gathered data
-    print_list(resultsList)
+    #print_list(resultsList)
 
     # Return error List
     return resultsList
@@ -1188,7 +1215,7 @@ def userStory28(file):
             resultsList.append(result_1_str)
 
     # Print the information of gathered data
-    print_list(resultsList)
+    #print_list(resultsList)
 
     # Return error List
     return resultsList
@@ -1212,7 +1239,7 @@ def userStory29(file):
             resultsList.append(f"INDIVIDUAL: US29: {individual.Get_name()} with id {individual_id} is deceased.")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    #print_list(resultsList)
     return (resultsList)
     
 ###################End of userStory29 ##################
@@ -1241,7 +1268,7 @@ def userStory30(file):
                 resultsList.append(f"INDIVIDUAL: US30: {individuals[husband].Get_name()}, with id {husband}, and {individuals[wife].Get_name()}, with id {wife}, are married and both alive.")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    #print_list(resultsList)
     return (resultsList)
 
 ###################End of userStory30 ##################
@@ -1266,7 +1293,7 @@ def userStory31(file):
         
     #print each output in the list and return list
     #print_list(resultsList)
-    print(resultsList)
+    #print(resultsList)
     return (resultsList)
 
 ###################End of userStory31 ##################
@@ -1300,12 +1327,10 @@ def userStory32(file):
         
         
     #print each output in the list and return list
-    print_list(resultsList)
+    #print_list(resultsList)
     return (resultsList)
 
 ###################End of userStory32 ##################
-resultsList = userStory26("InputGedFiles/UserStory26_GED/smalltest.ged")
-print(resultsList)
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
