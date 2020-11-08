@@ -983,7 +983,7 @@ def userStory21(file):
     # get individuals and families in file, create results
     individuals, families = processGedFile(file)
     resultsList = list()
-    
+
     for fam in families:
         #print(fam)
         #return
@@ -1033,7 +1033,7 @@ def userStory22(file):
             resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
         else:
             ind_set.add(i)
-            
+
     for i in all_fid:
         if i in fam_set:
             resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
@@ -1043,6 +1043,79 @@ def userStory22(file):
     #print each output in the list and return list
     print_list(resultsList)
     return (resultsList)
+
+'''
+User story 23:
+Requirement: All individuals must have a unique name and birth date pair.
+Author: Erick
+'''
+
+def userStory23(file):
+
+    indiDict, famDict = processGedFile(file);
+    indiList = [];
+    resultList = list();
+
+    for index in indiDict:
+        indiList += [index]
+
+    count = 0
+    while count <= len(indiList)-2:
+        tempIndi1 = indiDict[indiList[count]];
+
+        temp = count + 1;
+        while temp <= len(indiList)-1:
+            tempIndi2 = indiDict[indiList[temp]];
+            if tempIndi1.Get_name() == tempIndi2.Get_name() and tempIndi1.Get_birthday() == tempIndi2.Get_birthday():
+                indi_1 = tempIndi1.Get_ID();
+                indi_2 = tempIndi2.Get_ID();
+                indiBirth_2 = tempIndi2.Get_birthday();
+                indiName_2 = tempIndi1.Get_name();
+                resultList.append(f"ERROR: INDIVIDUAL: US23: Two individuals [{indi_1}, {indi_2}] have duplicate names and birthdays [{tempIndi1.Get_name()}, {tempIndi2.Get_birthday()}].")
+            temp += 1;
+        count += 1;
+
+    resultList.sort()
+    print_list(resultList);
+    return resultList
+
+'''
+User story 24:
+Requirement: All families must have a unique spouse pair.
+Author: Erick
+'''
+
+def userStory24(file):
+
+    indiDict, famDict = processGedFile(file);
+    famList = [];
+    resultList = list();
+
+    for index in famDict:
+        famList += [index]
+
+    count = 0
+    while count <= len(famList)-2:
+        tempFam1 = famDict[famList[count]];
+        tempFam1_Husb = tempFam1.Get_husbandName();
+        tempFam1_Wife = tempFam1.Get_wifeName();
+        temp = count + 1;
+        while temp <= len(famList)-1:
+            tempFam2 = famDict[famList[temp]];
+            tempFam2_Husb = tempFam2.Get_husbandName();
+            tempFam2_Wife = tempFam2.Get_wifeName();
+            if tempFam1_Husb == tempFam2_Husb and tempFam1_Wife == tempFam2_Wife :
+                fam_1 = tempFam1.Get_ID();
+                fam_2 = tempFam2.Get_ID();
+                resultList.append(f"ERROR: FAMILY: US24: Two families [{fam_1}, {fam_2}] have duplicate spouses [{tempFam1_Husb}, {tempFam2_Wife}].")
+            temp += 1;
+        count += 1;
+
+    resultList.sort()
+    print_list(resultList);
+    return resultList
+
+
 '''
 User story 25:
 Requirement: No more than one child with the same name and bday should appear in a family
@@ -1072,8 +1145,8 @@ def userStory25(file):
                         resultsList.append(f"ERROR: INDIVIDUAL: US25: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
                 else:
                     childList[first_name] = bday
-    return resultsList           
-                
+    return resultsList
+
 
 '''
 User story 26:
@@ -1082,7 +1155,7 @@ Author: Pratim
 '''
 #grab each individual
 
-#go through each family to ensure that individual is part of a family 
+#go through each family to ensure that individual is part of a family
 
 #get child and get spouse refer to the family id of what fam they are a child or spouse of
 
@@ -1101,7 +1174,7 @@ def userStory26(file):
     for indID in indiDict:
         if(indiDict[indID].Get_child() != 'NA'):
             indChildren.append(indID)
-    
+
     for ind in indSpouses:
         famID = indiDict[ind].Get_spouse() #id of the family of the spouse
         famIDD = famID[0]
@@ -1113,9 +1186,9 @@ def userStory26(file):
         if(ind == wifeID):
             wifeVer = False
         if(ind != husID and ind != wifeID):
-            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any spouse in Family")    
+            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any spouse in Family")
 
-    
+
     for ind in indChildren:
         famID = indiDict[ind].Get_child() #id of the family of the child
         famIDD = famID[0]
@@ -1125,14 +1198,14 @@ def userStory26(file):
             resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any child in Family")
 
 
-            
+
     return resultsList
-        
-            
-   
-                        
-    
-     
+
+
+
+
+
+
 
 ###################End of userStory25 ##################
 
@@ -1242,7 +1315,7 @@ def userStory29(file):
     #print each output in the list and return list
     #print_list(resultsList)
     return (resultsList)
-    
+
 ###################End of userStory29 ##################
 
 '''
@@ -1291,7 +1364,7 @@ def userStory31(file):
             if individuals[ind].Get_age() > 30:
                 if individuals[ind].Get_spouse() == 'NA':
                     resultsList.append(f"INDIVIDUAL: US31: {individuals[ind].Get_name()} with id {ind} is living, over 30, and never has been married.")
-        
+
     #print each output in the list and return list
     #print_list(resultsList)
     #print(resultsList)
@@ -1325,8 +1398,8 @@ def userStory32(file):
         for i in record:
             if len(record[i]) > 1:
                 resultsList.append(f"FAMILY: US32: Individuals with IDs {record[i]} are multiple births.")
-        
-        
+
+
     #print each output in the list and return list
     #print_list(resultsList)
     return (resultsList)
@@ -1365,4 +1438,4 @@ if __name__ == "__main__":
 
 
 
-   
+
