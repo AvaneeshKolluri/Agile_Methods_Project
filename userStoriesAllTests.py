@@ -30,7 +30,7 @@ from test_userStory28 import TestUserStory28Class
 from test_userStory29 import UserStory29Test
 from test_userStory30 import UserStory30Test
 
-# Sprint1 and Sprint2 class with all Sprint1 and Sprint2 tests
+# Sprint1, Sprint2, and Sprint3 class with all Sprint1, Sprint2, and Sprint3 tests
 class Test_Sprint1n2(unittest.TestCase):
     TestUserStory01Class()
     TestUserStory02Class()

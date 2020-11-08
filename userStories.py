@@ -1059,18 +1059,19 @@ def userStory25(file):
         children = famDict[familyID].Get_children()
         #create a dictionary of child names and bdays
         childList = dict()
-        for child in children:
-            name = indiDict[child].Get_name()
-            #get the birthday of each child
-            bday = indiDict[child].Get_birthday()
-            x = name.split(" ")
-            #get the first name of each child
-            first_name = x[0]
-            if first_name in childList:
-                if childList[first_name] == bday:
-                    resultsList.append(f"ERROR: INDIVIDUAL: US25: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
-            else:
-                childList[first_name] = bday
+        if children != "NA":
+            for child in children:
+                name = indiDict[child].Get_name()
+                #get the birthday of each child
+                bday = indiDict[child].Get_birthday()
+                x = name.split(" ")
+                #get the first name of each child
+                first_name = x[0]
+                if first_name in childList:
+                    if childList[first_name] == bday:
+                        resultsList.append(f"ERROR: INDIVIDUAL: US25: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
+                else:
+                    childList[first_name] = bday
     return resultsList           
                 
 
