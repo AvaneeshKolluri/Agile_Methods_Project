@@ -4,6 +4,8 @@ from datetime import datetime
 from datetime import date
 import datetime
 from dateutil import relativedelta as rdelta
+import collections
+import operator
 
 '''
 All Utility Functions are Below:
@@ -1045,6 +1047,93 @@ def userStory22(file):
 ###################End of userStory22 ##################
 
 '''
+User story 27:
+Requirement: Include person's current age when listing individuals
+Author: Srikanth
+'''
+
+def userStory27(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict = processGedFile(file)
+    # Create a list of
+    resultsList = list()
+    # Create a dictionary to accumulate each individual with their age
+    indiAgeDict = {}
+    # iterate through individual
+    for key, index in indiDict.items():
+        # Get Individual's name
+        indiName = indiDict[key].Get_name()
+        # Get Individual's age
+        indiAge = indiDict[key].Get_age()
+        # Accumulate all individuals with their age
+        indiAgeDict[indiName] = indiAge
+        # Collect all the list individual with their age
+    result_1_str = f"LIST: US27 : List of individuals with their name and age are:{indiAgeDict}"
+    resultsList.append(result_1_str)
+
+    # Print the information of gathered data
+    print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory27 ##################
+
+'''
+User story 28:
+Requirement: List siblings in families by decreasing age, i.e. oldest siblings first
+Author: Srikanth
+'''
+
+def userStory28(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict = processGedFile(file)
+    # Create a list of
+    resultsList = list()
+    # array index to process each object
+    arrayIndex = 0
+    # iterate through families
+    for key, index in famDict.items():
+        # Get all children in a family
+        siblingsList = famDict[key].Get_children()
+        # Get Family ID
+        familyID = famDict[key].Get_ID()
+        # Create a dictionary object to accumulate all children based on ages
+        siblingsAgeDict = dict()
+
+        # Process only if a family has children
+        if siblingsList != "NA":
+            # For every child in siblings list, update the dictionary with age
+            for indiPerson in siblingsList:
+                siblingAge = indiDict[indiPerson].Get_age()
+                siblingsAgeDict[indiPerson] = siblingAge
+            # Sort the dictionary based on descending order of age of each sibling.
+            sorted_x = sorted(siblingsAgeDict.items(), key=operator.itemgetter(1), reverse=True)
+            keys = collections.OrderedDict(sorted_x).keys()
+            # Family object to sort the order of siblings
+            index.Children = keys
+        # Collect the list of siblings from family object
+        childrenData = list(famDict.values())[arrayIndex]
+        # Increment the array for next iteration
+        arrayIndex = arrayIndex+1
+        # Fetch the Children data from family, this data is in descending order of age
+        famChildrenData = childrenData.Get_children()
+
+        # If a family has children fetch the data in a string to list all the siblings in descending order of their age
+        if famChildrenData != "NA":
+            # Record all siblings in a list
+            result_1_str = f"LIST: US28: Family ID: {familyID} Siblings list in descending order of their age {list(famChildrenData)}"
+            resultsList.append(result_1_str)
+
+    # Print the information of gathered data
+    print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory28 ##################
+
+'''
 User story 29:
 Requirement: List all deceased individuals in a GEDCOM File
 Author: Zach
@@ -1156,7 +1245,7 @@ def userStory32(file):
 
 # Sprint1 Main function
 if __name__ == "__main__":
-   '''userStory01("InputGedFiles/FamilyTree.ged")
+   userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
    userStory03("InputGedFiles/FamilyTree.ged")
    userStory04("InputGedFiles/FamilyTree.ged")
@@ -1178,13 +1267,13 @@ if __name__ == "__main__":
    userStory20("InputGedFiles/FamilyTree.ged")
    userStory21("InputGedFiles/FamilyTree.ged")
    userStory22("InputGedFiles/FamilyTree.ged")
+   userStory27("InputGedFiles/FamilyTree.ged")
+   userStory28("InputGedFiles/FamilyTree.ged")
    userStory29("InputGedFiles/FamilyTree.ged")
    userStory30("InputGedFiles/FamilyTree.ged")
    userStory31("InputGedFiles/FamilyTree.ged")
-   userStory32("InputGedFiles/FamilyTree.ged")'''
-   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-1.ged")
-   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-2.ged")
-   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-3.ged")
-   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-4.ged")
-   userStory31("InputGedFiles/UserStory31_GED/testUserStory31-5.ged")
+   userStory32("InputGedFiles/FamilyTree.ged")
+
+
+
    

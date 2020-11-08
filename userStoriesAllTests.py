@@ -23,6 +23,8 @@ from test_userStory19 import UserStory19Test
 from test_userStory20 import UserStory20Test
 from test_userStory21 import UserStory21Test
 from test_userStory22 import UserStory22Test
+from test_userStory27 import TestUserStory27Class
+from test_userStory28 import TestUserStory28Class
 from test_userStory29 import UserStory29Test
 from test_userStory30 import UserStory30Test
 
@@ -50,8 +52,10 @@ class Test_Sprint1n2(unittest.TestCase):
     UserStory20Test()
     UserStory21Test()
     UserStory22Test()
+    TestUserStory27Class()
+    TestUserStory28Class()
     UserStory29Test()
     UserStory30Test()
 
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1n2Reports'))
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1n2n3Reports'))

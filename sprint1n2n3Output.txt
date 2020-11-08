@@ -178,6 +178,17 @@ ERROR: FAMILY: US19: F15: First cousins I39 and I37 married. Children of sibling
 ERROR: FAMILY: US20: F14: Wife (I34) married nephew (I41)
 ERROR: FAMILY: US21: F14: Wife (I34) is labelled incorrectly as (M).
 ERROR: FAMILY: US21: F15: Husband (I39) is labelled incorrectly as (F).
+LIST: US27 : List of individuals with their name and age are:{'Richard Smith': 24, 'Jada Koren Pinkett': 34, 'Sheree Zampino': 152, 'Trey Smith': 0, 'Eva Emshoff': 10, 'Jaden Christopher Syre Smith': 20, 'Willow Camille Reign Smith': 21, 'Caroline Bright': 38, 'Willard Sr Smith': -5, 'Dave Smith': 1, 'Shelby Carter': 0, 'Particia Smith': 168, 'Elicia Smith': 262, 'Rivera Jonas': 0, 'Lisha Oliver': 0, 'Linda Jonas': 104, 'Mary Swift': 53, 'Lilly Smith': 24, 'Rita Smith': 24, 'Tommy Smith': 0, 'Alli Smith': 0, 'Elon Smith': 0, 'Christen Smith': 0, 'Lisa Smith': 0, 'Elizah Smith': 0, 'James Oliver': 2, 'Amy Smith': 0, 'Charlotte Smith': 4, 'Fred Smith': 3, 'Alfred Smith': 44, 'Patty Smith': 46, 'Iris Smith': 53, 'Evita Smith': 44, 'Rosie Smith': 44, 'Arnold Bob': 44, 'Jennifer Bob': 31, 'Barbera Stark': 23, 'Tony Smith': 24, 'Patrick Roger': 44, 'Danny Roger': 20}
+LIST: US28: Family ID: F1 Siblings list in descending order of their age ['I7', 'I6', 'I10']
+LIST: US28: Family ID: F2 Siblings list in descending order of their age ['I4']
+LIST: US28: Family ID: F3 Siblings list in descending order of their age ['I1']
+LIST: US28: Family ID: F5 Siblings list in descending order of their age ['I33', 'I32', 'I31', 'I34', 'I35', 'I29', 'I30', 'I27', 'I14', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26', 'I28']
+LIST: US28: Family ID: F6 Siblings list in descending order of their age ['I13', 'I12']
+LIST: US28: Family ID: F7 Siblings list in descending order of their age ['I1', 'I19', 'I20']
+LIST: US28: Family ID: F11 Siblings list in descending order of their age ['I39']
+LIST: US28: Family ID: F12 Siblings list in descending order of their age ['I37']
+LIST: US28: Family ID: F13 Siblings list in descending order of their age ['I41']
+LIST: US28: Family ID: F17 Siblings list in descending order of their age ['I7', 'I6', 'I10']
 INDIVIDUAL: US29: Sheree Zampino with id I3 is deceased.
 INDIVIDUAL: US29: Trey Smith with id I4 is deceased.
 INDIVIDUAL: US29: Caroline Bright with id I8 is deceased.
