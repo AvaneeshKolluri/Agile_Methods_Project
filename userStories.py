@@ -1043,8 +1043,45 @@ def userStory22(file):
     #print each output in the list and return list
     print_list(resultsList)
     return (resultsList)
+'''
+User story 25:
+Requirement: No more than one child with the same name and bday should appear in a family
+Author: Pratim
+'''
 
-###################End of userStory22 ##################
+
+def userStory25(file):
+    indiDict,famDict = processGedFile(file)
+    resultsList = list()
+
+    for familyID in famDict:
+        #get list of children
+        children = famDict[familyID].Get_children()
+        #create a dictionary of child names and bdays
+        childList = dict()
+        for child in children:
+            name = indiDict[child].Get_name()
+            #get the birthday of each child
+            bday = indiDict[child].Get_birthday()
+            x = name.split(" ")
+            #get the first name of each child
+            first_name = x[0]
+            if first_name in childList:
+                if childList[first_name] == bday:
+                    resultsList.append(f"ERROR: INDIVIDUAL: US25: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
+            else:
+                childList[first_name] = bday
+    return resultsList           
+                
+
+'''
+User story 26:
+Requirement: All family roles in the individual record should have corresponding records in the corresponding family records
+Author: Pratim
+'''
+        
+
+###################End of userStory25 ##################
 
 '''
 User story 27:
@@ -1242,7 +1279,8 @@ def userStory32(file):
     return (resultsList)
 
 ###################End of userStory32 ##################
-
+resultList = userStory25('InputGedFiles/UserStory25_GED/smalltest2.ged')
+print(resultList)
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
