@@ -1079,33 +1079,32 @@ User story 26:
 Requirement: All family roles in the individual record should have corresponding records in the corresponding family records
 Author: Pratim
 '''
-#loop through each individual
-#loop through each family
-#ensure that individual is in a family
+#grab each individual
+
+#go through each family to ensure that individual is part of a family 
 
 def userStory26(file):
     indiDict,famDict = processGedFile(file)
     resultsList = list()
-    indiList = list() #names of individuals
-    famList = list() #ids of families
-
-    for individual in indiDict:
-        indiName = individual.Get_name()
-        indiList.append(indiName)
-    for family in famDict:
-        famID = family.Get_ID()
-        famList.append(famID)
-
-    for individual in indiList:
-        for family in famList:
-            if(family.Get_husbandName == individual):
-                break
-            if(family.Get_wifeName == individual):
-                break
-            if(individual in family.Get_children):
-                break
-    resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {individual} does not correspond to any member of a family.")
-    return resultsList        
+    indNames = list()
+    isGood = True
+    for indID in indiDict:
+        indNames.append(indID)
+    
+    for name in indNames:
+        for famID in famDict:
+            #print(famDict[famID].Get_children()) ID of the children
+            if (famDict[famID].Get_husbandID() == name) or (famDict[famID].Get_wifeID() == name):
+                continue
+            if (name in famDict[famID].Get_children()):
+                continue
+            else:
+                resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {name} does not correspond to any individual in a family")    
+            
+    return resultsList   
+                        
+    
+     
 
 ###################End of userStory25 ##################
 
@@ -1305,8 +1304,8 @@ def userStory32(file):
     return (resultsList)
 
 ###################End of userStory32 ##################
-resultList = userStory25('InputGedFiles/UserStory25_GED/test.ged')
-print(resultList)
+resultsList = userStory26("InputGedFiles/UserStory26_GED/smalltest.ged")
+print(resultsList)
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")

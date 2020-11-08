@@ -1,0 +1,186 @@
+0 HEAD
+1 SOUR Family Echo
+2 WWW http://www.familyecho.com/
+1 FILE My Family
+1 DATE 26 OCT 2020
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME John Smith
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Tommy /Johnson/
+2 GIVN Tommy
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 10 SEP 1960
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Suzanne /Johnson/
+2 GIVN Suzanne
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 2 JUN 1958
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Shirley /Johnson/
+2 GIVN Shirley
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 4 MAY 1986
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Reginald /Johnson/
+2 GIVN Reginald
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 5 APR 1982
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Jackson /Johnson/
+2 GIVN Jackson
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 5 JUN 1990
+1 FAMC @F1@
+0 @I6@ INDI
+1 NAME Fowler /Johnson/
+2 GIVN Fowler
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 5 APR 1983
+1 FAMC @F1@
+0 @I7@ INDI
+1 NAME Eliza /Johnson/
+2 GIVN Eliza
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 5 MAY 1986
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME Mary /Johnson/
+2 GIVN Mary
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 7 JUN 1993
+1 FAMC @F1@
+0 @I9@ INDI
+1 NAME Bubba /Johnson/
+2 GIVN Bubba
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 9 MAY 1990
+1 FAMC @F1@
+0 @I10@ INDI
+1 NAME Scott /Johnson/
+2 GIVN Scott
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 4 MAY 1985
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Thomas /Johnson/
+2 GIVN Thomas
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 5 JUN 1995
+1 FAMC @F1@
+0 @I12@ INDI
+1 NAME Jennifer /Johnson/
+2 GIVN Jennifer
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 12 FEB 1996
+1 FAMC @F1@
+0 @I13@ INDI
+1 NAME Tiger /Johnson/
+2 GIVN Tiger
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 9 DEC 1979
+1 FAMC @F1@
+0 @I14@ INDI
+1 NAME Jordan /Johnson/
+2 GIVN Jordan
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX M
+1 BIRT
+2 DATE 6 MAR 1988
+1 FAMC @F1@
+0 @I15@ INDI
+1 NAME Succup /Johnson/
+2 GIVN Succup
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 3 SEP 1986
+1 FAMC @F1@
+0 @I16@ INDI
+1 NAME Ryan /Johnson/
+2 GIVN Ryan
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 9 AUG 1995
+1 FAMC @F1@
+0 @I17@ INDI
+1 NAME Alma /Johnson/
+2 GIVN Alma
+2 SURN Johnson
+2 _MARNM Johnson
+1 SEX F
+1 BIRT
+2 DATE 9 NOV 1997
+1 FAMC @F1@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+1 CHIL @I7@
+1 CHIL @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+1 CHIL @I11@
+1 CHIL @I12@
+1 CHIL @I13@
+1 CHIL @I14@
+1 CHIL @I15@
+1 CHIL @I16@
+1 CHIL @I17@
+1 _CURRENT Y
+0 TRLR
