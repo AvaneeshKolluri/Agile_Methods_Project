@@ -1,52 +1,52 @@
 
 
 Individuals Information----------------------->
-+-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
-|  ID |             Name             | Gender |  Birthday  | Age | Alive |   Death    |  Child  |       Spouse       |
-+-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
-|  I1 |        Richard Smith         |   M    | 1996-03-09 |  24 |  True |     NA     |  ['F7'] |         NA         |
-|  I2 |      Jada Koren Pinkett      |   F    | 1986-01-18 |  34 |  True |     NA     |    NA   |       ['F1']       |
-|  I3 |        Sheree Zampino        |   F    | 1867-11-16 | 152 | False | 2020-03-17 |    NA   |    ['F2', 'F3']    |
-|  I4 |          Trey Smith          |   M    | 2022-12-11 |  0  | False | 2023-06-12 |  ['F2'] |       ['F5']       |
-|  I5 |         Eva Emshoff          |   F    | 2010-01-04 |  10 |  True |     NA     |    NA   |   ['F5', 'F16']    |
-|  I6 | Jaden Christopher Syre Smith |   M    | 2000-07-08 |  20 |  True |     NA     |  ['F1'] |       ['F3']       |
-|  I7 |  Willow Camille Reign Smith  |   F    | 1999-10-31 |  21 |  True |     NA     |  ['F1'] |         NA         |
-|  I8 |       Caroline Bright        |   F    | 1961-03-20 |  38 | False | 1999-03-21 |    NA   |       ['F3']       |
-|  I9 |       Willard Sr Smith       |   M    | 1961-01-12 |  -5 | False | 1956-02-27 |    NA   |       ['F3']       |
-| I10 |          Dave Smith          |   M    | 2019-01-01 |  1  |  True |     NA     |  ['F1'] |       ['F6']       |
-| I11 |        Shelby Carter         |   F    | 2020-01-01 |  0  |  True |     NA     |    NA   |       ['F6']       |
-| I12 |        Particia Smith        |   F    | 1851-12-03 | 168 |  True |     NA     |  ['F6'] |         NA         |
-| I13 |         Elicia Smith         |   F    | 1752-12-04 | 262 | False | 2015-06-08 |  ['F6'] |         NA         |
-| I14 |         Rivera Jonas         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] | ['F7', 'F8', 'F9'] |
-| I15 |         Lisha Oliver         |   F    | 2019-12-08 |  0  |  True |     NA     |    NA   |       ['F8']       |
-| I16 |         Linda Jonas          |   F    | 1916-10-14 | 104 |  True |     NA     |    NA   |       ['F9']       |
-| I17 |          Mary Swift          |   F    | 1967-08-11 |  53 |  True |     NA     |    NA   |       ['F7']       |
-| I19 |         Lilly Smith          |   F    | 1996-03-16 |  24 |  True |     NA     |  ['F7'] |         NA         |
-| I20 |          Rita Smith          |   F    | 1996-06-14 |  24 |  True |     NA     |  ['F7'] |         NA         |
-| I21 |         Tommy Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
-| I22 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
-| I23 |         Tommy Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F10']       |
-| I24 |        Christen Smith        |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F10']       |
-| I25 |          Lisa Smith          |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |         NA         |
-| I26 |         Elizah Smith         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |      ['F11']       |
-| I27 |         James Oliver         |   M    | 2018-07-10 |  2  |  True |     NA     |  ['F5'] |         NA         |
-| I28 |          Amy Smith           |   F    | 2019-12-16 |  0  |  True |     NA     |  ['F5'] |      ['F12']       |
-| I29 |       Charlotte Smith        |   F    | 2016-09-13 |  4  |  True |     NA     |  ['F5'] |         NA         |
-| I30 |          Fred Smith          |   M    | 2017-10-09 |  3  |  True |     NA     |  ['F5'] |      ['F16']       |
-| I31 |         Alfred Smith         |   M    | 1975-11-11 |  44 |  True |     NA     |  ['F5'] |         NA         |
-| I32 |         Patty Smith          |   F    | 1974-07-09 |  46 |  True |     NA     |  ['F5'] |      ['F13']       |
-| I33 |          Iris Smith          |   M    | 1967-10-07 |  53 |  True |     NA     |  ['F5'] |         NA         |
-| I34 |         Evita Smith          |   M    | 1976-08-16 |  44 |  True |     NA     |  ['F5'] |      ['F14']       |
-| I35 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |         NA         |
-| I36 |          Arnold Bob          |   M    | 1976-08-15 |  44 |  True |     NA     |    NA   |      ['F12']       |
-| I37 |         Jennifer Bob         |   F    | 1989-09-15 |  31 |  True |     NA     | ['F12'] |      ['F15']       |
-| I38 |        Barbera Stark         |   F    | 1997-09-10 |  23 |  True |     NA     |    NA   |      ['F11']       |
-| I39 |          Tony Smith          |   F    | 1996-09-11 |  24 |  True |     NA     | ['F11'] |      ['F15']       |
-| I40 |        Patrick Roger         |   M    | 1976-07-11 |  44 |  True |     NA     |    NA   |      ['F13']       |
-| I41 |         Danny Roger          |   M    | 2000-07-12 |  20 |  True |     NA     | ['F13'] |      ['F14']       |
-| I42 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F7'] |         NA         |
-| I43 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |         NA         |
-+-----+------------------------------+--------+------------+-----+-------+------------+---------+--------------------+
++-----+------------------------------+--------+------------+-----+-------+------------+---------+---------------+
+|  ID |             Name             | Gender |  Birthday  | Age | Alive |   Death    |  Child  |     Spouse    |
++-----+------------------------------+--------+------------+-----+-------+------------+---------+---------------+
+|  I1 |        Richard Smith         |   M    | 1996-03-09 |  24 |  True |     NA     |  ['F7'] |       NA      |
+|  I2 |      Jada Koren Pinkett      |   F    | 1986-01-18 |  34 |  True |     NA     |    NA   |     ['F1']    |
+|  I3 |        Sheree Zampino        |   F    | 1867-11-16 | 152 | False | 2020-03-17 |    NA   |  ['F2', 'F3'] |
+|  I4 |          Trey Smith          |   M    | 2022-12-11 |  0  | False | 2023-06-12 |  ['F2'] |     ['F5']    |
+|  I5 |         Eva Emshoff          |   F    | 2010-01-04 |  10 |  True |     NA     |    NA   | ['F5', 'F16'] |
+|  I6 | Jaden Christopher Syre Smith |   M    | 2000-07-08 |  20 |  True |     NA     |  ['F1'] |     ['F3']    |
+|  I7 |  Willow Camille Reign Smith  |   F    | 1999-10-31 |  21 |  True |     NA     |  ['F1'] |       NA      |
+|  I8 |       Caroline Bright        |   F    | 1961-03-20 |  38 | False | 1999-03-21 |    NA   |     ['F3']    |
+|  I9 |       Willard Sr Smith       |   M    | 1961-01-12 |  -5 | False | 1956-02-27 |    NA   |     ['F3']    |
+| I10 |          Dave Smith          |   M    | 2019-01-01 |  1  |  True |     NA     |  ['F1'] |     ['F6']    |
+| I11 |        Shelby Carter         |   F    | 2020-01-01 |  0  |  True |     NA     |    NA   |     ['F6']    |
+| I12 |        Particia Smith        |   F    | 1851-12-03 | 168 |  True |     NA     |  ['F6'] |       NA      |
+| I13 |         Elicia Smith         |   F    | 1752-12-04 | 262 | False | 2015-06-08 |  ['F6'] |       NA      |
+| I14 |         Rivera Jonas         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |  ['F7', 'F9'] |
+| I15 |         Lisha Oliver         |   F    | 2019-12-08 |  0  |  True |     NA     |    NA   |     ['F8']    |
+| I16 |         Linda Jonas          |   F    | 1916-10-14 | 104 |  True |     NA     |    NA   |     ['F9']    |
+| I17 |          Mary Swift          |   F    | 1967-08-11 |  53 |  True |     NA     |    NA   |     ['F7']    |
+| I19 |         Lilly Smith          |   F    | 1996-03-16 |  24 |  True |     NA     |  ['F7'] |       NA      |
+| I20 |          Rita Smith          |   F    | 1996-06-14 |  24 |  True |     NA     |  ['F7'] |       NA      |
+| I21 |         Tommy Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |       NA      |
+| I22 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |       NA      |
+| I23 |         Tommy Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |    ['F10']    |
+| I24 |        Christen Smith        |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |    ['F10']    |
+| I25 |          Lisa Smith          |   F    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |       NA      |
+| I26 |         Elizah Smith         |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F5'] |    ['F11']    |
+| I27 |         James Oliver         |   M    | 2018-07-10 |  2  |  True |     NA     |  ['F5'] |       NA      |
+| I28 |          Amy Smith           |   F    | 2019-12-16 |  0  |  True |     NA     |  ['F5'] |       NA      |
+| I29 |       Charlotte Smith        |   F    | 2016-09-13 |  4  |  True |     NA     |  ['F5'] |       NA      |
+| I30 |          Fred Smith          |   M    | 2017-10-09 |  3  |  True |     NA     |  ['F5'] |    ['F16']    |
+| I31 |         Alfred Smith         |   M    | 1975-11-11 |  44 |  True |     NA     |  ['F5'] |       NA      |
+| I32 |         Patty Smith          |   F    | 1974-07-09 |  46 |  True |     NA     |  ['F5'] |    ['F13']    |
+| I33 |          Iris Smith          |   M    | 1967-10-07 |  53 |  True |     NA     |  ['F5'] |       NA      |
+| I34 |         Evita Smith          |   M    | 1976-08-16 |  44 |  True |     NA     |  ['F5'] |    ['F14']    |
+| I35 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |       NA      |
+| I36 |          Arnold Bob          |   M    | 1976-08-15 |  44 |  True |     NA     |    NA   |    ['F12']    |
+| I37 |         Jennifer Bob         |   F    | 1989-09-15 |  31 |  True |     NA     | ['F12'] |    ['F15']    |
+| I38 |        Barbera Stark         |   F    | 1997-09-10 |  23 |  True |     NA     |    NA   |    ['F11']    |
+| I39 |          Tony Smith          |   F    | 1996-09-11 |  24 |  True |     NA     | ['F11'] |    ['F15']    |
+| I40 |        Patrick Roger         |   M    | 1976-07-11 |  44 |  True |     NA     |    NA   |    ['F13']    |
+| I41 |         Danny Roger          |   M    | 2000-07-12 |  20 |  True |     NA     | ['F13'] |    ['F14']    |
+| I42 |          Alli Smith          |   M    | 2019-12-09 |  0  |  True |     NA     |  ['F7'] |       NA      |
+| I43 |         Rosie Smith          |   F    | 1976-09-06 |  44 |  True |     NA     |  ['F5'] |       NA      |
++-----+------------------------------+--------+------------+-----+-------+------------+---------+---------------+
 
 
 Family Information----------------------->
