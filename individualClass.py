@@ -1,6 +1,6 @@
 
 class individualClass(object):
-    def __init__(self, ID = 'NA', Name = 'NA', Gender = 'NA', Birthday = 'NA', Age = '0', Alive = 'NA', Death = 'NA', Child =[], Spouse = []):
+    def __init__(self, ID = 'NA', Name = 'NA', Gender = 'NA', Birthday = 'NA', Age = 'NA', Alive = 'NA', Death = 'NA', Child =[], Spouse = [], DupliID = []):
         self.ID =  ID
         self.Name = Name
         self.Gender = Gender
@@ -10,6 +10,7 @@ class individualClass(object):
         self.Death = Death
         self.Child = []
         self.Spouse = []
+        self.DupliID = []
 
     def Set_ID(self, ID):
         self.ID = ID
@@ -37,6 +38,9 @@ class individualClass(object):
 
     def Set_spouse(self, Spouse_arg):
         self.Spouse.append(Spouse_arg)
+
+    def Set_DupliID(self, dupli_arg):
+        self.DupliID.append(dupli_arg)
 
     def Get_ID(self):
         return self.ID
@@ -68,6 +72,11 @@ class individualClass(object):
         if(self.Spouse == []):
             return 'NA'
         return self.Spouse
+
+    def Get_DupliID(self):
+        if(self.DupliID == []):
+            return 'NA'
+        return self.DupliID
 
     def Get_details(self):
         if(self.Child == [] and self.Spouse == []):

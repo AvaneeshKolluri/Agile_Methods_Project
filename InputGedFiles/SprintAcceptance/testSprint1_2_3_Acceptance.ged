@@ -24,6 +24,15 @@
 1 FAMS @F1@
 1 FAMS @F2@
 1 FAMC @F3@
+0 @I1@ INDI
+1 NAME Willard Jack
+2 GIVN Willard Jack
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 12 AUG 1963
+2 PLAC Philadelphia, PA
 0 @I2@ INDI
 1 NAME Jada Koren /Pinkett/
 2 GIVN Jada Koren
@@ -530,6 +539,10 @@
 1 CHIL @I37@
 1 MARR
 2 DATE 12 AUG 1995
+1 _CURRENT Y
+0 @F12@ FAM
+1 MARR
+2 DATE 12 AUG 1965
 1 _CURRENT Y
 0 @F13@ FAM
 1 HUSB @I40@

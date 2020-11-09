@@ -73,6 +73,7 @@ def processGedFile(file_path):
     famTag = ""
     isMarried = False
     isDivorced = False
+    indiDict["DupI_ID"] = indiClass("DupI_ID")
     for element in root_elements:
         age = 0
 
@@ -85,8 +86,12 @@ def processGedFile(file_path):
             #Fetch Individual ID tag
             myTag = individualString[1]
 
-            indiDict[myTag] = indiClass(myTag)
-            indiDict[myTag].Set_ID(myTag)
+            if myTag in indiDict:
+                indiDict["DupI_ID"].Set_DupliID(myTag)
+                continue
+            else:
+                indiDict[myTag] = indiClass(myTag)
+                indiDict[myTag].Set_ID(myTag)
 
         # Fetch ans set Child ID details for individual
         if (element.get_level() == 1) and element.get_tag() == "FAMC" :

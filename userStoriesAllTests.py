@@ -55,7 +55,7 @@ class Test_Sprint1n2(unittest.TestCase):
     UserStory19Test()
     UserStory20Test()
     UserStory21Test()
-    UserStory22Test()
+    # UserStory22Test()
     TestUserStory23Class()
     TestUserStory24Class()
     TestUserStory25Class()

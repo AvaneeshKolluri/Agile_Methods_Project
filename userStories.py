@@ -335,16 +335,17 @@ def userStory07(file):
         deathDate = indiDict[index].Get_death()
 
         # If Age is greater than or equal to 150 prompt Invalid data
-        if (individualAge >= 150):
-            # Check if an individual is alive or not
-            if (isIndiAlive == False):
-                #error 1
-                result_1_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old at death - Birth {birthDate}: Death {deathDate}"
-                resultList.append(result_1_str)
-            else:
-                # error 2
-                result_2_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old - Birth date {birthDate}"
-                resultList.append(result_2_str)
+        if individualAge != "NA":
+            if(individualAge >= 150):
+                # Check if an individual is alive or not
+                if (isIndiAlive == False):
+                    #error 1
+                    result_1_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old at death - Birth {birthDate}: Death {deathDate}"
+                    resultList.append(result_1_str)
+                else:
+                    # error 2
+                    result_2_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old - Birth date {birthDate}"
+                    resultList.append(result_2_str)
 
     # Print the information of validated data
     print_list(resultList)
@@ -1017,33 +1018,15 @@ def userStory22(file):
 
     # get individuals and families in file, create results
     individuals, families = processGedFile(file)
-    resultsList = list()
-    all_iid = []
-    all_fid = []
-    for ind in individuals:
-        all_iid += [ind]
-    for fm in individuals:
-        all_fid += [fm]
 
-    ind_set = set()
-    fam_set = set()
-
-    for i in all_iid:
-        if i in ind_set:
-            resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
-        else:
-            ind_set.add(i)
-
-    for i in all_fid:
-        if i in fam_set:
-            resultsList.append(f"ERROR: INDIVIDUAL: US22: Individual ID {i} is a duplicate ID.")
-        else:
-            fam_set.add(i)
+    # Get Individual's age
+    print(individuals["DupI_ID"].Get_DupliID())
 
     #print each output in the list and return list
-    print_list(resultsList)
-    return (resultsList)
+    # print_list(resultsList)
 
+    # return (resultsList)
+###################End of userStory22 ##################
 '''
 User story 23:
 Requirement: All individuals must have a unique name and birth date pair.
@@ -1078,6 +1061,7 @@ def userStory23(file):
     resultList.sort()
     print_list(resultList);
     return resultList
+###################End of userStory23 ##################
 
 '''
 User story 24:
@@ -1115,6 +1099,7 @@ def userStory24(file):
     print_list(resultList);
     return resultList
 
+###################End of userStory24 ##################
 
 '''
 User story 25:
@@ -1146,7 +1131,7 @@ def userStory25(file):
                 else:
                     childList[first_name] = bday
     return resultsList
-
+###################End of userStory25 ##################
 
 '''
 User story 26:
@@ -1201,7 +1186,7 @@ def userStory26(file):
 
     return resultsList
 
-###################End of userStory25 ##################
+###################End of userStory26 ##################
 
 '''
 User story 27:
@@ -1222,9 +1207,10 @@ def userStory27(file):
         indiName = indiDict[key].Get_name()
         # Get Individual's age
         indiAge = indiDict[key].Get_age()
-        # Accumulate all individuals with their age
-        indiAgeDict[indiName] = indiAge
-        # Collect all the list individual with their age
+        if indiAge != "NA":
+            # Accumulate all individuals with their age
+            indiAgeDict[indiName] = indiAge
+    # Collect all the list individual with their age
     result_1_str = f"LIST: US27 : List of individuals with their name and age are:{indiAgeDict}"
     resultsList.append(result_1_str)
 
@@ -1401,38 +1387,41 @@ def userStory32(file):
 ###################End of userStory32 ##################
 # Sprint1 Main function
 if __name__ == "__main__":
-   userStory01("InputGedFiles/FamilyTree.ged")
-   userStory02("InputGedFiles/FamilyTree.ged")
-   userStory03("InputGedFiles/FamilyTree.ged")
-   userStory04("InputGedFiles/FamilyTree.ged")
-   userStory05("InputGedFiles/FamilyTree.ged")
-   userStory06("InputGedFiles/FamilyTree.ged")
-   userStory07("InputGedFiles/FamilyTree.ged")
-   userStory08("InputGedFiles/FamilyTree.ged")
-   userStory09("InputGedFiles/FamilyTree.ged")
-   userStory10("InputGedFiles/FamilyTree.ged")
-   userStory11("InputGedFiles/FamilyTree.ged")
-   userStory12("InputGedFiles/FamilyTree.ged")
-   userStory13("InputGedFiles/FamilyTree.ged")
-   userStory14("InputGedFiles/FamilyTree.ged")
-   userStory15("InputGedFiles/FamilyTree.ged")
-   userStory16("InputGedFiles/FamilyTree.ged")
-   userStory17("InputGedFiles/FamilyTree.ged")
-   userStory18("InputGedFiles/FamilyTree.ged")
-   userStory19("InputGedFiles/FamilyTree.ged")
-   userStory20("InputGedFiles/FamilyTree.ged")
-   userStory21("InputGedFiles/FamilyTree.ged")
-   userStory22("InputGedFiles/FamilyTree.ged")
-   userStory23("InputGedFiles/FamilyTree.ged")
-   userStory24("InputGedFiles/FamilyTree.ged")
-   userStory25("InputGedFiles/FamilyTree.ged")
-   userStory26("InputGedFiles/FamilyTree.ged")
-   userStory27("InputGedFiles/FamilyTree.ged")
-   userStory28("InputGedFiles/FamilyTree.ged")
-   userStory29("InputGedFiles/FamilyTree.ged")
-   userStory30("InputGedFiles/FamilyTree.ged")
-   userStory31("InputGedFiles/FamilyTree.ged")
-   userStory32("InputGedFiles/FamilyTree.ged")
+   # userStory01("InputGedFiles/FamilyTree.ged")
+   # userStory02("InputGedFiles/FamilyTree.ged")
+   # userStory03("InputGedFiles/FamilyTree.ged")
+   # userStory04("InputGedFiles/FamilyTree.ged")
+   # userStory05("InputGedFiles/FamilyTree.ged")
+   # userStory06("InputGedFiles/FamilyTree.ged")
+   # userStory07("InputGedFiles/FamilyTree.ged")
+   # userStory08("InputGedFiles/FamilyTree.ged")
+   # userStory09("InputGedFiles/FamilyTree.ged")
+   # userStory10("InputGedFiles/FamilyTree.ged")
+   # userStory11("InputGedFiles/FamilyTree.ged")
+   # userStory12("InputGedFiles/FamilyTree.ged")
+   # userStory13("InputGedFiles/FamilyTree.ged")
+   # userStory14("InputGedFiles/FamilyTree.ged")
+   # userStory15("InputGedFiles/FamilyTree.ged")
+   # userStory16("InputGedFiles/FamilyTree.ged")
+   # userStory17("InputGedFiles/FamilyTree.ged")
+   # userStory18("InputGedFiles/FamilyTree.ged")
+   # userStory19("InputGedFiles/FamilyTree.ged")
+   # userStory20("InputGedFiles/FamilyTree.ged")
+   # userStory21("InputGedFiles/FamilyTree.ged")
+   # # userStory22("InputGedFiles/FamilyTree.ged")
+   # userStory23("InputGedFiles/FamilyTree.ged")
+   # userStory24("InputGedFiles/FamilyTree.ged")
+   # userStory25("InputGedFiles/FamilyTree.ged")
+   # userStory26("InputGedFiles/FamilyTree.ged")
+   # userStory27("InputGedFiles/FamilyTree.ged")
+   # userStory28("InputGedFiles/FamilyTree.ged")
+   # userStory29("InputGedFiles/FamilyTree.ged")
+   # userStory30("InputGedFiles/FamilyTree.ged")
+   # userStory31("InputGedFiles/FamilyTree.ged")
+   # userStory32("InputGedFiles/FamilyTree.ged")
+
+   userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
+   # userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
 
 
 
