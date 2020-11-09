@@ -1201,12 +1201,6 @@ def userStory26(file):
 
     return resultsList
 
-
-
-
-
-
-
 ###################End of userStory25 ##################
 
 '''
@@ -1429,6 +1423,10 @@ if __name__ == "__main__":
    userStory20("InputGedFiles/FamilyTree.ged")
    userStory21("InputGedFiles/FamilyTree.ged")
    userStory22("InputGedFiles/FamilyTree.ged")
+   userStory23("InputGedFiles/FamilyTree.ged")
+   userStory24("InputGedFiles/FamilyTree.ged")
+   userStory25("InputGedFiles/FamilyTree.ged")
+   userStory26("InputGedFiles/FamilyTree.ged")
    userStory27("InputGedFiles/FamilyTree.ged")
    userStory28("InputGedFiles/FamilyTree.ged")
    userStory29("InputGedFiles/FamilyTree.ged")
