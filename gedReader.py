@@ -74,6 +74,7 @@ def processGedFile(file_path):
     isMarried = False
     isDivorced = False
     indiDict["DupI_ID"] = indiClass("DupI_ID")
+    famDict["DupliID_fam"] = familyClass("DupliID_fam")
     for element in root_elements:
         age = 0
 
@@ -156,8 +157,12 @@ def processGedFile(file_path):
             familyString = element.to_gedcom_string()
             familyString = familyString.replace('@','').strip().split(" ")
             famTag = familyString[1]
-            famDict[famTag] = familyClass(famTag)
-            famDict[famTag].Set_ID(famTag)
+            if famTag in famDict:
+                famDict["DupliID_fam"].Set_DupliID_fam(famTag)
+                continue
+            else:
+                famDict[famTag] = familyClass(famTag)
+                famDict[famTag].Set_ID(famTag)
         if(element.get_level() == 1 and element.get_tag() == "MARR"):
             isMarried = True
         if(isMarried and element.get_tag()=="DATE" and element.get_level()==2):
