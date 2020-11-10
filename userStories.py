@@ -61,7 +61,7 @@ Requirement: Dates (birth, marriage, divorce, death) should not be after the cur
 Author: Avaneesh
 '''
 def userStory01(file): #info, famtbl
-    info, famtbl = processGedFile(file)
+    info, famtbl, lines = processGedFile(file)
     resultList = list()
 
     dt = datetime.datetime.now()
@@ -79,7 +79,8 @@ def userStory01(file): #info, famtbl
                     marriage = current > marr
                     #Do something
                     if(marriage == False):
-                        result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Marriage {marr} occurs in the future"
+                        line = lines[f"{famtbl[fam[i]].Get_ID()}: Married date set"]
+                        result_1_str = f"ERROR: INDIVIDUAL: US01: {line}: {individualID}: Marriage {marr} occurs in the future"
                         resultList.append(result_1_str)
                     #mlst += [marriage]
             for i in range(len(fam)):
@@ -88,18 +89,21 @@ def userStory01(file): #info, famtbl
                     divorced = current > div
                     #Do something
                     if(divorced == False):
-                        result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Divorce {div} occurs in the future"
+                        line = lines[f"{famtbl[fam[i]].Get_ID()}: Divorced date set"]
+                        result_1_str = f"ERROR: INDIVIDUAL: US01: {line}: {individualID}: Divorce {div} occurs in the future"
                         resultList.append(result_1_str)
             bday = current > user.Get_birthday()
             if(bday == False):
-                result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Birthday {user.Get_birthday()} occurs in the future"
+                line = lines[f"{individualID}: Birthday set"]
+                result_1_str = f"ERROR: INDIVIDUAL: US01: {line}: {individualID}: Birthday {user.Get_birthday()} occurs in the future"
                 resultList.append(result_1_str)
             #Do something
             if(user.Get_death() != 'NA'):
                 death = current > user.Get_death()
                 #Do something
                 if(death == False):
-                    result_1_str = f"ERROR: INDIVIDUAL: US01: {individualID}: Death {user.Get_death()} occurs in the future"
+                    line = lines[f"{individualID}: Death date set"]
+                    result_1_str = f"ERROR: INDIVIDUAL: US01: {line}: {individualID}: Death {user.Get_death()} occurs in the future"
                     resultList.append(result_1_str)
     for output in resultList:
         print(output)

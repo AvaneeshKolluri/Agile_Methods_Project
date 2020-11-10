@@ -75,9 +75,14 @@ def processGedFile(file_path):
     isDivorced = False
     indiDict["DupI_ID"] = indiClass("DupI_ID")
     famDict["DupliID_fam"] = familyClass("DupliID_fam")
+
+    #Line Dictionary for the items
+    lines_dict = dict()
+    line_count = 0
+
     for element in root_elements:
         age = 0
-
+        line_count = line_count + 1
 
         # Fetch Individual ID details
         if(element.get_level() == 0 and element.get_tag() == "INDI"):
@@ -89,37 +94,44 @@ def processGedFile(file_path):
 
             if myTag in indiDict:
                 indiDict["DupI_ID"].Set_DupliID(myTag)
+                lines_dict[str(f"{myTag}: Duplicate ID added")] = line_count
                 continue
             else:
                 indiDict[myTag] = indiClass(myTag)
                 indiDict[myTag].Set_ID(myTag)
+                lines_dict[str(f"{myTag}: ID set")] = line_count
 
         # Fetch ans set Child ID details for individual
         if (element.get_level() == 1) and element.get_tag() == "FAMC" :
             childString = element.to_gedcom_string()
             childString = childString.replace('@','').strip().split(" ")
             indiDict[myTag].Set_child(childString[2])
+            lines_dict[str(f"{myTag}: {childString[2]} child set")] = line_count
 
         # Fetch ans set Spouse ID details for individual
         if (element.get_level() == 1) and element.get_tag() == "FAMS" :
             spouseString = element.to_gedcom_string()
             spouseString = spouseString.replace('@','').strip().split(" ")
             indiDict[myTag].Set_spouse(spouseString[2])
+            lines_dict[str(f"{myTag}: {spouseString[2]} spouse set")] = line_count
 
         if isinstance(element, IndividualElement):
 
             # Fetch and set the name
             (first, last) = element.get_name()
             indiDict[myTag].Set_name(str(first+ " " +last))
+            lines_dict[str(f"{myTag}: First and last name set")] = line_count + 1
 
             # Fetch the Gender and set the gender
             indiDict[myTag].Set_gender(element.get_gender())
+            lines_dict[str(f"{myTag}: First and last name set")] = line_count + 5
 
             # Check if individual is alive
             if(element.is_deceased() == True):
 
                 # Set Alive status to false
                 indiDict[myTag].Set_alive(False)
+                lines_dict[str(f"{myTag}: Living status set")] = line_count + 9
 
                 # Fetch Birth and death dates
                 bday = element.get_birth_data()[0]
@@ -133,8 +145,10 @@ def processGedFile(file_path):
 
                 # Set Birthday
                 indiDict[myTag].Set_birthday(bday)
+                lines_dict[str(f"{myTag}: Birthday set")] = line_count + 7
                 # Set Death day
                 indiDict[myTag].Set_death(death)
+                lines_dict[str(f"{myTag}: Death date set")] = line_count + 10
                 # Calculate the age
                 age = from_dob_to_death(bday, death)
                 # Set Age
@@ -148,6 +162,7 @@ def processGedFile(file_path):
                 bday = datetime.date(int(bday[2]),int(months[bday[1]]), int(bday[0]))
                 # Set Birthday
                 indiDict[myTag].Set_birthday(bday)
+                lines_dict[str(f"{myTag}: Death date set")] = line_count + 10
                 # Calculate the age
                 age = from_dob_to_age(bday)
                 # Set Age
@@ -159,10 +174,12 @@ def processGedFile(file_path):
             famTag = familyString[1]
             if famTag in famDict:
                 famDict["DupliID_fam"].Set_DupliID_fam(famTag)
+                lines_dict[str(f"{famTag}: Duplicate ID added")] = line_count
                 continue
             else:
                 famDict[famTag] = familyClass(famTag)
                 famDict[famTag].Set_ID(famTag)
+                lines_dict[str(f"{famTag}: ID set")] = line_count
         if(element.get_level() == 1 and element.get_tag() == "MARR"):
             isMarried = True
         if(isMarried and element.get_tag()=="DATE" and element.get_level()==2):
@@ -170,6 +187,7 @@ def processGedFile(file_path):
             marriedDay = marriedDay.split(" ")
             marriedDay = datetime.date(int(marriedDay[2]),int(months[marriedDay[1]]), int(marriedDay[0]))
             famDict[famTag].Set_married(marriedDay)
+            lines_dict[str(f"{famTag}: Married date set")] = line_count
             isMarried = False
         if(element.get_tag()=="DIV" and element.get_level()==1):
             isDivorced = True
@@ -178,23 +196,29 @@ def processGedFile(file_path):
             divorcedDay = divorcedDay.split(" ")
             divorcedDay = datetime.date(int(divorcedDay[2]),int(months[divorcedDay[1]]), int(divorcedDay[0]))
             famDict[famTag].Set_divorced(divorcedDay)
+            lines_dict[str(f"{famTag}: Divorced date set")] = line_count
             isDivorced = False
         if(element.get_level()==1 and element.get_tag()=="HUSB"):
             husbStr = element.to_gedcom_string()
             husbStr = husbStr.replace('@','').strip().split(" ")[2]
             famDict[famTag].Set_husbandID(husbStr)
+            lines_dict[str(f"{famTag}: Husband ID set")] = line_count
             famDict[famTag].Set_husbandName(indiDict[husbStr].Get_name())
+            lines_dict[str(f"{famTag}: Husband name set")] = line_count
         if(element.get_level()==1 and element.get_tag()=="WIFE"):
             wifeStr = element.to_gedcom_string()
             wifeStr = wifeStr.replace('@','').strip().split(" ")[2]
             famDict[famTag].Set_wifeID(wifeStr)
+            lines_dict[str(f"{famTag}: Wife ID set")] = line_count
             famDict[famTag].Set_wifeName(indiDict[wifeStr].Get_name())
+            lines_dict[str(f"{famTag}: Wife name set")] = line_count
         if(element.get_level()==1 and element.get_tag()=="CHIL"):
             child = element.to_gedcom_string()
             child = child.replace('@','').strip().split(" ")[2]
             famDict[famTag].Set_children(child)
+            lines_dict[str(f"{famTag}: {child} added to children")] = line_count
 
-    return indiDict, famDict
+    return indiDict, famDict, lines_dict
 
 # main
 if __name__ == "__main__":
