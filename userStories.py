@@ -1396,6 +1396,40 @@ def userStory32(file):
     return (resultsList)
 
 ###################End of userStory32 ##################
+
+'''
+User story 39:
+Requirement: List all upcoming anniversaries in a GEDCOM file
+Author: Zach
+'''
+
+def userStory39(file):
+
+    #retrieve dictionaries
+    individuals, families = processGedFile(file)
+
+    #create empty list of upcoming anniversaries
+    upcomingAnnis = list()
+
+    #get today's date in month and day
+    today = datetime.datetime.now()
+    today = datetime.date(today.year, today.month, today.day)
+
+    #iterate through married couples
+    for family_id, family in families.items():
+        if family.Get_married() != "NA":
+            marriage_date = datetime.date(today.year, family.Get_married().month, family.Get_married().day)
+
+            #check if marriage date is within 30 days of today
+            if (marriage_date - today).days <= 30 and (marriage_date - today).days > 0:
+                upcomingAnnis.append(f"FAMILY: US39: {family_id} has an upcoming anniversary on {family.Get_married().month}-{family.Get_married().day}.")
+
+    #print each output in the list and return list
+    #print_list(resultsList)
+    return (upcomingAnnis)
+
+
+
 # Sprint1 Main function
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
@@ -1430,6 +1464,7 @@ if __name__ == "__main__":
    userStory30("InputGedFiles/FamilyTree.ged")
    userStory31("InputGedFiles/FamilyTree.ged")
    userStory32("InputGedFiles/FamilyTree.ged")
+   userStory39("InputGedFiles/FamilyTree.ged")
 
    #userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
    #userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
