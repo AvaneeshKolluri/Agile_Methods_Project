@@ -31,6 +31,7 @@ from test_userStory27 import TestUserStory27Class
 from test_userStory28 import TestUserStory28Class
 from test_userStory29 import UserStory29Test
 from test_userStory30 import UserStory30Test
+from test_userStory39 import UserStory39Test
 
 # Sprint1, Sprint2, and Sprint3 class with all Sprint1, Sprint2, and Sprint3 tests
 class Test_Sprint1n2(unittest.TestCase):
@@ -64,6 +65,7 @@ class Test_Sprint1n2(unittest.TestCase):
     TestUserStory28Class()
     UserStory29Test()
     UserStory30Test()
+    UserStory39Test()
 
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1n2n3Reports'))

@@ -30,6 +30,7 @@ from userStories import userStory27
 from userStories import userStory28
 from userStories import userStory29
 from userStories import userStory30
+from userStories import userStory39
 
 def sprint1n2n3UserStories():
     fileName="InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged"
