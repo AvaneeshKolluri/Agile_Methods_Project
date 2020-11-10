@@ -121,7 +121,7 @@ Authors: Pair Programmed: Srikanth & Avaneesh
 def userStory02(file):
 
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
 
     # Create a list of
     resultList = list()
@@ -153,13 +153,15 @@ def userStory02(file):
             # Print error if husband's birth date is greater than marriage date
             if husBirthDate != 'NA':
                 if husBirthDate > marriageDate:
-                    result_1_str = f"ERROR: FAMILY: US02: {husbandID}: Husband's birth date {husBirthDate} is after marriage date {marriageDate}"
+                    line = lines[f"{index}: Married date set"]
+                    result_1_str = f"ERROR: FAMILY: US02: {line}: {husbandID}: Husband's birth date {husBirthDate} is after marriage date {marriageDate}"
                     resultList.append(result_1_str)
 
             # Print error if wife's birth date is greater than marriage date
             if wifeBirthDate != 'NA':
                 if wifeBirthDate > marriageDate:
-                    result_2_str = f"ERROR: FAMILY: US02: {wifeID}: Wife's birth date {wifeBirthDate} is after marriage date {marriageDate}"
+                    line = lines[f"{index}: Married date set"]
+                    result_2_str = f"ERROR: FAMILY: US02: {line}: {wifeID}: Wife's birth date {wifeBirthDate} is after marriage date {marriageDate}"
                     resultList.append(result_2_str)
 
     # Print the information of validated data

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-11-10 17:06:25</p>
+                <p class='attribute'><strong>Duration: </strong>119 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 5, Pass: 1, Fail: 4</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.TestUserStory02Class</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory02_1</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory02_2</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US02: 117: I1: Husband's birth date 1968-09-25 is after marriage date 1967-12-31
+ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage date 1967-12-31
+</p><p style="color:maroon;">AssertionError: Lists differ: ["ERR[13 chars]S02: 117: I1: Husband's birth date 1968-09-25 [126 chars]-31"] != ["ERR[13 chars]S02: I1: Husband's birth date 1968-09-25 is af[116 chars]-31"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 117: I1: Husband's birth date 1968-09-25 [29 chars]2-31"
+"ERROR: FAMILY: US02: I1: Husband's birth date 1968-09-25 is af[24 chars]2-31"
+
+- ["ERROR: FAMILY: US02: 117: I1: Husband's birth date 1968-09-25 is after "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I1: Husband's birth date 1968-09-25 is after marriage "
+?                                                                     +++++++++
+
+-  'marriage date 1967-12-31',
+-  "ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage "
+-  'date 1967-12-31']
+?                   ^
+
++  'date 1967-12-31',
+?                   ^
+
++  "ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after marriage date "
++  '1967-12-31']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory02.py", line 20, in test_UserStory02_2
+    self.assertEqual(resultsList, [ "ERROR: FAMILY: US02: I1: Husband's birth date 1968-09-25 is after marriage date 1967-12-31",
+AssertionError: Lists differ: ["ERR[13 chars]S02: 117: I1: Husband's birth date 1968-09-25 [126 chars]-31"] != ["ERR[13 chars]S02: I1: Husband's birth date 1968-09-25 is af[116 chars]-31"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 117: I1: Husband's birth date 1968-09-25 [29 chars]2-31"
+"ERROR: FAMILY: US02: I1: Husband's birth date 1968-09-25 is af[24 chars]2-31"
+
+- ["ERROR: FAMILY: US02: 117: I1: Husband's birth date 1968-09-25 is after "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I1: Husband's birth date 1968-09-25 is after marriage "
+?                                                                     +++++++++
+
+-  'marriage date 1967-12-31',
+-  "ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage "
+-  'date 1967-12-31']
+?                   ^
+
++  'date 1967-12-31',
+?                   ^
+
++  "ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after marriage date "
++  '1967-12-31']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory02_3</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage date 1970-12-31
+</p><p style="color:maroon;">AssertionError: Lists differ: ["ERR[13 chars]S02: 117: I4: Wife's birth date 1971-09-18 is [27 chars]-31"] != ["ERR[13 chars]S02: I4: Wife's birth date 1971-09-18 is after[22 chars]-31"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is [26 chars]2-31"
+"ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after[21 chars]2-31"
+
+- ["ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after marriage date "
+?                                                                           +++++
+
+-  'date 1970-12-31']
+?   -----
+
++  '1970-12-31']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory02.py", line 25, in test_UserStory02_3
+    self.assertEqual(resultsList, [ "ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after marriage date 1970-12-31"])
+AssertionError: Lists differ: ["ERR[13 chars]S02: 117: I4: Wife's birth date 1971-09-18 is [27 chars]-31"] != ["ERR[13 chars]S02: I4: Wife's birth date 1971-09-18 is after[22 chars]-31"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is [26 chars]2-31"
+"ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after[21 chars]2-31"
+
+- ["ERROR: FAMILY: US02: 117: I4: Wife's birth date 1971-09-18 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I4: Wife's birth date 1971-09-18 is after marriage date "
+?                                                                           +++++
+
+-  'date 1970-12-31']
+?   -----
+
++  '1970-12-31']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory02_4</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US02: 125: I2: Wife's birth date 1967-11-16 is after marriage date 1967-05-09
+</p><p style="color:maroon;">AssertionError: Lists differ: ["ERR[13 chars]S02: 125: I2: Wife's birth date 1967-11-16 is [27 chars]-09"] != ["ERR[13 chars]S02: I2: Wife's birth date 1967-11-16 is after[22 chars]-09"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 125: I2: Wife's birth date 1967-11-16 is [26 chars]5-09"
+"ERROR: FAMILY: US02: I2: Wife's birth date 1967-11-16 is after[21 chars]5-09"
+
+- ["ERROR: FAMILY: US02: 125: I2: Wife's birth date 1967-11-16 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I2: Wife's birth date 1967-11-16 is after marriage date "
+?                                                                           +++++
+
+-  'date 1967-05-09']
+?   -----
+
++  '1967-05-09']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory02.py", line 30, in test_UserStory02_4
+    self.assertEqual(resultsList, [ "ERROR: FAMILY: US02: I2: Wife's birth date 1967-11-16 is after marriage date 1967-05-09"])
+AssertionError: Lists differ: ["ERR[13 chars]S02: 125: I2: Wife's birth date 1967-11-16 is [27 chars]-09"] != ["ERR[13 chars]S02: I2: Wife's birth date 1967-11-16 is after[22 chars]-09"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 125: I2: Wife's birth date 1967-11-16 is [26 chars]5-09"
+"ERROR: FAMILY: US02: I2: Wife's birth date 1967-11-16 is after[21 chars]5-09"
+
+- ["ERROR: FAMILY: US02: 125: I2: Wife's birth date 1967-11-16 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I2: Wife's birth date 1967-11-16 is after marriage date "
+?                                                                           +++++
+
+-  'date 1967-05-09']
+?   -----
+
++  '1967-05-09']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory02_5</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US02: 135: I7: Wife's birth date 1867-07-13 is after marriage date 1862-08-24
+</p><p style="color:maroon;">AssertionError: Lists differ: ["ERR[13 chars]S02: 135: I7: Wife's birth date 1867-07-13 is [27 chars]-24"] != ["ERR[13 chars]S02: I7: Wife's birth date 1867-07-13 is after[22 chars]-24"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 135: I7: Wife's birth date 1867-07-13 is [26 chars]8-24"
+"ERROR: FAMILY: US02: I7: Wife's birth date 1867-07-13 is after[21 chars]8-24"
+
+- ["ERROR: FAMILY: US02: 135: I7: Wife's birth date 1867-07-13 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I7: Wife's birth date 1867-07-13 is after marriage date "
+?                                                                           +++++
+
+-  'date 1862-08-24']
+?   -----
+
++  '1862-08-24']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory02.py", line 35, in test_UserStory02_5
+    self.assertEqual(resultsList, [ "ERROR: FAMILY: US02: I7: Wife's birth date 1867-07-13 is after marriage date 1862-08-24"])
+AssertionError: Lists differ: ["ERR[13 chars]S02: 135: I7: Wife's birth date 1867-07-13 is [27 chars]-24"] != ["ERR[13 chars]S02: I7: Wife's birth date 1867-07-13 is after[22 chars]-24"]
+
+First differing element 0:
+"ERROR: FAMILY: US02: 135: I7: Wife's birth date 1867-07-13 is [26 chars]8-24"
+"ERROR: FAMILY: US02: I7: Wife's birth date 1867-07-13 is after[21 chars]8-24"
+
+- ["ERROR: FAMILY: US02: 135: I7: Wife's birth date 1867-07-13 is after marriage "
+?                        -----
+
++ ["ERROR: FAMILY: US02: I7: Wife's birth date 1867-07-13 is after marriage date "
+?                                                                           +++++
+
+-  'date 1862-08-24']
+?   -----
+
++  '1862-08-24']
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 5, Pass: 1, Fail: 4 -- Duration: 119 ms
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
