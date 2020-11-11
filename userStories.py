@@ -287,7 +287,7 @@ Requirement: Divorce date should be before death date for people in marriages.
 Author: Pratim Patel
 '''
 def userStory06(file):
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict, lines = processGedFile(file)
     WisDead = False
     HisDead = False
     resultList = list()
@@ -315,12 +315,14 @@ def userStory06(file):
 
                     if(WisDead and divorcedDate > wifeDeath):
                         #print("the wife is dead and the divorce date is after death")
-                        result_1_str = "ERROR: FAMILY: US06: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
+                        line = lines[f"{familyID}: Divorced date set"]
+                        result_1_str = f"ERROR: FAMILY: US06: {line}: divorce occurs after wife death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Wife Death: " + str(wifeDeath)
                         resultList.append(result_1_str)
 
                     if(HisDead and divorcedDate>husbandDeath):
                        # print("the husband is dead and the divorce date is after death")
-                        result_1_str = "ERROR: FAMILY: US06: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
+                        line = lines[f"{familyID}: Divorced date set"]
+                        result_1_str = f"ERROR: FAMILY: US06: {line}: divorce occurs after husband death. Divorce Date: " + str(famDict[familyID].Get_divorced()) + " Husband Death: " + str(husbandDeath)
                         resultList.append(result_1_str)
 
     return resultList
