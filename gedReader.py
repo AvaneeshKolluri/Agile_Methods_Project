@@ -162,7 +162,7 @@ def processGedFile(file_path):
                 bday = datetime.date(int(bday[2]),int(months[bday[1]]), int(bday[0]))
                 # Set Birthday
                 indiDict[myTag].Set_birthday(bday)
-                lines_dict[str(f"{myTag}: Death date set")] = line_count + 10
+                lines_dict[str(f"{myTag}: Birthday set")] = line_count + 10
                 # Calculate the age
                 age = from_dob_to_age(bday)
                 # Set Age

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-11-10 19:50:42</p>
+                <p class='attribute'><strong>Duration: </strong>22 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 3, Pass: 1, Fail: 2</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.TestUserStory04Class</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory04_1</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory04_2</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriage date - Marriage 1000-01-03: Divorce 1000-01-01
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ERR[13 chars]S04: 45: F1 Divorce date occurs before marriag[45 chars]-01'] != ['ERR[13 chars]S04: F1 Divorce date occurs before marriage da[41 chars]-01']
+
+First differing element 0:
+'ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriag[44 chars]1-01'
+'ERROR: FAMILY: US04: F1 Divorce date occurs before marriage da[40 chars]1-01'
+
+- ['ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriage date - '
+?                        ----
+
++ ['ERROR: FAMILY: US04: F1 Divorce date occurs before marriage date - Marriage '
+?                                                                      +++++++++
+
+-  'Marriage 1000-01-03: Divorce 1000-01-01']
+?   ---------
+
++  '1000-01-03: Divorce 1000-01-01']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory04.py", line 13, in test_UserStory04_2
+    self.assertEqual(resultsList, ['ERROR: FAMILY: US04: F1 Divorce date occurs before marriage date - Marriage 1000-01-03: Divorce 1000-01-01'])
+AssertionError: Lists differ: ['ERR[13 chars]S04: 45: F1 Divorce date occurs before marriag[45 chars]-01'] != ['ERR[13 chars]S04: F1 Divorce date occurs before marriage da[41 chars]-01']
+
+First differing element 0:
+'ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriag[44 chars]1-01'
+'ERROR: FAMILY: US04: F1 Divorce date occurs before marriage da[40 chars]1-01'
+
+- ['ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriage date - '
+?                        ----
+
++ ['ERROR: FAMILY: US04: F1 Divorce date occurs before marriage date - Marriage '
+?                                                                      +++++++++
+
+-  'Marriage 1000-01-03: Divorce 1000-01-01']
+?   ---------
+
++  '1000-01-03: Divorce 1000-01-01']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory04_3</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriage date - Marriage 1000-02-01: Divorce 1000-01-01
+ERROR: FAMILY: US04: 53: F2 Divorce date occurs before marriage date - Marriage 1100-01-01: Divorce 1000-01-01
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ERR[13 chars]S04: 45: F1 Divorce date occurs before marriag[159 chars]-01'] != ['ERR[13 chars]S04: F1 Divorce date occurs before marriage da[151 chars]-01']
+
+First differing element 0:
+'ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriag[44 chars]1-01'
+'ERROR: FAMILY: US04: F1 Divorce date occurs before marriage da[40 chars]1-01'
+
+Diff is 740 characters long. Set self.maxDiff to None to see it.</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory04.py", line 17, in test_UserStory04_3
+    self.assertEqual(resultsList, ['ERROR: FAMILY: US04: F1 Divorce date occurs before marriage date - Marriage 1000-02-01: Divorce 1000-01-01',
+AssertionError: Lists differ: ['ERR[13 chars]S04: 45: F1 Divorce date occurs before marriag[159 chars]-01'] != ['ERR[13 chars]S04: F1 Divorce date occurs before marriage da[151 chars]-01']
+
+First differing element 0:
+'ERROR: FAMILY: US04: 45: F1 Divorce date occurs before marriag[44 chars]1-01'
+'ERROR: FAMILY: US04: F1 Divorce date occurs before marriage da[40 chars]1-01'
+
+Diff is 740 characters long. Set self.maxDiff to None to see it.
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 3, Pass: 1, Fail: 2 -- Duration: 22 ms
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html

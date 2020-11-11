@@ -212,20 +212,21 @@ Requirement: Marriage date should be before divorce date for all marriages.
 Author: Erick
 '''
 def userStory04(file):
-    indiDict,famDict = processGedFile(file);
-    resultList = list();
+    indiDict,famDict, lines = processGedFile(file)
+    resultList = list()
 
     for index in famDict:
         family = famDict[index]
         if (family.Get_divorced() == "NA"):
-            continue;
-        divDate = family.Get_divorced();
-        marrDate = family.Get_married();
+            continue
+        divDate = family.Get_divorced()
+        marrDate = family.Get_married()
 
         if (divDate < marrDate):
-            error = f"ERROR: FAMILY: US04: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
+            line = lines[f"{index}: Divorced date set"]
+            error = f"ERROR: FAMILY: US04: {line}: {family.Get_ID()} Divorce date occurs before marriage date - Marriage {family.Get_married()}: Divorce {family.Get_divorced()}"
             resultList.append(error)
-            continue;
+            continue
 
     # Print the information of validated data
     for output in resultList:
@@ -241,7 +242,7 @@ Requirement: Marriage date should be before death date for people in marriages.
 Author: Pratim Patel
 '''
 def userStory05(file):
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict, lines = processGedFile(file)
     WisDead = False
     HisDead = False
     resultList = list()
