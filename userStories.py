@@ -663,37 +663,38 @@ Author: Erick
 
 def userStory14(file):
 
-    indiDict,famDict = processGedFile(file);
-    resultList = list();
+    indiDict,famDict,lines = processGedFile(file)
+    resultList = list()
 
     for index in famDict:
         family = famDict[index]
-        famID = family.Get_ID();
+        famID = family.Get_ID()
 
-        children = family.Get_children();
+        children = family.Get_children()
         if (len(children) < 5):
-            continue;
-        children = list(children);
-        children.sort();
-        errorChildren = [];
+            continue
+        children = list(children)
+        children.sort()
+        errorChildren = []
         while len(children)>=5:
-            initialAge = indiDict[children[0]].Get_age();
-            currentErrorChildren = [];
-            count = 0;
+            initialAge = indiDict[children[0]].Get_age()
+            currentErrorChildren = []
+            count = 0
             for ID in children:
                 if ID in errorChildren:
-                    continue;
-                child = indiDict[ID];
+                    continue
+                child = indiDict[ID]
                 if child.Get_age() == initialAge:
-                    currentErrorChildren.append(ID);
-                    count+= 1;
+                    currentErrorChildren.append(ID)
+                    count+= 1
             if count >= 5:
                 for entry in currentErrorChildren:
                     if not entry in errorChildren:
-                        errorChildren.append(entry);
-                resultList.append(f"ERROR: FAMILY: US14: Family {famID} has {str(count)} children {errorChildren} born at the same time with age {str(initialAge)}.")
-                break;
-            children = children[1:];
+                        errorChildren.append(entry)
+                line = lines[f"{famID}: {errorChildren[len(errorChildren) - 1]} added to children"]
+                resultList.append(f"ERROR: FAMILY: US14: {line}: Family {famID} has {str(count)} children {errorChildren} born at the same time with age {str(initialAge)}.")
+                break
+            children = children[1:]
 
 
     resultList.sort()
