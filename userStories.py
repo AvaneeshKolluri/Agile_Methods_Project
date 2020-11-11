@@ -609,46 +609,49 @@ Author: Erick
 
 def userStory13(file):
 
-    indiDict,famDict = processGedFile(file);
-    resultList = list();
+    indiDict,famDict, lines = processGedFile(file)
+    resultList = list()
 
     for index in famDict:
         family = famDict[index]
-        famID = family.Get_ID();
+        famID = family.Get_ID()
 
-        children = family.Get_children();
+        children = family.Get_children()
 
         if children == "NA":
             continue
 
         if (len(children) < 2):
-            continue;
-        children = list(children);
-        children.sort();
+            continue
+        children = list(children)
+        children.sort()
 
-        x = 0;
+        x = 0
         while (x < len(children)-1):
-            child1 = indiDict[children[x]];
+            child1 = indiDict[children[x]]
 
-            y = x + 1;
+            y = x + 1
             while (y < len(children)):
-                child2 = indiDict[children[y]];
-                birth1 = child1.Get_birthday();
-                birth2 = child2.Get_birthday();
+                child2 = indiDict[children[y]]
+                birth1 = child1.Get_birthday()
+                birth2 = child2.Get_birthday()
 
-                diffMonths = abs(months_between(birth1,birth2));
-                diffDays = (birth1 - birth2).days;
+                diffMonths = abs(months_between(birth1,birth2))
+                diffDays = (birth1 - birth2).days
                 invDiffDays = (birth2 - birth1).days
                 if (diffMonths < 8):
                     if (diffDays > 1 or invDiffDays > 1):
-                        child1_ID = child1.Get_ID();
-                        child2_ID = child2.Get_ID();
-                        resultList.append(f"ERROR: INDIVIDUAL: US13: Family {famID} has two children ({child1_ID}, {child2_ID}) with implausible birth dates ({birth1}, {birth2})")
-                y += 1;
-            x += 1;
+                        child1_ID = child1.Get_ID()
+                        child2_ID = child2.Get_ID()
+                        line = lines[f"{child2_ID}: Birthday set"]
+                        print(lines[f"{child2_ID}: ID set"])
+                        print(line)
+                        resultList.append(f"ERROR: INDIVIDUAL: US13: {line}: Family {famID} has two children ({child1_ID}, {child2_ID}) with implausible birth dates ({birth1}, {birth2})")
+                y += 1
+            x += 1
 
     resultList.sort()
-    print_list(resultList);
+    print_list(resultList)
     return resultList
 ###################End of userStory13 ##################
 
@@ -1468,7 +1471,7 @@ if __name__ == "__main__":
 #    userStory10("InputGedFiles/FamilyTree.ged")
 #    userStory11("InputGedFiles/FamilyTree.ged")
 #    userStory12("InputGedFiles/FamilyTree.ged")
-#    userStory13("InputGedFiles/FamilyTree.ged")
+    print(userStory13("InputGedFiles/UserStory13_GED/testUserStory13-2.ged"))
 #    userStory14("InputGedFiles/FamilyTree.ged")
 #    userStory15("InputGedFiles/FamilyTree.ged")
 #    userStory16("InputGedFiles/FamilyTree.ged")
@@ -1488,7 +1491,7 @@ if __name__ == "__main__":
 #    userStory30("InputGedFiles/FamilyTree.ged")
 #    userStory31("InputGedFiles/FamilyTree.ged")
 #    userStory32("InputGedFiles/FamilyTree.ged")
-   print(userStory39("InputGedFiles/UserStory39_GED/FamilyTree_Some.ged"))
+#    userStory39("InputGedFiles/UserStory39_GED/FamilyTree_Some.ged"))
 
    #userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
    #userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
