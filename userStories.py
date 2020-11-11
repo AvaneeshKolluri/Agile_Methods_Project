@@ -440,7 +440,7 @@ Author: Pair Programmed: Zach and Pratim
 def userStory09(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     #iterate through families
@@ -466,9 +466,11 @@ def userStory09(file):
 
                     #check if death date is before child birthdate
                     if husband_death_date < child_birthdate:
-                        resultsList.append(f"ERROR: FAMILY: US09: {family_id}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
+                        line = lines[f"{husband}: Death date set"]
+                        resultsList.append(f"ERROR: FAMILY: US09: {line}: {family_id}: Husband ({husband}) died {husband_death_date} before child's ({child}) birth {child_birthdate}")
                     if wife_death_date < child_birthdate:
-                        resultsList.append(f"ERROR: FAMILY: US09: {family_id}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
+                        line = lines[f"{wife}: Death date set"]
+                        resultsList.append(f"ERROR: FAMILY: US09: {line}: {family_id}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
     #print each output in the list and return list
     print_list(resultsList)
