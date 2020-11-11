@@ -570,7 +570,7 @@ Author: Avaneesh Kolluri
 
 def userStory12(file):
 
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
 
@@ -589,10 +589,12 @@ def userStory12(file):
                 child_bday = individuals[child].Get_birthday()
                 if gender == 'M':
                     if exactDateDifference(child_bday, parent_bday).years >=80:
-                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {user_id}: Father {user_id} is more than 80 years older than his child ({child}): {individuals[child].Get_name()}.")
+                        line = lines[f"{user_id}: Birthday set"]
+                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {line}: {user_id}: Father {user_id} is more than 80 years older than his child ({child}): {individuals[child].Get_name()}.")
                 else:
                     if exactDateDifference(child_bday, parent_bday).years >=60:
-                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {user_id}: Mother {user_id} is more than 60 years older than her child ({child}): {individuals[child].Get_name()}.")
+                        line = lines[f"{user_id}: Birthday set"]
+                        resultsList.append(f"ERROR: INDIVIDUAL: US12: {line}: {user_id}: Mother {user_id} is more than 60 years older than her child ({child}): {individuals[child].Get_name()}.")
     resultsList.sort()
     print_list(resultsList)
     return resultsList

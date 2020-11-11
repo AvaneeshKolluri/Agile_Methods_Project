@@ -137,6 +137,13 @@ def processGedFile(file_path):
                 bday = element.get_birth_data()[0]
                 death = element.get_death_data()[0]
 
+                #fetch birth and death places
+                bplace = element.get_birth_data()[1]
+                #dplace = element.get_death_data()[1]
+
+                #get occupation
+                #occupation = element.get_occupation()
+
                 # Format Dates in Day Month and Year
                 bday = bday.split(" ")
                 bday = datetime.date(int(bday[2]),int(months[bday[1]]), int(bday[0]))
@@ -148,7 +155,12 @@ def processGedFile(file_path):
                 lines_dict[str(f"{myTag}: Birthday set")] = line_count + 7
                 # Set Death day
                 indiDict[myTag].Set_death(death)
-                lines_dict[str(f"{myTag}: Death date set")] = line_count + 10
+                #add death day if birth place is not empty 
+                if len(bplace) > 0:
+                    lines_dict[str(f"{myTag}: Death date set")] = line_count + 10
+                else:
+                    lines_dict[str(f"{myTag}: Death date set")] = line_count + 9
+
                 # Calculate the age
                 age = from_dob_to_death(bday, death)
                 # Set Age
@@ -162,7 +174,7 @@ def processGedFile(file_path):
                 bday = datetime.date(int(bday[2]),int(months[bday[1]]), int(bday[0]))
                 # Set Birthday
                 indiDict[myTag].Set_birthday(bday)
-                lines_dict[str(f"{myTag}: Birthday set")] = line_count + 10
+                lines_dict[str(f"{myTag}: Birthday set")] = line_count + 7
                 # Calculate the age
                 age = from_dob_to_age(bday)
                 # Set Age
