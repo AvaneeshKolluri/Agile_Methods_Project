@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unittest Results</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Unittest Results</h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-11-10 23:51:26</p>
+                <p class='attribute'><strong>Duration: </strong>29 ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 5, Pass: 1, Fail: 4</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>__main__.TestUserStory08Class</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory08_1</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1988-07-08 before marriage on 1997-12-31
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ANO[15 chars]S08: 117: F1: Child I5 born 1988-07-08 before [19 chars]-31'] != ['ANO[15 chars]S08: F1: Child I5 born 1988-07-08 before marri[14 chars]-31']
+
+First differing element 0:
+'ANOM[14 chars]S08: 117: F1: Child I5 born 1988-07-08 before [18 chars]2-31'
+'ANOM[14 chars]S08: F1: Child I5 born 1988-07-08 before marri[13 chars]2-31'
+
+- ['ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1988-07-08 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F1: Child I5 born 1988-07-08 before marriage on '
+   '1997-12-31']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory08.py", line 15, in test_UserStory08_1
+    self.assertEqual(resultsList, ["ANOMALY: FAMILY: US08: F1: Child I5 born 1988-07-08 before marriage on 1997-12-31"])
+AssertionError: Lists differ: ['ANO[15 chars]S08: 117: F1: Child I5 born 1988-07-08 before [19 chars]-31'] != ['ANO[15 chars]S08: F1: Child I5 born 1988-07-08 before marri[14 chars]-31']
+
+First differing element 0:
+'ANOM[14 chars]S08: 117: F1: Child I5 born 1988-07-08 before [18 chars]2-31'
+'ANOM[14 chars]S08: F1: Child I5 born 1988-07-08 before marri[13 chars]2-31'
+
+- ['ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1988-07-08 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F1: Child I5 born 1988-07-08 before marriage on '
+   '1997-12-31']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_UserStory08_2</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory08_3</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1869-09-25 before marriage on 1962-08-24
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ANO[15 chars]S08: 135: F3: Child I1 born 1869-09-25 before [19 chars]-24'] != ['ANO[15 chars]S08: F3: Child I1 born 1869-09-25 before marri[14 chars]-24']
+
+First differing element 0:
+'ANOM[14 chars]S08: 135: F3: Child I1 born 1869-09-25 before [18 chars]8-24'
+'ANOM[14 chars]S08: F3: Child I1 born 1869-09-25 before marri[13 chars]8-24'
+
+- ['ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1869-09-25 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F3: Child I1 born 1869-09-25 before marriage on '
+   '1962-08-24']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory08.py", line 24, in test_UserStory08_3
+    self.assertEqual(resultsList, [ "ANOMALY: FAMILY: US08: F3: Child I1 born 1869-09-25 before marriage on 1962-08-24"])
+AssertionError: Lists differ: ['ANO[15 chars]S08: 135: F3: Child I1 born 1869-09-25 before [19 chars]-24'] != ['ANO[15 chars]S08: F3: Child I1 born 1869-09-25 before marri[14 chars]-24']
+
+First differing element 0:
+'ANOM[14 chars]S08: 135: F3: Child I1 born 1869-09-25 before [18 chars]8-24'
+'ANOM[14 chars]S08: F3: Child I1 born 1869-09-25 before marri[13 chars]8-24'
+
+- ['ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1869-09-25 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F3: Child I1 born 1869-09-25 before marriage on '
+   '1962-08-24']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory08_4</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1853-07-08 before marriage on 1997-12-31
+ANOMALY: FAMILY: US08: 117: F1: Child I6 born 1870-10-31 before marriage on 1997-12-31
+ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1866-11-11 before marriage on 1967-05-09
+ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1868-09-25 before marriage on 1962-08-24
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ANO[15 chars]S08: 117: F1: Child I5 born 1853-07-08 before [289 chars]-24'] != ['ANO[15 chars]S08: F1: Child I5 born 1853-07-08 before marri[269 chars]-24']
+
+First differing element 0:
+'ANOM[14 chars]S08: 117: F1: Child I5 born 1853-07-08 before [18 chars]2-31'
+'ANOM[14 chars]S08: F1: Child I5 born 1853-07-08 before marri[13 chars]2-31'
+
+- ['ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1853-07-08 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F1: Child I5 born 1853-07-08 before marriage on '
+   '1997-12-31',
+-  'ANOMALY: FAMILY: US08: 117: F1: Child I6 born 1870-10-31 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F1: Child I6 born 1870-10-31 before marriage on '
+   '1997-12-31',
+-  'ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1866-11-11 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F2: Child I3 born 1866-11-11 before marriage on '
+   '1967-05-09',
+-  'ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1868-09-25 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F3: Child I1 born 1868-09-25 before marriage on '
+   '1962-08-24']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory08.py", line 30, in test_UserStory08_4
+    self.assertEqual(resultsList, ["ANOMALY: FAMILY: US08: F1: Child I5 born 1853-07-08 before marriage on 1997-12-31",
+AssertionError: Lists differ: ['ANO[15 chars]S08: 117: F1: Child I5 born 1853-07-08 before [289 chars]-24'] != ['ANO[15 chars]S08: F1: Child I5 born 1853-07-08 before marri[269 chars]-24']
+
+First differing element 0:
+'ANOM[14 chars]S08: 117: F1: Child I5 born 1853-07-08 before [18 chars]2-31'
+'ANOM[14 chars]S08: F1: Child I5 born 1853-07-08 before marri[13 chars]2-31'
+
+- ['ANOMALY: FAMILY: US08: 117: F1: Child I5 born 1853-07-08 before marriage on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F1: Child I5 born 1853-07-08 before marriage on '
+   '1997-12-31',
+-  'ANOMALY: FAMILY: US08: 117: F1: Child I6 born 1870-10-31 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F1: Child I6 born 1870-10-31 before marriage on '
+   '1997-12-31',
+-  'ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1866-11-11 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F2: Child I3 born 1866-11-11 before marriage on '
+   '1967-05-09',
+-  'ANOMALY: FAMILY: US08: 135: F3: Child I1 born 1868-09-25 before marriage on '
+?                          -----
+
++  'ANOMALY: FAMILY: US08: F3: Child I1 born 1868-09-25 before marriage on '
+   '1962-08-24']
+</p>
+                            </td>
+                        </tr>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_UserStory08_5</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10
+</p><p style="color:maroon;">AssertionError: Lists differ: ['ANO[15 chars]S08: 125: F2: Child I3 born 1996-09-11 after d[17 chars]-10'] != ['ANO[15 chars]S08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10']
+
+First differing element 0:
+'ANOM[14 chars]S08: 125: F2: Child I3 born 1996-09-11 after d[16 chars]2-10'
+'ANOM[14 chars]S08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10'
+
+- ['ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1996-09-11 after divorce on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F2: Child I3 born 1996-09-11 after divorce on '
+   '1995-12-10']</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:/Users/ztyle/Documents/SSW 555/SSW_555_Project_Master/Agile_Methods_Project/test_userStory08.py", line 38, in test_UserStory08_5
+    self.assertEqual(resultsList, [ "ANOMALY: FAMILY: US08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10"])
+AssertionError: Lists differ: ['ANO[15 chars]S08: 125: F2: Child I3 born 1996-09-11 after d[17 chars]-10'] != ['ANO[15 chars]S08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10']
+
+First differing element 0:
+'ANOM[14 chars]S08: 125: F2: Child I3 born 1996-09-11 after d[16 chars]2-10'
+'ANOM[14 chars]S08: F2: Child I3 born 1996-09-11 after divorce on 1995-12-10'
+
+- ['ANOMALY: FAMILY: US08: 125: F2: Child I3 born 1996-09-11 after divorce on '
+?                          -----
+
++ ['ANOMALY: FAMILY: US08: F2: Child I3 born 1996-09-11 after divorce on '
+   '1995-12-10']
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 5, Pass: 1, Fail: 4 -- Duration: 29 ms
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html

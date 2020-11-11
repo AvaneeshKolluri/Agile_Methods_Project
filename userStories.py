@@ -381,7 +381,7 @@ Authors: Pair Programmed: Avaneesh & Srikanth
 # Method: userStory08
 def userStory08(file):
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
 
     # Create a list of
     resultList = list()
@@ -410,14 +410,16 @@ def userStory08(file):
             if marriage != 'NA':
                 # check if marriage was after the childs bday
                 if marriage > childBday:
-                    result_1_str = f"ANOMALY: FAMILY: US08: {famid}: Child {i} born {childBday} before marriage on {marriage}"
+                    line = lines[f"{index}: Married date set"]
+                    result_1_str = f"ANOMALY: FAMILY: US08: {line}: {famid}: Child {i} born {childBday} before marriage on {marriage}"
                     resultList.append(result_1_str)
 
             # check if they were divorced
             if divorce != 'NA':
                 # check to see if the child's bday was not more than 9 months after their divorce
                 if months_between(divorce, childBday) > 9:
-                    result_2_str = f"ANOMALY: FAMILY: US08: {famid}: Child {i} born {childBday} after divorce on {divorce}"
+                    line = lines[f"{index}: Married date set"]
+                    result_2_str = f"ANOMALY: FAMILY: US08: {line}: {famid}: Child {i} born {childBday} after divorce on {divorce}"
                     resultList.append(result_2_str)
 
     # Print the information of validated data
