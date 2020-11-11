@@ -10,12 +10,12 @@ class TestUserStory03Class(unittest.TestCase):
 
     def test_UserStory03_2(self):
         resultsList = userStory03("InputGedFiles/UserStory03_GED/testUserStory03-2.ged")
-        self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US03: I1 Death date occurs before birth date - Birth 2000-04-03: Death 2000-04-01'])
+        self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US03: 24: I1 Death date occurs before birth date - Birth 2000-04-03: Death 2000-04-01'])
 
     def test_UserStory03_3(self):
         resultsList = userStory03("InputGedFiles/UserStory03_GED/testUserStory03-3.ged")
-        self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US03: I1 Death date occurs before birth date - Birth 2000-04-01: Death 1900-04-01',
-                                       'ERROR: INDIVIDUAL: US03: I2 Death date occurs before birth date - Birth 1200-06-05: Death 1200-01-01'])
+        self.assertEqual(resultsList, ['ERROR: INDIVIDUAL: US03: 24: I1 Death date occurs before birth date - Birth 2000-04-01: Death 1900-04-01',
+                                       'ERROR: INDIVIDUAL: US03: 35: I2 Death date occurs before birth date - Birth 1200-06-05: Death 1200-01-01'])
 
     def test_UserStory03_4(self):
         resultsList = userStory03("InputGedFiles/UserStory03_GED/testUserStory03-4.ged")

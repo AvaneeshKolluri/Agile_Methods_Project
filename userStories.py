@@ -178,23 +178,24 @@ Requirement: Birth date should be before death date for all people.
 Author: Erick
 '''
 def userStory03(file):
-    indiDict,famDict = processGedFile(file);
-    resultList = list();
+    indiDict, famDict, lines = processGedFile(file)
+    resultList = list()
 
     for index in indiDict:
 
         individual = indiDict[index]
 
         if (individual.Get_death() == "NA"):
-            continue;
-        deathDate = individual.Get_death();
-        birthDate = individual.Get_birthday();
+            continue
+        deathDate = individual.Get_death()
+        birthDate = individual.Get_birthday()
 
         if (deathDate< birthDate):
-            error = f"ERROR: INDIVIDUAL: US03: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
-            print(error);
+            line = lines[f"{index}: Death date set"]
+            error = f"ERROR: INDIVIDUAL: US03: {line}: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
+            print(error)
             resultList.append(error)
-            continue;
+            continue
 
     # Print the information of validated data
     for output in resultList:
