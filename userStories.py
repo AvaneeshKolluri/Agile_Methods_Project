@@ -523,7 +523,7 @@ Author: Avaneesh Kolluri
 '''
 
 def userStory11(file):
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     for user_id in individuals.items():
@@ -547,12 +547,14 @@ def userStory11(file):
                         m2, d2 = s_date
                         #print(m1,m2,d1)
                         if d2 == d1:
-                            string = f"ERROR: FAMILY: US11: {fam}: Marriage {m1} should not be happening during another marriage {m2}."
+                            line = lines[f"{fam}: Married date set"]
+                            string = f"ERROR: FAMILY: US11: {line}: {fam}: Marriage {m1} should not be happening during another marriage {m2}."
                             if string not in resultsList:
                                 resultsList.append(string)
                         elif (d1 != "NA"):
                             if(m1 < m2 < d1):
-                                string = f"ERROR: FAMILY: US11: {fam}: Marriage {m2} should not be happening during another marriage {m1}."
+                                line = lines[f"{fam}: Married date set"]
+                                string = f"ERROR: FAMILY: US11: {line}: {fam}: Marriage {m2} should not be happening during another marriage {m1}."
                                 if string not in resultsList:
                                     resultsList.append(string)
     print_list(resultsList)
