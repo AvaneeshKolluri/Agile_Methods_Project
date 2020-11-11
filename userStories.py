@@ -337,7 +337,7 @@ Author: Srikanth
 def userStory07(file):
 
     # Fetch the parsed object's from input ged file
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict,lines = processGedFile(file)
     # Create a list of
     resultList = list()
 
@@ -356,11 +356,13 @@ def userStory07(file):
                 # Check if an individual is alive or not
                 if (isIndiAlive == False):
                     #error 1
-                    result_1_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old at death - Birth {birthDate}: Death {deathDate}"
+                    line = lines[f"{individualID}: Birthday set"]
+                    result_1_str = f"ERROR: INDIVIDUAL: US07: {line}: {individualID} More than 150 years old at death - Birth {birthDate}: Death {deathDate}"
                     resultList.append(result_1_str)
                 else:
                     # error 2
-                    result_2_str = f"ERROR: INDIVIDUAL: US07: {individualID} More than 150 years old - Birth date {birthDate}"
+                    line = lines[f"{individualID}: Birthday set"]
+                    result_2_str = f"ERROR: INDIVIDUAL: US07: {line}: {individualID} More than 150 years old - Birth date {birthDate}"
                     resultList.append(result_2_str)
 
     # Print the information of validated data
