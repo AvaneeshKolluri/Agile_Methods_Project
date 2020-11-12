@@ -707,14 +707,15 @@ Requirement: There must be fewer than 15 siblings
 Author: Pratim
 '''
 def userStory15(file):
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict, lines = processGedFile(file)
 
     resultsList = list()
 
     for familyID in famDict:
         children = famDict[familyID].Get_children()
         if(len(children)>=15):
-            resultsList.append(f"ERROR: FAMILY: US15: There must be fewer than 15 siblings. {familyID} has more than 15 siblings. {len(children)} >= 15.")
+            line = lines[f"{familyID}: {children[len(children)-1]} added to children"]
+            resultsList.append(f"ERROR: FAMILY: US15: {line}: There must be fewer than 15 siblings. {familyID} has more than 15 siblings. {len(children)} >= 15.")
     return resultsList
 ###################End of userStory15 ##################
 
