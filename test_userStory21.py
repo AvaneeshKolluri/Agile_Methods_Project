@@ -17,22 +17,22 @@ class UserStory21Test(unittest.TestCase):
     def test_userStor21_2(self):
 
         resultsList = userStory21("InputGedFiles/UserStory21_GED/testUserStory21-2.ged")
-        self.assertEqual(['ERROR: FAMILY: US21: F2: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: F3: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: F4: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: F5: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: F6: Husband (I3) is labelled incorrectly as (F).'], resultsList)
+        self.assertEqual(['ERROR: FAMILY: US21: 48: F2: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: 48: F3: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: 48: F4: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: 48: F5: Husband (I3) is labelled incorrectly as (F).', 'ERROR: FAMILY: US21: 48: F6: Husband (I3) is labelled incorrectly as (F).'], resultsList)
 
     def test_userStory21_3(self):
 
         resultsList = userStory21("InputGedFiles/UserStory21_GED/testUserStory21-3.ged")
-        self.assertEqual(['ERROR: FAMILY: US21: F3: Wife (I5) is labelled incorrectly as (M).'], resultsList)
+        self.assertEqual(['ERROR: FAMILY: US21: 75: F3: Wife (I5) is labelled incorrectly as (M).'], resultsList)
 
     def test_userStory21_4(self):
 
         resultsList = userStory21("InputGedFiles/UserStory21_GED/testUserStory21-4.ged")
-        self.assertEqual(['ERROR: FAMILY: US21: F1: Husband (I1) is labelled incorrectly as (F).'], resultsList)
+        self.assertEqual(['ERROR: FAMILY: US21: 20: F1: Husband (I1) is labelled incorrectly as (F).'], resultsList)
         
     def test_userStory21_5(self):
 
         resultsList = userStory21("InputGedFiles/UserStory21_GED/testUserStory21-5.ged")
-        self.assertEqual(['ERROR: FAMILY: US21: F1: Wife (I2) is labelled incorrectly as (M).'], resultsList)
+        self.assertEqual(['ERROR: FAMILY: US21: 34: F1: Wife (I2) is labelled incorrectly as (M).'], resultsList)
 
 
 if __name__ == "__main__":

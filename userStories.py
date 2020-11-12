@@ -1029,7 +1029,7 @@ Author: Avaneesh
 def userStory21(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     for fam in families:
@@ -1043,11 +1043,13 @@ def userStory21(file):
         if husb_id != 'NA':
             male = individuals[husb_id].Get_gender()
             if male != 'M':
-                resultsList.append(f"ERROR: FAMILY: US21: {fam}: Husband ({husb_id}) is labelled incorrectly as ({male}).")
+                line = lines[f"{husb_id}: Gender set"]
+                resultsList.append(f"ERROR: FAMILY: US21: {line}: {fam}: Husband ({husb_id}) is labelled incorrectly as ({male}).")
         if wife_id != 'NA':
             female = individuals[wife_id].Get_gender()
             if female != 'F':
-                resultsList.append(f"ERROR: FAMILY: US21: {fam}: Wife ({wife_id}) is labelled incorrectly as ({female}).")
+                line = lines[f"{wife_id}: Gender set"]
+                resultsList.append(f"ERROR: FAMILY: US21: {line}: {fam}: Wife ({wife_id}) is labelled incorrectly as ({female}).")
 
     #print each output in the list and return list
     print_list(resultsList)
