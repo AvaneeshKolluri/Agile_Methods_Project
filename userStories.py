@@ -961,7 +961,7 @@ Author: Zach
 def userStory20(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     # iterate through families and check for marriage
@@ -996,7 +996,8 @@ def userStory20(file):
 
                                 #check if wife ID in children
                                 if wife in sibling_children:
-                                    resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Husband ({husband}) married niece ({wife})")
+                                    line = lines[f"{family_id}: Wife ID set"]
+                                    resultsList.append(f"ERROR: FAMILY: US20: {line}: {family_id}: Husband ({husband}) married niece ({wife})")
 
                 #iterate through wife_siblings and get each of their children
                 if len(wife_siblings) > 0:
@@ -1010,7 +1011,8 @@ def userStory20(file):
 
                                 #check if wife ID in children
                                 if husband in sibling_children:
-                                    resultsList.append(f"ERROR: FAMILY: US20: {family_id}: Wife ({wife}) married nephew ({husband})")
+                                    line = lines[f"{family_id}: Husband ID set"]
+                                    resultsList.append(f"ERROR: FAMILY: US20: {line}: {family_id}: Wife ({wife}) married nephew ({husband})")
 
     #print each output in the list and return list
     print_list(resultsList)
