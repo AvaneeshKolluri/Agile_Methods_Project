@@ -897,7 +897,7 @@ Author: Zach
 def userStory19(file):
 
     #get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     #iterate through families
@@ -930,15 +930,19 @@ def userStory19(file):
                 #check if any of the familes are equal
                 if husband_father_family == wife_father_family:
                     if husband_father_family != "NA":
-                        resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_father} and {wife_father}.")
+                        line = lines[f"{family_id}: Wife ID set"]
+                        resultsList.append(f"ERROR: FAMILY: US19: {line}: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_father} and {wife_father}.")
                 elif husband_father_family == wife_mother_family:
                     if husband_father_family != "NA":
+                        line = lines[f"{family_id}: Wife ID set"]
                         resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_father} and {wife_mother}.")
                 elif husband_mother_family == wife_father_family:
                     if husband_mother_family != "NA":
+                        line = lines[f"{family_id}: Wife ID set"]
                         resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins ({husband}) and {wife} married. Children of siblings {husband_mother} and {wife_father}.")
                 elif husband_mother_family == wife_mother_family:
                     if husband_mother_family != "NA":
+                        line = lines[f"{family_id}: Wife ID set"]
                         resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_mother} and {wife_mother}.")
 
     #print each output in the list and return list
