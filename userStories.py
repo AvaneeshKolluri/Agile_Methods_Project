@@ -814,7 +814,7 @@ Author: Srikanth
 
 def userStory18(file):
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
 
     # Create a list of
     resultsList = list()
@@ -838,7 +838,8 @@ def userStory18(file):
             if wifeParentFamID == HusbandParentFamID and wifeParentFamID != "NA" and HusbandParentFamID != "NA":
                 if wifeID not in duplicateslist:
                     # Record error if a person's Family ID is equal to a sibling's family ID, this means both are married
-                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                    line = lines[f"{key}: ID set"]
+                    result_1_str = f"ERROR: FAMILY: US18 : {line}: Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
                     resultsList.append(result_1_str)
                     duplicateslist.append(wifeID)
             else:
@@ -856,7 +857,8 @@ def userStory18(file):
                         for wifeMotherfamily in wifeMotherFamilies:
                             if hubFatherFamily == wifeMotherfamily and hubFatherFamily != "NA" and wifeMotherfamily != "NA":
                                 if wifeID not in duplicateslist:
-                                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                                    line = lines[f"{key}: ID set"]
+                                    result_1_str = f"ERROR: FAMILY: US18 : {line}: Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
                                     resultsList.append(result_1_str)
                                     duplicateslist.append(wifeID)
 
@@ -872,7 +874,8 @@ def userStory18(file):
                         for wifeFatherfamily in wifeFatherFamilies:
                             if hubMotherfamily == wifeFatherfamily and wifeFatherfamily != "NA" and hubMotherfamily != "NA":
                                 if wifeID not in duplicateslist:
-                                    result_1_str = f"ERROR: FAMILY: US18 : Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
+                                    line = lines[f"{key}: ID set"]
+                                    result_1_str = f"ERROR: FAMILY: US18 : {line}: Sibling Id:{wifeID},name:{indiDict[wifeID].Get_name()} and Individual Id:{husbandID},name:{indiDict[husbandID].Get_name()} are married"
                                     resultsList.append(result_1_str)
                                     duplicateslist.append(wifeID)
 
