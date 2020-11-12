@@ -1092,31 +1092,33 @@ Author: Erick
 
 def userStory23(file):
 
-    indiDict, famDict = processGedFile(file);
-    indiList = [];
-    resultList = list();
+    indiDict, famDict, lines = processGedFile(file)
+    indiList = []
+    resultList = list()
 
     for index in indiDict:
         indiList += [index]
 
     count = 0
     while count <= len(indiList)-2:
-        tempIndi1 = indiDict[indiList[count]];
+        tempIndi1 = indiDict[indiList[count]]
 
-        temp = count + 1;
+        temp = count + 1
         while temp <= len(indiList)-1:
-            tempIndi2 = indiDict[indiList[temp]];
+            tempIndi2 = indiDict[indiList[temp]]
             if tempIndi1.Get_name() == tempIndi2.Get_name() and tempIndi1.Get_birthday() == tempIndi2.Get_birthday():
-                indi_1 = tempIndi1.Get_ID();
-                indi_2 = tempIndi2.Get_ID();
-                indiBirth_2 = tempIndi2.Get_birthday();
-                indiName_2 = tempIndi1.Get_name();
-                resultList.append(f"ERROR: INDIVIDUAL: US23: Two individuals [{indi_1}, {indi_2}] have duplicate names and birthdays [{tempIndi1.Get_name()}, {tempIndi2.Get_birthday()}].")
-            temp += 1;
-        count += 1;
+                indi_1 = tempIndi1.Get_ID()
+                indi_2 = tempIndi2.Get_ID()
+                indiBirth_2 = tempIndi2.Get_birthday()
+                indiName_2 = tempIndi1.Get_name()
+                line_1 = lines[f"{indi_2}: First and last name set"]
+                line_2 = lines[f"{indi_2}: Birthday set"]
+                resultList.append(f"ERROR: INDIVIDUAL: US23: {line_1}, {line_2}: Two individuals [{indi_1}, {indi_2}] have duplicate names and birthdays [{tempIndi1.Get_name()}, {tempIndi2.Get_birthday()}].")
+            temp += 1
+        count += 1
 
     resultList.sort()
-    print_list(resultList);
+    print_list(resultList)
     return resultList
 ###################End of userStory23 ##################
 
