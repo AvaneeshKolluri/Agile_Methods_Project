@@ -16,6 +16,7 @@
 2 GIVN Geeorge
 2 SURN Boots
 2 _MARNM Boots
+1 SEX M
 1 BIRT
 2 DATE 1 JAN 1000
 1 FAMC @F1@
@@ -34,6 +35,7 @@
 1 NAME Dara /Boots/
 2 GIVN Dara
 2 SURN Boots
+2 _MARNM Boots
 1 SEX F
 1 BIRT
 2 DATE 1 JAN 1000
@@ -53,6 +55,7 @@
 2 GIVN Geeorge
 2 SURN Boots
 2 _MARNM Boots
+1 SEX M
 1 BIRT
 2 DATE 1 JAN 1000
 1 FAMC @F1@
@@ -78,6 +81,7 @@
 1 NAME Alley /Roots/
 2 GIVN Alley
 2 SURN Roots
+2 _MARNM Roots
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 1000

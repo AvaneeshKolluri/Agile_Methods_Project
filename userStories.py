@@ -1130,32 +1130,34 @@ Author: Erick
 
 def userStory24(file):
 
-    indiDict, famDict = processGedFile(file);
-    famList = [];
-    resultList = list();
+    indiDict, famDict, lines = processGedFile(file)
+    famList = []
+    resultList = list()
 
     for index in famDict:
         famList += [index]
 
     count = 0
     while count <= len(famList)-2:
-        tempFam1 = famDict[famList[count]];
-        tempFam1_Husb = tempFam1.Get_husbandName();
-        tempFam1_Wife = tempFam1.Get_wifeName();
-        temp = count + 1;
+        tempFam1 = famDict[famList[count]]
+        tempFam1_Husb = tempFam1.Get_husbandName()
+        tempFam1_Wife = tempFam1.Get_wifeName()
+        temp = count + 1
         while temp <= len(famList)-1:
-            tempFam2 = famDict[famList[temp]];
-            tempFam2_Husb = tempFam2.Get_husbandName();
-            tempFam2_Wife = tempFam2.Get_wifeName();
+            tempFam2 = famDict[famList[temp]]
+            tempFam2_Husb = tempFam2.Get_husbandName()
+            tempFam2_Wife = tempFam2.Get_wifeName()
             if tempFam1_Husb == tempFam2_Husb and tempFam1_Wife == tempFam2_Wife :
-                fam_1 = tempFam1.Get_ID();
-                fam_2 = tempFam2.Get_ID();
-                resultList.append(f"ERROR: FAMILY: US24: Two families [{fam_1}, {fam_2}] have duplicate spouses [{tempFam1_Husb}, {tempFam2_Wife}].")
-            temp += 1;
-        count += 1;
+                fam_1 = tempFam1.Get_ID()
+                fam_2 = tempFam2.Get_ID()
+                line_1 = (lines[f"{fam_1}: Husband ID set"], lines[f"{fam_1}: Wife ID set"])
+                line_2 = (lines[f"{fam_2}: Husband ID set"], lines[f"{fam_2}: Wife ID set"])
+                resultList.append(f"ERROR: FAMILY: US24: {line_1} and {line_2}: Two families [{fam_1}, {fam_2}] have duplicate spouses [{tempFam1_Husb}, {tempFam2_Wife}].")
+            temp += 1
+        count += 1
 
     resultList.sort()
-    print_list(resultList);
+    print_list(resultList)
     return resultList
 
 ###################End of userStory24 ##################
