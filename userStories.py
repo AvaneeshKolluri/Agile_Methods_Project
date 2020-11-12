@@ -1066,18 +1066,20 @@ Author: Avaneesh
 def userStory22(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
-    resultsList = list();
+    individuals, families, lines = processGedFile(file)
+    resultsList = list()
     ind = individuals["DupI_ID"].Get_DupliID()
     
     fad = families["DupliID_fam"].Get_DupliID_fam()
     #print each output in the list and return list
     # print_list(resultsList)
     if ind != 'NA':
-        resultsList.append(f"ERROR: INDIVIDUAL: US22: The following are duplicate individual ID's {ind}.")
+        line_numbers = [lines[f"{indID}: Duplicate ID added"] for indID in ind]
+        resultsList.append(f"ERROR: INDIVIDUAL: US22: {line_numbers}: The following are duplicate individual ID's {ind}.")
 
     if fad != 'NA':
-        resultsList.append(f"ERROR: FAMILY: US22: The following are duplicate individual ID's {fad}.")
+        line_numbers = [lines[f"{famID}: Duplicate ID added"] for famID in fad]
+        resultsList.append(f"ERROR: FAMILY: US22: {line_numbers}: The following are duplicate individual ID's {fad}.")
 
     print_list(resultsList)
     return (resultsList)
