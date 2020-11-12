@@ -753,7 +753,7 @@ Author: Srikanth
 '''
 def userStory17(file):
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
 
     # Create a list of
     resultsList = list()
@@ -784,7 +784,8 @@ def userStory17(file):
                             if famDict[familyID].Get_wifeID() != 'NA':
                                 childMother = famDict[familyID].Get_wifeID()
                             if spouseID == childMother:
-                                result_1_str = f"ERROR: FAMILY: US17: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
+                                line = lines[f"{spouseFamily}: Wife ID set"]
+                                result_1_str = f"ERROR: FAMILY: US17: {line}: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
                                 resultsList.append(result_1_str)
 
                         else:
@@ -794,7 +795,8 @@ def userStory17(file):
                             if famDict[familyID].Get_husbandID() != 'NA':
                                 childFather = famDict[familyID].Get_husbandID()
                             if spouseID == childFather:
-                                result_1_str = f"ERROR: FAMILY: US17: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
+                                line = lines[f"{spouseFamily}: Husband ID set"]
+                                result_1_str = f"ERROR: FAMILY: US17: {line}: {famDict[familyID].Get_ID()} Parents should not marry their descendants"
                                 resultsList.append(result_1_str)
 
     # Print the information of validated data

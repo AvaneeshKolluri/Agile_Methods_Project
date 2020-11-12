@@ -12,12 +12,12 @@ class TestUserStory17Class(unittest.TestCase):
     def test_UserStory17_1(self):
         resultsList = userStory17("InputGedFiles/UserStory17_GED/testUserStory17-1.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ["ERROR: FAMILY: US17: F2 Parents should not marry their descendants"])
+        self.assertEqual(resultsList, ["ERROR: FAMILY: US17: 41: F2 Parents should not marry their descendants"])
 
     def test_UserStory17_2(self):
         resultsList = userStory17("InputGedFiles/UserStory17_GED/testUserStory17-2.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList, ["ERROR: FAMILY: US17: F1 Parents should not marry their descendants"])
+        self.assertEqual(resultsList, ["ERROR: FAMILY: US17: 51: F1 Parents should not marry their descendants"])
 
 if __name__ == '__main__':
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./reports'))
