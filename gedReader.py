@@ -124,7 +124,7 @@ def processGedFile(file_path):
 
             # Fetch the Gender and set the gender
             indiDict[myTag].Set_gender(element.get_gender())
-            lines_dict[str(f"{myTag}: First and last name set")] = line_count + 5
+            lines_dict[str(f"{myTag}: Gender set")] = line_count + 5
 
             # Check if individual is alive
             if(element.is_deceased() == True):

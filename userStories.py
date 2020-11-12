@@ -726,7 +726,7 @@ Author: Pratim
 '''
 
 def userStory16(file):
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
     resultsList = list()
 
     for indID in indiDict:
@@ -739,7 +739,10 @@ def userStory16(file):
     if(result == True):
         return ['All members have the same last name']
     else:
-        return ['ERROR: FAMILY: US16: All male members should have the same last name']
+        last = [elem for elem in resultsList if elem != resultsList[0]]
+        individual = [individual.Get_ID() for individual in indiDict.values() if individual.Get_name() != "NA" and individual.Get_name().split(" ")[1] == last[0] and individual.Get_gender() == "M"]
+        line = lines[f"{individual[0]}: First and last name set"]
+        return [f'ERROR: FAMILY: US16: {line}: All male members should have the same last name']
 
 ###################End of userStory16 ##################
 '''
@@ -1473,10 +1476,10 @@ if __name__ == "__main__":
 #    userStory10("InputGedFiles/FamilyTree.ged")
 #    userStory11("InputGedFiles/FamilyTree.ged")
 #    userStory12("InputGedFiles/FamilyTree.ged")
-    print(userStory13("InputGedFiles/UserStory13_GED/testUserStory13-2.ged"))
+#    userStory13("InputGedFiles/UserStory13_GED/testUserStory13-2.ged")
 #    userStory14("InputGedFiles/FamilyTree.ged")
 #    userStory15("InputGedFiles/FamilyTree.ged")
-#    userStory16("InputGedFiles/FamilyTree.ged")
+    userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
 #    userStory17("InputGedFiles/FamilyTree.ged")
 #    userStory18("InputGedFiles/FamilyTree.ged")
 #    userStory19("InputGedFiles/FamilyTree.ged")
@@ -1493,11 +1496,6 @@ if __name__ == "__main__":
 #    userStory30("InputGedFiles/FamilyTree.ged")
 #    userStory31("InputGedFiles/FamilyTree.ged")
 #    userStory32("InputGedFiles/FamilyTree.ged")
-#    userStory39("InputGedFiles/UserStory39_GED/FamilyTree_Some.ged"))
-
-   #userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
-   #userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
-
-
-
-
+#    userStory39("InputGedFiles/UserStory39_GED/FamilyTree_Some.ged")
+#    userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
+#    userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
