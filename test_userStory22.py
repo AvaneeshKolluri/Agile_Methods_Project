@@ -27,7 +27,7 @@ class UserStory22Test(unittest.TestCase):
     
         resultsList = userStory22("InputGedFiles/UserStory22_GED/testUserStory22-4.ged")
         self.maxDiff = None
-        self.assertEqual(["ERROR: INDIVIDUAL: US22: [211, 211]: The following are duplicate individual ID's ['I1', 'I1'].",
+        self.assertEqual(["ERROR: INDIVIDUAL: US22: [27, 211]: The following are duplicate individual ID's ['I1', 'I1'].",
                         "ERROR: FAMILY: US22: [454, 543]: The following are duplicate individual ID's ['F3', 'F12']."], resultsList)
 
 

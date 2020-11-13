@@ -78,6 +78,8 @@ def processGedFile(file_path):
 
     #Line Dictionary for the items
     lines_dict = dict()
+    lines_dict["Duplicate Ind"] = list()
+    lines_dict["Duplicate Fam"] = list()
     line_count = 0
 
     for element in root_elements:
@@ -94,7 +96,7 @@ def processGedFile(file_path):
 
             if myTag in indiDict:
                 indiDict["DupI_ID"].Set_DupliID(myTag)
-                lines_dict[str(f"{myTag}: Duplicate ID added")] = line_count
+                lines_dict["Duplicate Ind"].append(line_count)
                 continue
             else:
                 indiDict[myTag] = indiClass(myTag)
@@ -186,7 +188,7 @@ def processGedFile(file_path):
             famTag = familyString[1]
             if famTag in famDict:
                 famDict["DupliID_fam"].Set_DupliID_fam(famTag)
-                lines_dict[str(f"{famTag}: Duplicate ID added")] = line_count
+                lines_dict["Duplicate Fam"].append(line_count)
                 continue
             else:
                 famDict[famTag] = familyClass(famTag)

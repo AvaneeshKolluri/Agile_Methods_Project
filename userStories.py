@@ -1074,11 +1074,11 @@ def userStory22(file):
     #print each output in the list and return list
     # print_list(resultsList)
     if ind != 'NA':
-        line_numbers = [lines[f"{indID}: Duplicate ID added"] for indID in ind]
+        line_numbers = lines["Duplicate Ind"]
         resultsList.append(f"ERROR: INDIVIDUAL: US22: {line_numbers}: The following are duplicate individual ID's {ind}.")
 
     if fad != 'NA':
-        line_numbers = [lines[f"{famID}: Duplicate ID added"] for famID in fad]
+        line_numbers = lines["Duplicate Fam"]
         resultsList.append(f"ERROR: FAMILY: US22: {line_numbers}: The following are duplicate individual ID's {fad}.")
 
     print_list(resultsList)
