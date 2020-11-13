@@ -25,8 +25,8 @@ from test_userStory21 import UserStory21Test
 from test_userStory22 import UserStory22Test
 from test_userStory23 import TestUserStory23Class
 from test_userStory24 import TestUserStory24Class
-# from test_userStory25 import TestUserStory25Class
-# from test_userStory26 import TestUserStory26Class
+from test_userStory25 import TestUserStory25Class
+from test_userStory26 import TestUserStory26Class
 # from test_userStory27 import TestUserStory27Class
 # from test_userStory28 import TestUserStory28Class
 # from test_userStory29 import UserStory29Test
@@ -59,8 +59,8 @@ class Test_Sprint1n2(unittest.TestCase):
     UserStory22Test()
     TestUserStory23Class()
     TestUserStory24Class()
-    # TestUserStory25Class()
-    # TestUserStory26Class()
+    TestUserStory25Class()
+    TestUserStory26Class()
     # TestUserStory27Class()
     # TestUserStory28Class()
     # UserStory29Test()

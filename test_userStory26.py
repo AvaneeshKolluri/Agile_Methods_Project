@@ -6,7 +6,7 @@ class TestUserStory26Class(unittest.TestCase):
     def test1_UserStory26(self):
         resultsList = userStory26("InputGedFiles/UserStory26_GED/smalltest.ged")
         self.maxDiff = None
-        self.assertEqual(resultsList,['ERROR: INDIVIDUAL: US26: Individual  I7 does not correspond to any child in Family'])
+        self.assertEqual(resultsList,['ERROR: INDIVIDUAL: US26: 49: Individual  I7 does not correspond to any child in Family'])
 
 
     def test2_UserStory26(self):

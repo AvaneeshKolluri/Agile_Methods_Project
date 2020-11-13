@@ -1170,7 +1170,7 @@ Author: Pratim
 
 
 def userStory25(file):
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict, lines = processGedFile(file)
     resultsList = list()
 
     for familyID in famDict:
@@ -1188,7 +1188,8 @@ def userStory25(file):
                 first_name = x[0]
                 if first_name in childList:
                     if childList[first_name] == bday:
-                        resultsList.append(f"ERROR: INDIVIDUAL: US25: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
+                        line = (lines[f"{child}: First and last name set"], lines[f"{child}: Birthday set"])
+                        resultsList.append(f"ERROR: INDIVIDUAL: US25: {line}: Individual  {name} is a duplicate name with duplicate Birthday {bday}.")
                 else:
                     childList[first_name] = bday
     return resultsList
@@ -1207,7 +1208,7 @@ Author: Pratim
 
 #do spouses first, then do children in separate lists
 def userStory26(file):
-    indiDict,famDict = processGedFile(file)
+    indiDict,famDict, lines = processGedFile(file)
     resultsList = list()
     indSpouses = list() #list of ids of those who are spouses
     indChildren = list()#list of ids of those who are children
@@ -1230,9 +1231,10 @@ def userStory26(file):
         if(ind == husID):
             hubVer = True
         if(ind == wifeID):
-            wifeVer = False
+            wifeVer = True
         if(ind != husID and ind != wifeID):
-            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any spouse in Family")
+            line = lines[f"{ind}: {famID} set"]
+            resultsList.append(f"ERROR: INDIVIDUAL: US26: {line}: Individual  {ind} does not correspond to any spouse in Family")
 
 
     for ind in indChildren:
@@ -1241,7 +1243,8 @@ def userStory26(file):
         #check if ind exists within the family of the famid
         allChildren = famDict[famIDD].Get_children()
         if(ind not in allChildren):
-            resultsList.append(f"ERROR: INDIVIDUAL: US26: Individual  {ind} does not correspond to any child in Family")
+            line = lines[f"{ind}: {famIDD} child set"]
+            resultsList.append(f"ERROR: INDIVIDUAL: US26: {line}: Individual  {ind} does not correspond to any child in Family")
 
 
 
