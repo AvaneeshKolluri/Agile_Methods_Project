@@ -1260,7 +1260,7 @@ Author: Srikanth
 
 def userStory27(file):
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
     # Create a list of
     resultsList = list()
     # Create a dictionary to accumulate each individual with their age
@@ -1294,7 +1294,7 @@ Author: Srikanth
 
 def userStory28(file):
     # Fetch the parsed object's from input ged file
-    indiDict, famDict = processGedFile(file)
+    indiDict, famDict, lines = processGedFile(file)
     # Create a list of
     resultsList = list()
     # array index to process each object
@@ -1400,7 +1400,7 @@ Author: Avaneesh
 def userStory31(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     for ind in individuals:
@@ -1426,7 +1426,7 @@ Author: Avaneesh
 def userStory32(file):
 
     # get individuals and families in file, create results
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
     resultsList = list()
 
     for fam in families:
@@ -1460,7 +1460,7 @@ Author: Zach
 def userStory39(file):
 
     #retrieve dictionaries
-    individuals, families = processGedFile(file)
+    individuals, families, lines = processGedFile(file)
 
     #create empty list of upcoming anniversaries
     upcomingAnnis = list()
@@ -1485,7 +1485,7 @@ def userStory39(file):
 
 
 # Sprint1 Main function
-if __name__ == "__main__":
+#if __name__ == "__main__":
 #    userStory01("InputGedFiles/FamilyTree.ged")
 #    userStory02("InputGedFiles/FamilyTree.ged")
 #    userStory03("InputGedFiles/FamilyTree.ged")
@@ -1501,7 +1501,7 @@ if __name__ == "__main__":
 #    userStory13("InputGedFiles/UserStory13_GED/testUserStory13-2.ged")
 #    userStory14("InputGedFiles/FamilyTree.ged")
 #    userStory15("InputGedFiles/FamilyTree.ged")
-    userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
+#    userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
 #    userStory17("InputGedFiles/FamilyTree.ged")
 #    userStory18("InputGedFiles/FamilyTree.ged")
 #    userStory19("InputGedFiles/FamilyTree.ged")

@@ -27,11 +27,11 @@ from test_userStory23 import TestUserStory23Class
 from test_userStory24 import TestUserStory24Class
 from test_userStory25 import TestUserStory25Class
 from test_userStory26 import TestUserStory26Class
-# from test_userStory27 import TestUserStory27Class
-# from test_userStory28 import TestUserStory28Class
-# from test_userStory29 import UserStory29Test
-# from test_userStory30 import UserStory30Test
-# from test_userStory39 import UserStory39Test
+from test_userStory27 import TestUserStory27Class
+from test_userStory28 import TestUserStory28Class
+from test_userStory29 import UserStory29Test
+from test_userStory30 import UserStory30Test
+from test_userStory39 import UserStory39Test
 
 # Sprint1, Sprint2, and Sprint3 class with all Sprint1, Sprint2, and Sprint3 tests
 class Test_Sprint1n2(unittest.TestCase):
@@ -61,11 +61,11 @@ class Test_Sprint1n2(unittest.TestCase):
     TestUserStory24Class()
     TestUserStory25Class()
     TestUserStory26Class()
-    # TestUserStory27Class()
-    # TestUserStory28Class()
-    # UserStory29Test()
-    # UserStory30Test()
-    # UserStory39Test()
+    TestUserStory27Class()
+    TestUserStory28Class()
+    UserStory29Test()
+    UserStory30Test()
+    UserStory39Test()
 
 if __name__ == "__main__":
     unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='./sprint1n2n3Reports'))
