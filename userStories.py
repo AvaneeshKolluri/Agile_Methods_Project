@@ -1424,7 +1424,6 @@ Author: Avaneesh
 '''
 
 def userStory32(file):
-
     # get individuals and families in file, create results
     individuals, families, lines = processGedFile(file)
     resultsList = list()
@@ -1444,9 +1443,8 @@ def userStory32(file):
             if len(record[i]) > 1:
                 resultsList.append(f"FAMILY: US32: Individuals with IDs {record[i]} are multiple births.")
 
-
     #print each output in the list and return list
-    #print_list(resultsList)
+    print_list(resultsList)
     return (resultsList)
 
 ###################End of userStory32 ##################
