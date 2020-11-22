@@ -183,6 +183,9 @@ ERROR: INDIVIDUAL: US23: 415, 421: Two individuals [I22, I42] have duplicate nam
 ERROR: INDIVIDUAL: US23: 423, 429: Two individuals [I35, I43] have duplicate names and birthdays [Rosie Smith, 1976-09-06].
 ERROR: FAMILY: US24: (431, 432) and (573, 574): Two families [F1, F17] have duplicate spouses [Willard Carroll Smith, Jada Koren Pinkett].
 ERROR: INDIVIDUAL: US25: (254, 260): Individual  Tommy Smith is a duplicate name with duplicate Birthday 2019-12-09.
+ERROR: INDIVIDUAL: US26: 96: Individual  I6 does not correspond to any spouse in Family
+ERROR: INDIVIDUAL: US26: 421: Individual  I42 does not correspond to any child in Family
+ERROR: INDIVIDUAL: US26: 429: Individual  I43 does not correspond to any child in Family
 LIST: US27 : List of individuals with their name and age are:{'Willard Carroll Smith': 39, 'Jada Koren Pinkett': 34, 'Sheree Zampino': 152, 'Trey Smith': 0, 'Eva Emshoff': 10, 'Jaden Christopher Syre Smith': 20, 'Willow Camille Reign Smith': 21, 'Caroline Bright': 38, 'Willard Sr Smith': -5, 'Dave Smith': 1, 'Shelby Carter': 0, 'Particia Smith': 168, 'Elicia Smith': 262, 'Rivera Jonas': 0, 'Lisha Oliver': 0, 'Linda Jonas': 104, 'Mary Swift': 53, 'Lilly Smith': 24, 'Rita Smith': 24, 'Tommy Smith': 0, 'Alli Smith': 0, 'Christen Smith': 0, 'Lisa Smith': 0, 'Elizah Smith': 0, 'James Oliver': 2, 'Amy Smith': 0, 'Charlotte Smith': 4, 'Fred Smith': 3, 'Alfred Smith': 45, 'Patty Smith': 46, 'Iris Smith': 53, 'Evita Smith': 44, 'Rosie Smith': 44, 'Arnold Bob': 44, 'Jennifer Bob': 31, 'Barbera Stark': 23, 'Tony Smith': 24, 'Patrick Roger': 44, 'Danny Roger': 20}
 LIST: US28: Family ID: F1 Siblings list in descending order of their age ['I7', 'I6', 'I10']
 LIST: US28: Family ID: F2 Siblings list in descending order of their age ['I4']

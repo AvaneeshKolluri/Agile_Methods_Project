@@ -1279,7 +1279,7 @@ def userStory26(file):
         if(ind == wifeID):
             wifeVer = True
         if(ind != husID and ind != wifeID):
-            line = lines[f"{ind}: {famIDD} set"]
+            line = lines[f"{ind}: {famIDD} spouse set"]
             resultsList.append(f"ERROR: INDIVIDUAL: US26: {line}: Individual  {ind} does not correspond to any spouse in Family")
 
 

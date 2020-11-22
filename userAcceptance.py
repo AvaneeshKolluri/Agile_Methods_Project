@@ -66,7 +66,7 @@ def sprint1n2n3n4UserStories():
     errorList.extend(userStory23(fileName))
     errorList.extend(userStory24(fileName))
     errorList.extend(userStory25(fileName))
-    # errorList.extend(userStory26(fileName))
+    errorList.extend(userStory26(fileName))
     errorList.extend(userStory27(fileName))
     errorList.extend(userStory28(fileName))
     errorList.extend(userStory29(fileName))
