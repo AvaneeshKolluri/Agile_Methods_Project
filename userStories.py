@@ -20,6 +20,49 @@ def months_between(start_date, end_date):
 
 def exactDateDifference(newer, older):  # newer - older
     return rdelta.relativedelta(newer,older)
+
+# Function to calculate a given birthday date is within next 30days from current date.
+# Expected input date object in format YYYY-MM-DD
+def isBdayWithinNext30days(inputDate):
+    retVar = False
+    if inputDate != 'NA':
+        today = date.today()
+        currDayOfYear = today.timetuple().tm_yday
+        inputDayOfYear = inputDate.timetuple().tm_yday
+        currYear = today.timetuple().tm_year
+        inputYear = inputDate.timetuple().tm_year
+
+        if (inputDayOfYear >= currDayOfYear) and (inputDayOfYear <= (currDayOfYear + 30)):
+            retVar = True
+        elif currDayOfYear >= 335:
+            yearEndDays = (365 - currDayOfYear) + inputDayOfYear
+            if yearEndDays <= 30:
+                retVar = True
+    return retVar
+
+# Function to calculate a given date is within last 30days from current date.
+# Expected input date object in format YYYY-MM-DD
+def isWithinLast30days(inputDate):
+    retVar = False
+    if inputDate != 'NA':
+        today = date.today()
+        currDayOfYear = today.timetuple().tm_yday
+        inputDayOfYear = inputDate.timetuple().tm_yday
+        currYear = today.timetuple().tm_year
+        inputYear = inputDate.timetuple().tm_year
+
+        if currDayOfYear >= 31 and currYear == inputYear:
+            if (inputDayOfYear <= currDayOfYear) and (inputDayOfYear >= (currDayOfYear - 30)):
+                retVar = True
+        elif currDayOfYear < 31:
+            yearEndDays = (365 - inputDayOfYear) + currDayOfYear
+            if inputDayOfYear < currDayOfYear and currYear == inputYear:
+                retVar = True
+            elif inputDayOfYear >= 335 and currYear == (inputYear +1) and yearEndDays <= 30:
+                retVar = True
+
+    return retVar
+
 '''
 Bad Smell #1:
 Repetitive getting of date of death/birth of husband and wife from a family
@@ -105,8 +148,8 @@ def userStory01(file): #info, famtbl
                     line = lines[f"{individualID}: Death date set"]
                     result_1_str = f"ERROR: INDIVIDUAL: US01: {line}: {individualID}: Death {user.Get_death()} occurs in the future"
                     resultList.append(result_1_str)
-    for output in resultList:
-        print(output)
+    # for output in resultList:
+    #     print(output)
     return resultList
 
 ###################End of userStory01 ##################
@@ -165,8 +208,8 @@ def userStory02(file):
                     resultList.append(result_2_str)
 
     # Print the information of validated data
-    for output in resultList:
-        print(output)
+    # for output in resultList:
+    #     print(output)
 
     # return the list of validated data
     return resultList
@@ -193,13 +236,13 @@ def userStory03(file):
         if (deathDate< birthDate):
             line = lines[f"{index}: Death date set"]
             error = f"ERROR: INDIVIDUAL: US03: {line}: {individual.Get_ID()} Death date occurs before birth date - Birth {individual.Get_birthday()}: Death {individual.Get_death()}"
-            print(error)
+            # print(error)
             resultList.append(error)
             continue
 
     # Print the information of validated data
-    for output in resultList:
-        print(output)
+    # for output in resultList:
+    #     print(output)
 
     resultList.sort()
     # return the list of validated data
@@ -229,8 +272,8 @@ def userStory04(file):
             continue
 
     # Print the information of validated data
-    for output in resultList:
-        print(output)
+    # for output in resultList:
+    #     print(output)
 
     resultList.sort()
     # return the list of validated data
@@ -366,7 +409,7 @@ def userStory07(file):
                     resultList.append(result_2_str)
 
     # Print the information of validated data
-    print_list(resultList)
+    # print_list(resultList)
 
     # return the list of validated data
     return resultList
@@ -423,7 +466,7 @@ def userStory08(file):
                     resultList.append(result_2_str)
 
     # Print the information of validated data
-    print_list(resultList)
+    # print_list(resultList)
 
     resultList.sort()
     # return the list of validated data
@@ -455,13 +498,16 @@ def userStory09(file):
             #get children of family
             children = family.Get_children()
 
+            if children == 'NA':
+                continue
+
             #iterate through each child
             if len(children) > 0 and (wife_death_date != "NA" and husband_death_date != "NA"):
 
                 #iterate through children
                 for child in children:
 
-                #get each child birthdate
+                    # get each child birthdate
                     child_birthdate = individuals[child].Get_birthday()
 
                     #check if death date is before child birthdate
@@ -473,7 +519,7 @@ def userStory09(file):
                         resultsList.append(f"ERROR: FAMILY: US09: {line}: {family_id}: Wife ({wife}) died {wife_death_date} before child's ({child}) birth {child_birthdate}")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory09 ##################
@@ -511,7 +557,7 @@ def userStory10(file):
                 resultsList.append(f"ERROR: FAMILY: US10: {line}: {family_id}: Wife ({wife}) birth date {wife_birth_date} not at least 14 years prior to marriage date {family_marriage_date}")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory10 ##################
@@ -557,7 +603,7 @@ def userStory11(file):
                                 string = f"ERROR: FAMILY: US11: {line}: {fam}: Marriage {m2} should not be happening during another marriage {m1}."
                                 if string not in resultsList:
                                     resultsList.append(string)
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory11 ##################
@@ -596,7 +642,7 @@ def userStory12(file):
                         line = lines[f"{user_id}: Birthday set"]
                         resultsList.append(f"ERROR: INDIVIDUAL: US12: {line}: {user_id}: Mother {user_id} is more than 60 years older than her child ({child}): {individuals[child].Get_name()}.")
     resultsList.sort()
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory12 ##################
@@ -644,14 +690,14 @@ def userStory13(file):
                         child1_ID = child1.Get_ID()
                         child2_ID = child2.Get_ID()
                         line = lines[f"{child2_ID}: Birthday set"]
-                        print(lines[f"{child2_ID}: ID set"])
-                        print(line)
+                        # print(lines[f"{child2_ID}: ID set"])
+                        # print(line)
                         resultList.append(f"ERROR: INDIVIDUAL: US13: {line}: Family {famID} has two children ({child1_ID}, {child2_ID}) with implausible birth dates ({birth1}, {birth2})")
                 y += 1
             x += 1
 
     resultList.sort()
-    print_list(resultList)
+    # print_list(resultList)
     return resultList
 ###################End of userStory13 ##################
 
@@ -698,7 +744,7 @@ def userStory14(file):
 
 
     resultList.sort()
-    print_list(resultList);
+    # print_list(resultList);
     return resultList
 ###################End of userStory14 ##################
 '''
@@ -800,7 +846,7 @@ def userStory17(file):
                                 resultsList.append(result_1_str)
 
     # Print the information of validated data
-    print_list(resultsList)
+    # print_list(resultsList)
 
     # Return error List
     return resultsList
@@ -880,7 +926,7 @@ def userStory18(file):
                                     duplicateslist.append(wifeID)
 
     # Print the information of validated data
-    print_list(resultsList)
+    # print_list(resultsList)
 
     # Return error List
     return resultsList
@@ -946,7 +992,7 @@ def userStory19(file):
                         resultsList.append(f"ERROR: FAMILY: US19: {family_id}: First cousins {husband} and {wife} married. Children of siblings {husband_mother} and {wife_mother}.")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    # print_list(resultsList)
     resultsList.sort()
     return resultsList
 
@@ -1015,7 +1061,7 @@ def userStory20(file):
                                     resultsList.append(f"ERROR: FAMILY: US20: {line}: {family_id}: Wife ({wife}) married nephew ({husband})")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory20 ##################
@@ -1052,7 +1098,7 @@ def userStory21(file):
                 resultsList.append(f"ERROR: FAMILY: US21: {line}: {fam}: Wife ({wife_id}) is labelled incorrectly as ({female}).")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    # print_list(resultsList)
     return resultsList
 
 ###################End of userStory21 ##################
@@ -1081,7 +1127,7 @@ def userStory22(file):
         line_numbers = lines["Duplicate Fam"]
         resultsList.append(f"ERROR: FAMILY: US22: {line_numbers}: The following are duplicate individual ID's {fad}.")
 
-    print_list(resultsList)
+    # print_list(resultsList)
     return (resultsList)
 ###################End of userStory22 ##################
 '''
@@ -1118,7 +1164,7 @@ def userStory23(file):
         count += 1
 
     resultList.sort()
-    print_list(resultList)
+    # print_list(resultList);
     return resultList
 ###################End of userStory23 ##################
 
@@ -1157,7 +1203,7 @@ def userStory24(file):
         count += 1
 
     resultList.sort()
-    print_list(resultList)
+    # print_list(resultList);
     return resultList
 
 ###################End of userStory24 ##################
@@ -1233,7 +1279,7 @@ def userStory26(file):
         if(ind == wifeID):
             wifeVer = True
         if(ind != husID and ind != wifeID):
-            line = lines[f"{ind}: {famID} set"]
+            line = lines[f"{ind}: {famIDD} set"]
             resultsList.append(f"ERROR: INDIVIDUAL: US26: {line}: Individual  {ind} does not correspond to any spouse in Family")
 
 
@@ -1444,10 +1490,114 @@ def userStory32(file):
                 resultsList.append(f"FAMILY: US32: Individuals with IDs {record[i]} are multiple births.")
 
     #print each output in the list and return list
-    print_list(resultsList)
+    #print_list(resultsList)
     return (resultsList)
 
 ###################End of userStory32 ##################
+
+'''
+User story 37:
+Requirement: List all living spouses and descendants of people in a GEDCOM file who died in the last 30 days
+Author: Srikanth
+'''
+
+def userStory37(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict, lines = processGedFile(file)
+    # Create a list of
+    resultsList = list()
+
+    # iterate through families
+    for key, index in famDict.items():
+        # Get Husband and Wife ID
+        husID = index.Get_husbandID()
+        wifeID = index.Get_wifeID()
+        if husID == 'NA' or wifeID == 'NA':
+            continue
+        # Fetch both husband and wife's death status
+        isHubAlive = indiDict[husID].Get_alive()
+        isWifeAlive  = indiDict[wifeID].Get_alive()
+        # Check if one of the spouse is alive in a family
+        if isHubAlive == 'NA' or isWifeAlive == 'NA':
+            continue
+        # Check if wife a is widow
+        if isHubAlive is False and isWifeAlive is True:
+            # check if husband dead in last 30 days
+            if isWithinLast30days(indiDict[husID].Get_death()):
+                # Fetch children id's if any
+                childrenID = index.Get_children()
+                if childrenID != 'NA':
+                    # Construct a string to list all survivors with wife and children
+                    result_1_str = f"LIST: US37: Survivors of Individual ID:{husID} in the last 30 days, Spouse ID:{wifeID}, and Children {childrenID}"
+                else:
+                    # Construct a string to list all survivors with wife and no children
+                    result_1_str = f"LIST: US37: Survivors of Individual ID:{husID} in the last 30 days, Spouse ID:{wifeID} with no children"
+                resultsList.append(result_1_str)
+        # Check if husband a is widower
+        if isHubAlive is True and isWifeAlive is False:
+            # check if wife dead in last 30 days
+            if isWithinLast30days(indiDict[wifeID].Get_death()):
+                # Fetch children id's if any
+                childrenID = index.Get_children()
+                if childrenID != 'NA':
+                    # Construct a string to list all survivors with husband and children
+                    result_2_str = f"LIST: US37: Survivors of Individual ID:{wifeID} in the last 30 days, Spouse ID:{husID}, and Children {childrenID}"
+                else:
+                    # Construct a string to list all survivors with husband and no children
+                    result_2_str = f"LIST: US37: Survivors of Individual ID:{wifeID} in the last 30 days, Spouse ID:{husID} with no children"
+                resultsList.append(result_2_str)
+
+    # Print the information of gathered data
+    # print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory37 ##################
+
+'''
+User story 38:
+Requirement: List all living people in a GEDCOM file whose birthdays occur in the next 30 days
+Author: Srikanth
+'''
+
+def userStory38(file):
+    # Fetch the parsed object's from input ged file
+    indiDict, famDict, lines = processGedFile(file)
+    # Create a list of
+    resultsList = list()
+
+    # List to hold all individual name, if their birthday is within next 30days.
+    next30BdayList = []
+    # iterate through individuals
+    for key, index in indiDict.items():
+        # Is an Individual alive
+        indiAlive = index.Get_alive()
+        # Check if an individual is alive
+        if indiAlive is True and indiAlive != 'NA':
+            # Get the birthday and check if yes birthday is less than 30 days
+            indiBday = index.Get_birthday()
+            # Is the birthday date's day is in next 30 days ?
+            if isBdayWithinNext30days(indiBday):
+                 indiName = index.Get_name()
+                 next30BdayList.append(indiName)
+
+    if len(next30BdayList) > 0:
+        # Record all siblings in a list
+        result_1_str = f"LIST: US38: Individuals whose birthdays occur in the next 30 days: {next30BdayList}"
+    else:
+        # Output no individual's birthday in next 30 days.
+        result_1_str = f"LIST: US38: No individual's birthday occur in the next 30 days"
+
+    resultsList.append(result_1_str)
+
+    # Print the information of gathered data
+    # print_list(resultsList)
+
+    # Return error List
+    return resultsList
+
+###################End of userStory38 ##################
 
 '''
 User story 39:
@@ -1482,40 +1632,40 @@ def userStory39(file):
 
 
 
-# Sprint1 Main function
-#if __name__ == "__main__":
-#    userStory01("InputGedFiles/FamilyTree.ged")
-#    userStory02("InputGedFiles/FamilyTree.ged")
-#    userStory03("InputGedFiles/FamilyTree.ged")
-#    userStory04("InputGedFiles/FamilyTree.ged")
-#    userStory05("InputGedFiles/FamilyTree.ged")
-#    userStory06("InputGedFiles/FamilyTree.ged")
-#    userStory07("InputGedFiles/FamilyTree.ged")
-#    userStory08("InputGedFiles/FamilyTree.ged")
-#    userStory09("InputGedFiles/FamilyTree.ged")
-#    userStory10("InputGedFiles/FamilyTree.ged")
-#    userStory11("InputGedFiles/FamilyTree.ged")
-#    userStory12("InputGedFiles/FamilyTree.ged")
-#    userStory13("InputGedFiles/UserStory13_GED/testUserStory13-2.ged")
-#    userStory14("InputGedFiles/FamilyTree.ged")
-#    userStory15("InputGedFiles/FamilyTree.ged")
-#    userStory16("InputGedFiles/UserStory16_GED/FamilyTree.ged")
-#    userStory17("InputGedFiles/FamilyTree.ged")
-#    userStory18("InputGedFiles/FamilyTree.ged")
-#    userStory19("InputGedFiles/FamilyTree.ged")
-#    userStory20("InputGedFiles/FamilyTree.ged")
-#    userStory21("InputGedFiles/FamilyTree.ged")
-#    userStory22("InputGedFiles/FamilyTree.ged")
-#    userStory23("InputGedFiles/FamilyTree.ged")
-#    userStory24("InputGedFiles/FamilyTree.ged")
-#    userStory25("InputGedFiles/FamilyTree.ged")
-#    userStory26("InputGedFiles/FamilyTree.ged")
-#    userStory27("InputGedFiles/FamilyTree.ged")
-#    userStory28("InputGedFiles/FamilyTree.ged")
-#    userStory29("InputGedFiles/FamilyTree.ged")
-#    userStory30("InputGedFiles/FamilyTree.ged")
-#    userStory31("InputGedFiles/FamilyTree.ged")
-#    userStory32("InputGedFiles/FamilyTree.ged")
-#    userStory39("InputGedFiles/UserStory39_GED/FamilyTree_Some.ged")
-#    userStory07("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
-#    userStory22("InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged")
+# Sprint1n2n3n4 Main function
+if __name__ == "__main__":
+   userStory01("InputGedFiles/FamilyTree.ged")
+   userStory02("InputGedFiles/FamilyTree.ged")
+   userStory03("InputGedFiles/FamilyTree.ged")
+   userStory04("InputGedFiles/FamilyTree.ged")
+   userStory05("InputGedFiles/FamilyTree.ged")
+   userStory06("InputGedFiles/FamilyTree.ged")
+   userStory07("InputGedFiles/FamilyTree.ged")
+   userStory08("InputGedFiles/FamilyTree.ged")
+   userStory09("InputGedFiles/FamilyTree.ged")
+   userStory10("InputGedFiles/FamilyTree.ged")
+   userStory11("InputGedFiles/FamilyTree.ged")
+   userStory12("InputGedFiles/FamilyTree.ged")
+   userStory13("InputGedFiles/FamilyTree.ged")
+   userStory14("InputGedFiles/FamilyTree.ged")
+   userStory15("InputGedFiles/FamilyTree.ged")
+   userStory16("InputGedFiles/FamilyTree.ged")
+   userStory17("InputGedFiles/FamilyTree.ged")
+   userStory18("InputGedFiles/FamilyTree.ged")
+   userStory19("InputGedFiles/FamilyTree.ged")
+   userStory20("InputGedFiles/FamilyTree.ged")
+   userStory21("InputGedFiles/FamilyTree.ged")
+   userStory22("InputGedFiles/FamilyTree.ged")
+   userStory23("InputGedFiles/FamilyTree.ged")
+   userStory24("InputGedFiles/FamilyTree.ged")
+   userStory25("InputGedFiles/FamilyTree.ged")
+   userStory26("InputGedFiles/FamilyTree.ged")
+   userStory27("InputGedFiles/FamilyTree.ged")
+   userStory28("InputGedFiles/FamilyTree.ged")
+   userStory29("InputGedFiles/FamilyTree.ged")
+   userStory30("InputGedFiles/FamilyTree.ged")
+   userStory31("InputGedFiles/FamilyTree.ged")
+   userStory32("InputGedFiles/FamilyTree.ged")
+   userStory37("InputGedFiles/FamilyTree.ged")
+   userStory38("InputGedFiles/FamilyTree.ged")
+   userStory39("InputGedFiles/FamilyTree.ged")

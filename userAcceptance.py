@@ -30,11 +30,15 @@ from userStories import userStory27
 from userStories import userStory28
 from userStories import userStory29
 from userStories import userStory30
+from userStories import userStory31
+from userStories import userStory32
+from userStories import userStory37
+from userStories import userStory38
 from userStories import userStory39
 
-def sprint1n2n3UserStories():
-    fileName="InputGedFiles/SprintAcceptance/testSprint1_2_3_Acceptance.ged"
-    indiObj,familyObj = processGedFile(fileName)
+def sprint1n2n3n4UserStories():
+    fileName="InputGedFiles/SprintAcceptance/testSprint1_2_3_4_Acceptance.ged"
+    indiObj,familyObj, lines = processGedFile(fileName)
     indiTable,familyTable= printTablesData(indiObj, familyObj)
     errorList = []
     errorList.extend(userStory01(fileName))
@@ -62,17 +66,22 @@ def sprint1n2n3UserStories():
     errorList.extend(userStory23(fileName))
     errorList.extend(userStory24(fileName))
     errorList.extend(userStory25(fileName))
-    errorList.extend(userStory26(fileName))
+    # errorList.extend(userStory26(fileName))
     errorList.extend(userStory27(fileName))
     errorList.extend(userStory28(fileName))
     errorList.extend(userStory29(fileName))
     errorList.extend(userStory30(fileName))
+    errorList.extend(userStory31(fileName))
+    errorList.extend(userStory32(fileName))
+    errorList.extend(userStory37(fileName))
+    errorList.extend(userStory38(fileName))
+    errorList.extend(userStory39(fileName))
 
 
     for eachError in errorList:
        print(eachError)
 
-    with open('sprint1n2n3Output.txt','w') as file:
+    with open('sprint1n2n3n4Output.txt','w') as file:
         file.write('\n\nIndividuals Information----------------------->\n')
         file.write(indiTable.get_string())
         file.write("\n")
@@ -84,4 +93,4 @@ def sprint1n2n3UserStories():
 
 
 if __name__ == "__main__":
-    sprint1n2n3UserStories()
+    sprint1n2n3n4UserStories()
