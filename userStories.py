@@ -1623,7 +1623,7 @@ def userStory39(file):
             marriage_date = datetime.date(today.year, family.Get_married().month, family.Get_married().day)
 
             #check if marriage date is within 30 days of today
-            if abs((marriage_date - today).days) <= 30 and abs((marriage_date - today).days) > 0:
+            if (marriage_date - today).days <= 30 and (marriage_date - today).days > 0:
                 upcomingAnnis.append(f"FAMILY: US39: {family_id} has an upcoming anniversary on {family.Get_married().month}-{family.Get_married().day}.")
 
     #print each output in the list and return list
