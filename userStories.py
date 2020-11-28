@@ -2,6 +2,7 @@ from gedReader import processGedFile
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from datetime import date
+from datetime import timedelta
 import datetime
 from dateutil import relativedelta as rdelta
 import collections
@@ -1496,6 +1497,46 @@ def userStory32(file):
 ###################End of userStory32 ##################
 
 '''
+User story 35:
+Requirement: List recent births within 30 days.
+Author: Pratim
+'''
+#go through each individual
+# get their birthday
+# if their birthday was within 30 days, add to results list
+
+def userStory35(file):
+    indiDict, famDict, lines = processGedFile(file)
+    resultsList = list()
+    today = date.today()
+    EndDate = today - timedelta(days=30)
+    for index in indiDict:
+        individual = indiDict[index]
+        bday = individual.Get_birthday()
+        if(bday != 'NA' and bday>EndDate):
+            resultsList.append(individual.Get_name())
+    return resultsList
+
+###################End of userStory35 ##################
+'''
+User story 36:
+Requirement: List recent deaths within 30 days.
+Author: Pratim
+'''
+
+def userStory36(file):
+    indiDict,famDict,lines = processGedFile(file)
+    resultsList = list()
+    today = date.today()
+    EndDate = today - timedelta(days=30)
+    for index in indiDict:
+        individual = indiDict[index]
+        if(individual.Get_death() != 'NA'):
+            deathday = individual.Get_death()
+            if(deathday>EndDate):
+                resultsList.append(individual.Get_name())
+    return resultsList
+'''
 User story 37:
 Requirement: List all living spouses and descendants of people in a GEDCOM file who died in the last 30 days
 Author: Srikanth
@@ -1633,6 +1674,8 @@ def userStory39(file):
 
 
 # Sprint1n2n3n4 Main function
+
+
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
