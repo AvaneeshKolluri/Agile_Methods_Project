@@ -1520,6 +1520,8 @@ def userStory33(file):
         if (index == "DupliID_fam"):
             continue;
         fam = famDict[index];
+        if not (fam.Get_husbandID() != 'NA' and fam.Get_wifeID() != 'NA'):
+            continue;
         husband = indiDict[fam.Get_husbandID()]
         wife = indiDict[fam.Get_wifeID()]
 
@@ -1548,7 +1550,6 @@ def userStory33(file):
             if death.month == death.month:
                 if death.day <= birth.day:
                     age_years_at_death = age_years_at_death - 1;
-            print("["+c_index + "] [" + str(age_years_at_death ) + "]")
             if (age_years_at_death <= 18):
                 child_ID = child.Get_ID();
                 fam_ID = fam.Get_ID();
@@ -1573,6 +1574,8 @@ def userStory34(file):
         if (index == "DupliID_fam"):
             continue;
         fam = famDict[index];
+        if not (fam.Get_husbandID() != 'NA' and fam.Get_wifeID() != 'NA'):
+            continue;
         husband = indiDict[fam.Get_husbandID()]
         wife = indiDict[fam.Get_wifeID()]
         husAge = yearDifference(fam.Get_married(),husband.Get_birthday());
@@ -1813,6 +1816,8 @@ if __name__ == "__main__":
    userStory32("InputGedFiles/FamilyTree.ged")
    userStory33("InputGedFiles/FamilyTree.ged")
    userStory34("InputGedFiles/FamilyTree.ged")
+   userStory35("InputGedFiles/FamilyTree.ged")
+   userStory36("InputGedFiles/FamilyTree.ged")
    userStory37("InputGedFiles/FamilyTree.ged")
    userStory38("InputGedFiles/FamilyTree.ged")
    userStory39("InputGedFiles/FamilyTree.ged")
