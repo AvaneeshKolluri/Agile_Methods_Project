@@ -1619,7 +1619,7 @@ def userStory35(file):
         individual = indiDict[index]
         bday = individual.Get_birthday()
         if(bday != 'NA' and bday>EndDate):
-            resultsList.append(individual.Get_name())
+            resultsList.append(f"LIST: US35: Individuals who were born within 30 days: {individual.Get_name()}")
     return resultsList
 
 ###################End of userStory35 ##################
@@ -1639,7 +1639,7 @@ def userStory36(file):
         if(individual.Get_death() != 'NA'):
             deathday = individual.Get_death()
             if(deathday>EndDate):
-                resultsList.append(individual.Get_name())
+                resultsList.append(f"LIST: US36: Individuals who have died within 30 days: {individual.Get_name()}")
     return resultsList
 '''
 User story 37:
