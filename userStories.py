@@ -22,6 +22,15 @@ def months_between(start_date, end_date):
 def exactDateDifference(newer, older):  # newer - older
     return rdelta.relativedelta(newer,older)
 
+def yearDifference(newer,older):
+    yearDifference = newer.year - older.year
+    if newer.month < older.month:
+        yearDifference = yearDifference - 1;
+    if newer.month == older.month:
+        if newer.day < older.day:
+            yearDifference = yearDifference - 1;
+    return yearDifference;
+
 # Function to calculate a given birthday date is within next 30days from current date.
 # Expected input date object in format YYYY-MM-DD
 def isBdayWithinNext30days(inputDate):
@@ -1116,7 +1125,7 @@ def userStory22(file):
     individuals, families, lines = processGedFile(file)
     resultsList = list()
     ind = individuals["DupI_ID"].Get_DupliID()
-    
+
     fad = families["DupliID_fam"].Get_DupliID_fam()
     #print each output in the list and return list
     # print_list(resultsList)
@@ -1497,6 +1506,99 @@ def userStory32(file):
 ###################End of userStory32 ##################
 
 '''
+User story 33:
+Requirement: List all orphans (Age < 18, Parents dead).
+Author: Erick
+'''
+
+def userStory33(file):
+
+    indiDict, famDict, lines = processGedFile(file)
+    resultList = list()
+
+    for index in famDict:
+        if (index == "DupliID_fam"):
+            continue;
+        fam = famDict[index];
+        husband = indiDict[fam.Get_husbandID()]
+        wife = indiDict[fam.Get_wifeID()]
+
+        if not (husband.Get_death() != 'NA' and wife.Get_death() != 'NA'):
+            continue;
+
+        if (wife.Get_death() > husband.Get_death()):
+            death = wife.Get_death();
+        else:
+            death = husband.Get_death();
+
+        children = fam.Get_children();
+        if (children == 'NA'):
+            continue;
+        for c_index in children:
+            child = indiDict[c_index];
+
+            if (child.Get_death() != 'NA' and child.Get_death() < death):
+                continue;
+            #Found out the hard way there's no easy way to grab year differences in datetime. Oh well.
+            birth = child.Get_birthday()
+            b_year = child.Get_birthday().year
+            age_years_at_death = death.year- birth.year
+            if death.month < birth.month:
+                age_years_at_death = age_years_at_death - 1;
+            if death.month == death.month:
+                if death.day <= birth.day:
+                    age_years_at_death = age_years_at_death - 1;
+            print("["+c_index + "] [" + str(age_years_at_death ) + "]")
+            if (age_years_at_death <= 18):
+                child_ID = child.Get_ID();
+                fam_ID = fam.Get_ID();
+                resultList.append(f"FAMILY: US33: Child [{child_ID}] is an orphan in family [{fam_ID}].");
+
+    resultList.sort()
+    # print_list(resultList);
+    return resultList
+
+'''
+User story 34:
+Requirement: List all orphans (Age < 18, Parents dead).
+Author: Erick
+'''
+
+def userStory34(file):
+
+    indiDict, famDict, lines = processGedFile(file)
+    resultList = list()
+
+    for index in famDict:
+        if (index == "DupliID_fam"):
+            continue;
+        fam = famDict[index];
+        husband = indiDict[fam.Get_husbandID()]
+        wife = indiDict[fam.Get_wifeID()]
+        husAge = yearDifference(fam.Get_married(),husband.Get_birthday());
+        wifeAge = yearDifference(fam.Get_married(),wife.Get_birthday());
+
+        if husAge <= wifeAge:
+            smallAge = husAge;
+            largeAge = wifeAge;
+        else:
+            smallAge = wifeAge;
+            largeAge = husAge;
+
+        doubleAge = smallAge*2;
+        if (doubleAge > largeAge):
+            continue;
+
+        husID = husband.Get_ID();
+        wifeID = wife.Get_ID();
+        famID = fam.Get_ID();
+        resultList.append(f"FAMILY: US34: Spouses in family [{famID}] have large age gap at marriage [{husID}, {husAge}], [{wifeID}, {wifeAge}].");
+
+    resultList.sort()
+    # print_list(resultList);
+    return resultList
+
+'''
 User story 35:
 Requirement: List recent births within 30 days.
 Author: Pratim
@@ -1709,6 +1811,8 @@ if __name__ == "__main__":
    userStory30("InputGedFiles/FamilyTree.ged")
    userStory31("InputGedFiles/FamilyTree.ged")
    userStory32("InputGedFiles/FamilyTree.ged")
+   userStory33("InputGedFiles/FamilyTree.ged")
+   userStory34("InputGedFiles/FamilyTree.ged")
    userStory37("InputGedFiles/FamilyTree.ged")
    userStory38("InputGedFiles/FamilyTree.ged")
    userStory39("InputGedFiles/FamilyTree.ged")
