@@ -33,6 +33,8 @@ from test_userStory29 import UserStory29Test
 from test_userStory30 import UserStory30Test
 from test_userStory31 import TestUserStory31Class
 from test_userStory32 import TestUserStory32Class
+from test_userStory35 import TestUserStory35Class
+from test_userStory36 import TestUserStory36Class
 from test_userStory37 import TestUserStory37Class
 from test_userStory38 import TestUserStory38Class
 from test_userStory39 import UserStory39Test
@@ -71,6 +73,8 @@ class Test_Sprint1n2n3n4(unittest.TestCase):
     UserStory30Test()
     TestUserStory31Class()
     TestUserStory32Class()
+    TestUserStory35Class()
+    TestUserStory36Class()
     TestUserStory37Class()
     TestUserStory38Class()
     UserStory39Test()
