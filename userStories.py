@@ -1779,9 +1779,6 @@ def userStory39(file):
 
 
 # Sprint1n2n3n4 Main function
-test = userStory36("InputGedFiles/UserStory36_GED/death3.ged")
-print(test)
-
 if __name__ == "__main__":
    userStory01("InputGedFiles/FamilyTree.ged")
    userStory02("InputGedFiles/FamilyTree.ged")
