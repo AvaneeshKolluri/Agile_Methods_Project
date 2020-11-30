@@ -1574,7 +1574,7 @@ def userStory34(file):
         if (index == "DupliID_fam"):
             continue;
         fam = famDict[index];
-        if not (fam.Get_husbandID() != 'NA' and fam.Get_wifeID() != 'NA'):
+        if not (fam.Get_husbandID() != 'NA' and fam.Get_wifeID() != 'NA' and fam.Get_married() != 'NA'):
             continue;
         husband = indiDict[fam.Get_husbandID()]
         wife = indiDict[fam.Get_wifeID()]

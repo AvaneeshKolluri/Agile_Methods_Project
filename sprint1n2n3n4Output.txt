@@ -70,7 +70,7 @@ Family Information----------------------->
 |     F14     | 2000-04-09 |     NA     |    I41     |      Danny Roger      |   I34   |    Evita Smith     |                                                        []                                                        |
 |     F15     | 2010-09-19 |     NA     |    I39     |       Tony Smith      |   I37   |    Jennifer Bob    |                                                        []                                                        |
 |     F16     | 2018-09-20 |     NA     |    I30     |       Fred Smith      |    I5   |    Eva Emshoff     |                                                        []                                                        |
-|     F17     | 1997-12-31 |     NA     |     I1     | Willard Carroll Smith |    I2   | Jada Koren Pinkett |                                               ['I6', 'I7', 'I10']                                                |
+|     F17     | 1997-12-15 |     NA     |     I1     | Willard Carroll Smith |    I2   | Jada Koren Pinkett |                                               ['I6', 'I7', 'I10']                                                |
 +-------------+------------+------------+------------+-----------------------+---------+--------------------+------------------------------------------------------------------------------------------------------------------+
 ERROR: INDIVIDUAL: US01: 486: I4: Marriage 2023-07-06 occurs in the future
 ERROR: INDIVIDUAL: US01: 489: I4: Divorce 2021-08-09 occurs in the future
@@ -151,7 +151,7 @@ ERROR: FAMILY: US10: 547: F12: Wife (I28) birth date 2019-12-16 not at least 14 
 ERROR: FAMILY: US10: 558: F14: Husband (I41) birth date 2000-07-12 not at least 14 years prior to marriage date 2000-04-09
 ERROR: FAMILY: US10: 570: F16: Husband (I30) birth date 2017-10-09 not at least 14 years prior to marriage date 2018-09-20
 ERROR: FAMILY: US10: 570: F16: Wife (I5) birth date 2010-01-04 not at least 14 years prior to marriage date 2018-09-20
-ERROR: FAMILY: US10: 579: F17: Wife (I2) birth date 1986-01-18 not at least 14 years prior to marriage date 1997-12-31
+ERROR: FAMILY: US10: 579: F17: Wife (I2) birth date 1986-01-18 not at least 14 years prior to marriage date 1997-12-15
 ERROR: FAMILY: US11: 461: F3: Marriage 1992-05-09 should not be happening during another marriage 1979-03-11.
 ERROR: FAMILY: US11: 513: F9: Marriage 2020-03-09 should not be happening during another marriage 2020-03-04.
 ERROR: FAMILY: US11: 513: F9: Marriage 2020-03-04 should not be happening during another marriage 2020-03-09.
@@ -219,5 +219,21 @@ INDIVIDUAL: US31: Iris Smith with id I33 is living, over 30, and never has been 
 INDIVIDUAL: US31: Rosie Smith with id I35 is living, over 30, and never has been married.
 INDIVIDUAL: US31: Rosie Smith with id I43 is living, over 30, and never has been married.
 FAMILY: US32: Individuals with IDs ['I14', 'I21', 'I22', 'I23', 'I24', 'I25', 'I26'] are multiple births.
+FAMILY: US33: Child [I1] is an orphan in family [F3].
+FAMILY: US34: Spouses in family [F10] have large age gap at marriage [I23, -2], [I24, -2].
+FAMILY: US34: Spouses in family [F11] have large age gap at marriage [I26, -1820], [I38, -1798].
+FAMILY: US34: Spouses in family [F12] have large age gap at marriage [I36, -12], [I28, -55].
+FAMILY: US34: Spouses in family [F14] have large age gap at marriage [I41, -1], [I34, 23].
+FAMILY: US34: Spouses in family [F16] have large age gap at marriage [I30, 0], [I5, 8].
+FAMILY: US34: Spouses in family [F2] have large age gap at marriage [I1, 10], [I3, 124].
+FAMILY: US34: Spouses in family [F5] have large age gap at marriage [I4, 0], [I5, 13].
+FAMILY: US34: Spouses in family [F6] have large age gap at marriage [I10, -2], [I11, -3].
+FAMILY: US34: Spouses in family [F7] have large age gap at marriage [I14, 0], [I17, 52].
+FAMILY: US34: Spouses in family [F8] have large age gap at marriage [I14, -2], [I15, -2].
+FAMILY: US34: Spouses in family [F9] have large age gap at marriage [I14, 0], [I16, 103].
+LIST: US35: Individuals who were born within 30 days: Trey Smith
+LIST: US36: Individuals who have died within 30 days: Trey Smith
+LIST: US36: Individuals who have died within 30 days: Dave Smith
 LIST: US37: Survivors of Individual ID:I10 in the last 30 days, Spouse ID:I11, and Children ['I12', 'I13']
 LIST: US38: Individuals whose birthdays occur in the next 30 days: ['Particia Smith', 'Rivera Jonas', 'Lisha Oliver', 'Tommy Smith', 'Alli Smith', 'Tommy Smith', 'Christen Smith', 'Lisa Smith', 'Elizah Smith', 'Amy Smith', 'Alli Smith']
+FAMILY: US39: F17 has an upcoming anniversary on 12-15.
